@@ -1,32 +1,15 @@
+
 # ORIN AGX - auto-generated .gitignore
-
-# System & caches
-__pycache__/
-*.pyc
-.DS_Store
-.vscode/
-.idea/
-
-# Build / targets
-target/
-build/
-
-# Large / generated data
 data_warehouse/
 BACKUPS/
 *.whl
-*.tar.xz
-*.zip
-
-# Logs & runtime
-*.log
+target/
+__pycache__/
+*.pyc
 master_control_runtime.log
 predictor.out
-
-# Secrets
+*.log
 bot_keypair.json
 .env
-secrets.yaml
-
-# Misc
-*.mp4
+.vscode/
+/.idea/
