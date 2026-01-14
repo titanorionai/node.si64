@@ -1,0 +1,11 @@
+# --- System & Cache ---
+__pycache__/
+*.pyc
+.DS_Store
+.vscode/
+
+# --- Large/Sensitive Data ---
+*.mp4
+*.csv
+.env
+secrets.yaml
