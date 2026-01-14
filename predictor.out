@@ -1,6 +1,0 @@
-22:55:21 | [BRAIN] 🧠 ONLINE. FILTERS: Age 0-168h | Trend +-100.0-100.0% | Liq >$0
-22:55:21 | [SCOUT] Seeding initial capture for top 20 pairs (per_pool=50)
-22:55:21 | [SCOUT] Using RPC: https://solana-mainnet.core.chainstack.com/b8dc50df2c1abbbae3faab2bcf308faa (token=yes)
-22:55:22 | [SCOUT] Detected auth header: x-token
-22:56:09 | [SCOUT] Captured 10 on-chain txs for pool 3aPaFZ7ryRBM2HkvFggbcnATqwbmMYr9Mpp2DuYqRixF
-22:56:14 | [SCOUT] Using RPC: https://solana-mainnet.core.chainstack.com/b8dc50df2c1abbbae3faab2bcf308faa (token=yes)
