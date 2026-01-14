@@ -1,1 +1,14 @@
-/target
+# ORIN AGX - auto-generated .gitignore
+data_warehouse/
+BACKUPS/
+*.whl
+target/
+__pycache__/
+*.pyc
+master_control_runtime.log
+predictor.out
+*.log
+bot_keypair.json
+.env
+.vscode/
+.idea/
