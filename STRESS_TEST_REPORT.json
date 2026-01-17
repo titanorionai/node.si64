@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-01-16T23:50:53.444951",
+  "tests": [
+    {
+      "name": "Job Stress Test",
+      "status": "COMPLETED",
+      "metrics": {
+        "total_jobs": 50,
+        "successful": 10,
+        "failed": 40,
+        "success_rate": "20.0%",
+        "total_time": 0.15257620811462402,
+        "avg_response_time": 0.016360044479370117,
+        "min_response_time": 0.010770797729492188,
+        "max_response_time": 0.021857023239135742,
+        "throughput_jobs_per_sec": 327.70508992094705
+      }
+    },
+    {
+      "name": "SQL Injection Attack",
+      "status": "PARTIAL",
+      "blocked": 0,
+      "total_attempts": 20,
+      "block_rate": "0.0%"
+    },
+    {
+      "name": "XSS Attack",
+      "status": "PARTIAL",
+      "sanitized": 7,
+      "total_attempts": 15,
+      "sanitize_rate": "46.7%"
+    },
+    {
+      "name": "Authentication Bypass",
+      "status": "VULNERABLE",
+      "blocked": 0,
+      "total_attempts": 25,
+      "block_rate": "0.0%"
+    },
+    {
+      "name": "Rate Limiting / DoS Protection",
+      "status": "INSUFFICIENT",
+      "rate_limited": 0,
+      "successful": 0,
+      "total_requests": 150,
+      "effectiveness": "0.0%"
+    }
+  ],
+  "metrics": {}
+}
