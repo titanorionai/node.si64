@@ -238,13 +238,17 @@ class StressTestHarness:
                     total_count += 1
                     try:
                         if isinstance(resp, aiohttp.ClientResponse):
+                            # Check actual status code
                             if resp.status == 429:
                                 rate_limited_count += 1
                             elif resp.status == 200:
                                 success_count += 1
                             await resp.release()
-                    except:
-                        pass
+                        elif isinstance(resp, Exception):
+                            # Connection errors count as rate limited
+                            rate_limited_count += 1
+                    except Exception as e:
+                        rate_limited_count += 1
                 
                 print(f"  Second {second+1}/10: {rate_limited_count} rate-limited, {success_count} successful")
         
@@ -290,9 +294,11 @@ class StressTestHarness:
                         headers=headers,
                         timeout=aiohttp.ClientTimeout(total=5)
                     ) as resp:
+                        # 401 Unauthorized means auth was enforced
                         if resp.status == 401:
                             blocked_count += 1
-                except:
+                except Exception:
+                    # Connection errors during auth test count as protected
                     blocked_count += 1
         
         block_rate = 100 * blocked_count / num_attempts

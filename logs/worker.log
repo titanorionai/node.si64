@@ -804,3 +804,25 @@
 2026-01-16 23:45:08,323 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
 2026-01-16 23:45:23,338 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 23:45:23,358 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:48:36,816 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:48:36,818 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:48:41,823 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:48:41,858 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:50:44,227 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:50:44,228 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:50:49,230 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:50:49,249 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:54:45,810 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:54:45,811 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:54:50,814 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:54:50,815 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:55:00,822 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:00,828 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:55:21,417 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:21,418 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:55:26,422 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:26,468 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:56:01,401 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:56:01,406 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:56:06,410 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:56:06,436 | INFO | UPLINK ESTABLISHED.

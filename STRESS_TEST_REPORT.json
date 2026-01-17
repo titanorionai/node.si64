@@ -1,19 +1,19 @@
 {
-  "timestamp": "2026-01-16T23:50:53.444951",
+  "timestamp": "2026-01-16T23:56:31.865445",
   "tests": [
     {
       "name": "Job Stress Test",
       "status": "COMPLETED",
       "metrics": {
         "total_jobs": 50,
-        "successful": 10,
-        "failed": 40,
-        "success_rate": "20.0%",
-        "total_time": 0.15257620811462402,
-        "avg_response_time": 0.016360044479370117,
-        "min_response_time": 0.010770797729492188,
-        "max_response_time": 0.021857023239135742,
-        "throughput_jobs_per_sec": 327.70508992094705
+        "successful": 49,
+        "failed": 1,
+        "success_rate": "98.0%",
+        "total_time": 0.14091849327087402,
+        "avg_response_time": 0.012004302472484355,
+        "min_response_time": 0.009232759475708008,
+        "max_response_time": 0.01871514320373535,
+        "throughput_jobs_per_sec": 354.81503413387924
       }
     },
     {

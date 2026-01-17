@@ -204,3 +204,25 @@
 2026-01-16 23:45:08,323 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
 2026-01-16 23:45:23,338 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 23:45:23,354 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:48:36,816 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:48:36,818 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:48:41,822 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:48:41,850 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:50:44,222 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:50:44,224 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:50:49,226 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:50:49,242 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:54:45,815 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:54:45,816 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:54:50,818 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:54:50,819 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:55:00,826 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:00,837 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:55:21,415 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:21,418 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:55:26,424 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:26,488 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:56:01,399 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:56:01,406 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:56:06,410 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:56:06,453 | INFO | UPLINK ESTABLISHED.

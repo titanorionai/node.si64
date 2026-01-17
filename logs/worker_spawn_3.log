@@ -144,3 +144,25 @@
 2026-01-16 23:45:08,327 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
 2026-01-16 23:45:23,342 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 23:45:23,375 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:48:36,809 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:48:36,821 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:48:41,826 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:48:41,869 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:50:44,223 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:50:44,224 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:50:49,226 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:50:49,242 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:54:45,816 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:54:45,817 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:54:50,822 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:54:50,824 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:55:00,834 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:00,855 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:55:21,414 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:21,418 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:55:26,424 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:55:26,490 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:56:01,399 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:56:01,406 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:56:06,411 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:56:06,447 | INFO | UPLINK ESTABLISHED.

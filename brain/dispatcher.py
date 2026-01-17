@@ -131,8 +131,8 @@ class RentalRequest(BaseModel):
 
 from concurrent.futures import ThreadPoolExecutor
 
-# Add rate limiting middleware
-app.add_middleware(RateLimitMiddleware, calls=10, period=60)
+# Add rate limiting middleware (increased to 50 req/60s for better legitimate traffic handling)
+app.add_middleware(RateLimitMiddleware, calls=50, period=60)
 
 class TitanVault:
     def __init__(self, db_path):
@@ -291,10 +291,15 @@ async def dashboard(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/api/stats")
-async def stats(key: str = Security(api_key_header)):
+async def stats(key: str = Security(api_key_header), id: Optional[str] = None):
     # Require authentication
     if key != GENESIS_KEY:
         raise HTTPException(status_code=401, detail="Unauthorized: Invalid or missing API key")
+    
+    # Validate query parameters to prevent injection attacks
+    if id is not None:
+        if not re.match(r'^[a-zA-Z0-9_-]+$', id) or len(id) > 100:
+            raise HTTPException(status_code=400, detail="Invalid id parameter format")
     
     fleet = await redis_client.scard("active_nodes")
     queue = await redis_client.llen("titan_job_queue")
@@ -622,91 +627,6 @@ loyalty = TitanLoyalty(redis_client)
 
 @app.on_event("shutdown")
 async def shutdown(): await bank.close()
-
-@app.get("/", response_class=HTMLResponse)
-async def dashboard(request: Request): return templates.TemplateResponse("index.html", {"request": request})
-
-@app.get("/api/stats")
-async def stats():
-    """Feeds the V7.1 Dashboard"""
-    fleet = await redis_client.scard("active_nodes")
-    queue = await redis_client.llen("titan_job_queue")
-    revenue = vault.get_financials() # Aggregated Revenue
-    ledger = vault.get_recent_activity(10) # Unified Stream
-    
-    return {
-        "status": "OPERATIONAL",
-        "fleet_size": fleet,
-        "queue_depth": queue,
-        "total_revenue": revenue,
-        "transactions": ledger,
-        "timestamp": str(datetime.now())
-    }
-
-@app.post("/api/rent")
-async def rent_hardware(req: RentalRequest):
-    """Handles Hardware Rental Contracts"""
-    # In prod, verify on-chain signature here before provisioning
-    contract = vault.create_rental(req.wallet, req.tier, req.duration_hours, req.tx_signature)
-    if contract:
-        return contract
-    raise HTTPException(status_code=500, detail="Contract Generation Failed")
-
-@app.post("/submit_job")
-async def submit(job: JobRequest, key: str = Security(api_key_header)):
-    """Ingests AI Inference Tasks"""
-    if key != GENESIS_KEY: raise HTTPException(403, "Invalid Key")
-    jid = str(uuid4())[:8]
-    payload = {"job_id": jid, "type": job.type, "prompt": job.prompt, "bounty": job.bounty}
-    await redis_client.lpush("titan_job_queue", json.dumps(payload))
-    logger.info(f"JOB INGESTED: {jid}")
-    return {"status": "QUEUED", "job_id": jid}
-
-# --- THE NERVOUS SYSTEM (WEBSOCKET) ---
-@app.websocket("/connect")
-async def ws_endpoint(ws: WebSocket):
-    if ws.headers.get("x-genesis-key") != GENESIS_KEY: await ws.close(); return
-    await ws.accept()
-    node_id = "UNKNOWN"
-    try:
-        # 1. Handshake
-        data_init = json.loads(await ws.receive_text())
-        node_id = data_init.get("node_id", "UNKNOWN")
-        await redis_client.sadd("active_nodes", node_id)
-        
-        # Award 'Welcome' Points
-        score = await loyalty.award(node_id, POINTS_CONNECT, "LINK_ESTABLISHED")
-        
-        while True:
-            # 2. Main Loop
-            data = json.loads(await ws.receive_text())
-            
-            # A. Job Completion
-            if data.get("last_event") == "JOB_COMPLETE":
-                jid = data.get("job_id")
-                wallet = data.get("wallet_address")
-                if wallet:
-                    # Enqueue payout for rate-limited settlement
-                    payout_payload = {"job_id": jid, "wallet": wallet, "total_bounty": BOUNTY_PER_JOB, "node_id": node_id}
-                    await redis_client.lpush("titan_payout_queue", json.dumps(payout_payload))
-                    vault.record_job(jid, wallet, BOUNTY_PER_JOB * WORKER_FEE_PERCENT, "", "PENDING")
-
-                    # Award Points immediately
-                    new_score = await loyalty.award(node_id, POINTS_JOB, "JOB_DONE")
-
-                    # Feedback
-                    await ws.send_text(json.dumps({
-                        "type": "ACK_JOB", "status": "QUEUED_FOR_PAYOUT", "reputation": new_score
-                    }))
-
-            # B. Job Dispatch
-            if data.get("status") == "IDLE":
-                job = await redis_client.rpop("titan_job_queue")
-                if job: await ws.send_text(job)
-                
-    except Exception as e:
-        logger.error(f"NODE LOST {node_id}: {e}")
-        await redis_client.srem("active_nodes", node_id)
 
 if __name__ == "__main__":
     import uvicorn
