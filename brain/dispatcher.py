@@ -330,7 +330,9 @@ class TitanBank:
             return str(sig.value)
 
         except Exception as e:
-            logger.error(f"SETTLEMENT FAILED: {e}")
+            logger.error(f"SETTLEMENT FAILED: {type(e).__name__}: {str(e)}")
+            logger.error(f"  Amount: {amount_sol} SOL | Wallet: {wallet_address}")
+            logger.error(f"  RPC: {self.rpc_url} | Client Status: {'OK' if self.client else 'OFFLINE'}")
             return "FAILED"
     
     async def get_balance(self) -> float:

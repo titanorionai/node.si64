@@ -718,7 +718,7 @@ python3 limb/worker_node.py --config ~/.si64/config.json --connect wss://si64.ne
                 const fakeSig = "5s" + Math.random().toString(36).substring(2, 15) + "SI64Rental";
                 const res = await fetch("/api/rent", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json", "x-genesis-key": "TITAN_GENESIS_KEY_V1_SECURE" },
+                    headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
                         wallet: currentWallet,
                         tier: tier,
