@@ -6,17 +6,22 @@ import sqlite3
 import asyncio
 import aiohttp
 import redis.asyncio as redis
-from datetime import datetime
+import re
+import html
+from datetime import datetime, timedelta
 from uuid import uuid4
-from typing import Optional
+from typing import Optional, Dict
+from collections import defaultdict
+from time import time
 
-from fastapi import FastAPI, WebSocket, HTTPException, Security
+from fastapi import FastAPI, WebSocket, HTTPException, Security, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security.api_key import APIKeyHeader
+from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 
 try:
     from solders.keypair import Keypair
@@ -72,10 +77,51 @@ templates = Jinja2Templates(directory=TEMPLATE_DIR)
 redis_client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
 api_key_header = APIKeyHeader(name="x-genesis-key", auto_error=False)
 
+class RateLimitMiddleware(BaseHTTPMiddleware):
+    def __init__(self, app, calls: int = 10, period: int = 60):
+        super().__init__(app)
+        self.calls = calls
+        self.period = period
+        self.clients: Dict[str, list] = defaultdict(list)
+    
+    async def dispatch(self, request: Request, call_next):
+        client_ip = request.client.host
+        now = time()
+        
+        # Clean old requests
+        self.clients[client_ip] = [req_time for req_time in self.clients[client_ip] if now - req_time < self.period]
+        
+        # Check rate limit
+        if len(self.clients[client_ip]) >= self.calls:
+            raise HTTPException(status_code=429, detail="Too Many Requests")
+        
+        self.clients[client_ip].append(now)
+        return await call_next(request)
+
 class JobRequest(BaseModel):
     type: str = Field(..., description="Inference Type (LLAMA, SDXL)")
     prompt: str = Field(..., description="Input Payload")
     bounty: float = Field(default=BOUNTY_PER_JOB)
+    
+    @validator('type')
+    def validate_type(cls, v):
+        if not re.match(r'^[A-Z0-9_]+$', v) or len(v) > 50:
+            raise ValueError('Invalid type format')
+        return v
+    
+    @validator('prompt')
+    def validate_prompt(cls, v):
+        if len(v) > 10000:
+            raise ValueError('Prompt too long')
+        # Sanitize HTML/JS
+        v = html.escape(v)
+        return v
+    
+    @validator('bounty')
+    def validate_bounty(cls, v):
+        if v < 0 or v > 10:
+            raise ValueError('Invalid bounty amount')
+        return v
 
 class RentalRequest(BaseModel):
     wallet: str
@@ -84,6 +130,9 @@ class RentalRequest(BaseModel):
     tx_signature: str
 
 from concurrent.futures import ThreadPoolExecutor
+
+# Add rate limiting middleware
+app.add_middleware(RateLimitMiddleware, calls=10, period=60)
 
 class TitanVault:
     def __init__(self, db_path):
@@ -242,7 +291,11 @@ async def dashboard(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/api/stats")
-async def stats():
+async def stats(key: str = Security(api_key_header)):
+    # Require authentication
+    if key != GENESIS_KEY:
+        raise HTTPException(status_code=401, detail="Unauthorized: Invalid or missing API key")
+    
     fleet = await redis_client.scard("active_nodes")
     queue = await redis_client.llen("titan_job_queue")
     revenue = vault.get_financials()
@@ -260,8 +313,15 @@ async def rent_hardware(req: RentalRequest):
 async def submit(job: JobRequest, key: str = Security(api_key_header)):
     if key != GENESIS_KEY:
         raise HTTPException(403, "Invalid Key")
+    
+    # Input validation already applied via JobRequest validators
+    # Additional sanitization
+    safe_type = html.escape(job.type)[:50]
+    safe_prompt = html.escape(job.prompt)[:10000]
+    safe_bounty = max(0, min(10, job.bounty))
+    
     jid = str(uuid4())[:8]
-    payload = {"job_id": jid, "type": job.type, "prompt": job.prompt, "bounty": job.bounty}
+    payload = {"job_id": jid, "type": safe_type, "prompt": safe_prompt, "bounty": safe_bounty}
     await redis_client.lpush("titan_job_queue", json.dumps(payload))
     logger.info(f"JOB INGESTED: {jid}")
     return {"status": "QUEUED", "job_id": jid}

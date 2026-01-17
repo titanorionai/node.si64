@@ -204,3 +204,11 @@
 2026-01-16 14:29:19,716 | INFO | MISSION SUCCESS: Job UNKNOWN
 2026-01-16 14:29:30,655 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 14:29:30,662 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:44:53,303 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:53,310 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:44:58,315 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:58,316 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:45:08,326 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:08,327 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-16 23:45:23,342 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:23,390 | INFO | UPLINK ESTABLISHED.

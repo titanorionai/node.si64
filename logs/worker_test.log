@@ -274,26 +274,23 @@
 2026-01-16 14:29:21,713 | INFO | MISSION SUCCESS: Job UNKNOWN
 2026-01-16 14:29:22,652 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 14:29:22,660 | INFO | UPLINK ESTABLISHED.
-18:06,200 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:07,113 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:07,179 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:08,117 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:08,182 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:09,2026-01-16 14:23:54,592 | INFO | Connecting to: ws://127.0.0.1:8000/connect
-2026-01-16 14:23:54,593 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
-2026-01-16 14:23:59,598 | INFO | Connecting to: ws://127.0.0.1:8000/connect
-2026-01-16 14:23:59,620 | INFO | UPLINK ESTABLISHED.
-026-01-16 14:18:11,183 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:12,118 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:12,182 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:13,124 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:13,192 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:14,120 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:14,183 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:15,123 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:15,189 | INFO | MISSION SUCCESS: Job UNKNOWN
-2026-01-16 14:18:16,133 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
-2026-01-16 14:18:16,198 | INFO | MISSION SUCCESS: Job UNKNOWN
+2026-01-16 23:44:53,305 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:53,311 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-16 23:44:58,316 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:58,317 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:45:08,326 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:08,327 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-16 23:45:23,342 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:23,363 | INFO | UPLINK ESTABLISHED.
+ing to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:53,310 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:44:58,314 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:58,315 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:45:08,322 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:08,323 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-16 23:45:23,338 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:23,355 | INFO | UPLINK ESTABLISHED.
+UCCESS: Job UNKNOWN
 2026-01-16 14:18:17,121 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
 2026-01-16 14:18:17,198 | INFO | MISSION SUCCESS: Job UNKNOWN
 2026-01-16 14:18:18,124 | INFO | MISSION ACCEPTED: Job UNKNOWN [ACK_JOB]
@@ -328,3 +325,11 @@
 2026-01-16 14:23:54,596 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
 2026-01-16 14:23:59,598 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 14:23:59,616 | INFO | UPLINK ESTABLISHED.
+2026-01-16 23:44:53,309 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:53,310 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-16 23:44:58,314 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:44:58,315 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-16 23:45:08,322 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:08,323 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-16 23:45:23,338 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-16 23:45:23,355 | INFO | UPLINK ESTABLISHED.

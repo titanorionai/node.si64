@@ -1,0 +1,203 @@
+{
+  "timestamp": "2026-01-16T23:42:36.324969",
+  "tests": [
+    {
+      "name": "Port 22 Scan",
+      "status": "OPEN",
+      "details": "Service listening on port 22",
+      "timestamp": "2026-01-16T23:42:36.325398"
+    },
+    {
+      "name": "Port 80 Scan",
+      "status": "CLOSED",
+      "details": "No service on port 80",
+      "timestamp": "2026-01-16T23:42:36.325563"
+    },
+    {
+      "name": "Port 443 Scan",
+      "status": "CLOSED",
+      "details": "No service on port 443",
+      "timestamp": "2026-01-16T23:42:36.325654"
+    },
+    {
+      "name": "Port 3306 Scan",
+      "status": "CLOSED",
+      "details": "No service on port 3306",
+      "timestamp": "2026-01-16T23:42:36.325734"
+    },
+    {
+      "name": "Port 5432 Scan",
+      "status": "CLOSED",
+      "details": "No service on port 5432",
+      "timestamp": "2026-01-16T23:42:36.325809"
+    },
+    {
+      "name": "Port 6379 Scan",
+      "status": "OPEN",
+      "details": "Service listening on port 6379",
+      "timestamp": "2026-01-16T23:42:36.325946"
+    },
+    {
+      "name": "Port 8000 Scan",
+      "status": "OPEN",
+      "details": "Service listening on port 8000",
+      "timestamp": "2026-01-16T23:42:36.326084"
+    },
+    {
+      "name": "Port 8080 Scan",
+      "status": "CLOSED",
+      "details": "No service on port 8080",
+      "timestamp": "2026-01-16T23:42:36.326176"
+    },
+    {
+      "name": "Port 9000 Scan",
+      "status": "CLOSED",
+      "details": "No service on port 9000",
+      "timestamp": "2026-01-16T23:42:36.326344"
+    },
+    {
+      "name": "HTTP PUT Method",
+      "status": "SAFE",
+      "details": "Method not allowed",
+      "timestamp": "2026-01-16T23:42:36.334407"
+    },
+    {
+      "name": "HTTP DELETE Method",
+      "status": "SAFE",
+      "details": "Method not allowed",
+      "timestamp": "2026-01-16T23:42:36.337389"
+    },
+    {
+      "name": "HTTP TRACE Method",
+      "status": "SAFE",
+      "details": "Method not allowed",
+      "timestamp": "2026-01-16T23:42:36.339956"
+    },
+    {
+      "name": "HTTP CONNECT Method",
+      "status": "SAFE",
+      "details": "Method not allowed",
+      "timestamp": "2026-01-16T23:42:36.342824"
+    },
+    {
+      "name": "SQLi on /api/stats",
+      "status": "POSSIBLE",
+      "details": "Returned 200 with payload: 1' OR '1'='1",
+      "timestamp": "2026-01-16T23:42:36.350589"
+    },
+    {
+      "name": "SQLi on /api/stats",
+      "status": "POSSIBLE",
+      "details": "Returned 200 with payload: '; DROP TABLE users; --",
+      "timestamp": "2026-01-16T23:42:36.358010"
+    },
+    {
+      "name": "SQLi on /api/stats",
+      "status": "POSSIBLE",
+      "details": "Returned 200 with payload: 1 UNION SELECT NULL--",
+      "timestamp": "2026-01-16T23:42:36.365164"
+    },
+    {
+      "name": "SQLi on /api/stats",
+      "status": "POSSIBLE",
+      "details": "Returned 200 with payload: admin' --",
+      "timestamp": "2026-01-16T23:42:36.372866"
+    },
+    {
+      "name": "SQL Injection",
+      "status": "SAFE",
+      "details": "No obvious SQL injection vectors found",
+      "timestamp": "2026-01-16T23:42:36.406668"
+    },
+    {
+      "name": "XSS Vulnerability",
+      "status": "VULNERABLE",
+      "details": "Payload reflected: <script>alert('XSS')</script>",
+      "timestamp": "2026-01-16T23:42:36.409993"
+    },
+    {
+      "name": "XSS Vulnerability",
+      "status": "VULNERABLE",
+      "details": "Payload reflected: ';alert('XSS');//",
+      "timestamp": "2026-01-16T23:42:36.413353"
+    },
+    {
+      "name": "XSS Vulnerability",
+      "status": "VULNERABLE",
+      "details": "Payload reflected: <img src=x onerror='alert(1)'>",
+      "timestamp": "2026-01-16T23:42:36.416735"
+    },
+    {
+      "name": "XSS Vulnerability",
+      "status": "VULNERABLE",
+      "details": "Payload reflected: javascript:alert('XSS')",
+      "timestamp": "2026-01-16T23:42:36.420629"
+    },
+    {
+      "name": "Auth Bypass - /api/stats",
+      "status": "VULNERABLE",
+      "details": "Accessible without auth",
+      "timestamp": "2026-01-16T23:42:36.428194"
+    },
+    {
+      "name": "Endpoint - /api/jobs",
+      "status": "NOT_FOUND",
+      "details": "Endpoint does not exist",
+      "timestamp": "2026-01-16T23:42:36.431425"
+    },
+    {
+      "name": "Endpoint - /admin",
+      "status": "NOT_FOUND",
+      "details": "Endpoint does not exist",
+      "timestamp": "2026-01-16T23:42:36.434690"
+    },
+    {
+      "name": "Endpoint - /dashboard",
+      "status": "NOT_FOUND",
+      "details": "Endpoint does not exist",
+      "timestamp": "2026-01-16T23:42:36.437320"
+    },
+    {
+      "name": "Redis Port Access",
+      "status": "VULNERABLE",
+      "details": "Redis port 6379 is open",
+      "timestamp": "2026-01-16T23:42:36.437521"
+    },
+    {
+      "name": "Redis Auth",
+      "status": "SAFE",
+      "details": "Password required or not accessible: No module named 'redis'",
+      "timestamp": "2026-01-16T23:42:36.438001"
+    },
+    {
+      "name": "SQLite Access",
+      "status": "VULNERABLE",
+      "details": "Database readable without auth (543 records)",
+      "timestamp": "2026-01-16T23:42:36.438932"
+    },
+    {
+      "name": "Data Extraction",
+      "status": "CRITICAL",
+      "details": "Sensitive data exposed: ('92ece6cf', 'FpFtUESU6Rvy7uS85sLDg7iayjczrsFNJa4Q2dFV8z6q', 0.001, '5j5Wp8Yycxxsqj1Cqbz7BYDJ75rfYyc",
+      "timestamp": "2026-01-16T23:42:36.439043"
+    },
+    {
+      "name": "File Inclusion",
+      "status": "SAFE",
+      "details": "No LFI vulnerabilities detected",
+      "timestamp": "2026-01-16T23:42:36.484106"
+    },
+    {
+      "name": "Source Exposure",
+      "status": "SAFE",
+      "details": "No obvious source code paths exposed",
+      "timestamp": "2026-01-16T23:42:36.498324"
+    },
+    {
+      "name": "Rate Limiting",
+      "status": "VULNERABLE",
+      "details": "No rate limiting detected - 20 requests succeeded",
+      "timestamp": "2026-01-16T23:42:36.645706"
+    }
+  ]
+}

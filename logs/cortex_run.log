@@ -8692,3 +8692,123 @@ INFO:     connection closed
 2026-01-16 23:29:36 | INFO | [TITAN_OVERLORD] | PAYOUT: 0.000900 SOL -> FpFt...
 2026-01-16 23:29:36 | INFO | [TITAN_OVERLORD] | LEDGER: Job 477faf32 settled for 0.00090 SOL
 2026-01-16 23:29:36 | INFO | [TITAN_OVERLORD] | LOYALTY: titanagx_ORIN +100 (JOB_DONE). Total: 315780
+INFO:     127.0.0.1:60738 - "PUT / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60750 - "DELETE / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60762 - "TRACE / HTTP/1.1" 405 Method Not Allowed
+WARNING:  Unsupported upgrade request.
+INFO:     127.0.0.1:60770 - "CONNECT / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60784 - "GET /api/stats?id=1'%20OR%20'1'='1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60792 - "GET /api/stats?id=';%20DROP%20TABLE%20users;%20-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60806 - "GET /api/stats?id=1%20UNION%20SELECT%20NULL-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60820 - "GET /api/stats?id=admin'%20-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60830 - "GET /api/jobs?id=1'%20OR%20'1'='1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60832 - "GET /api/jobs?id=';%20DROP%20TABLE%20users;%20-- HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60846 - "GET /api/jobs?id=1%20UNION%20SELECT%20NULL-- HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60858 - "GET /api/jobs?id=admin'%20-- HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60874 - "GET /submit_job?id=1'%20OR%20'1'='1 HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60890 - "GET /submit_job?id=';%20DROP%20TABLE%20users;%20-- HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60904 - "GET /submit_job?id=1%20UNION%20SELECT%20NULL-- HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60920 - "GET /submit_job?id=admin'%20-- HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:60934 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:60948 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:60962 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:60964 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:60972 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60974 - "GET /api/jobs HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60978 - "GET /admin HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60982 - "GET /dashboard HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60984 - "GET /api/stats?file=../../../../etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60986 - "GET /api/stats?file=..%5C..%5C..%5Cwindows%5Cwin.ini HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60996 - "GET /api/stats?file=....//....//....//etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32778 - "GET /submit_job?file=../../../../etc/passwd HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:32788 - "GET /submit_job?file=..%5C..%5C..%5Cwindows%5Cwin.ini HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:32794 - "GET /submit_job?file=....//....//....//etc/passwd HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:32796 - "GET /?file=../../../../etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32798 - "GET /?file=..%5C..%5C..%5Cwindows%5Cwin.ini HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32806 - "GET /?file=....//....//....//etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32820 - "GET /.git/config HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:32832 - "GET /README.md HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:32844 - "GET /requirements.txt HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:32846 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:32856 - "GET /config.json HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:32862 - "GET /debug HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:32876 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32886 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32898 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32914 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32930 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32936 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32952 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32966 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32978 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32992 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33004 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33016 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33020 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33030 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33034 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33036 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33046 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33054 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33060 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33076 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46840 - "PUT / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46854 - "DELETE / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46856 - "TRACE / HTTP/1.1" 405 Method Not Allowed
+WARNING:  Unsupported upgrade request.
+INFO:     127.0.0.1:46870 - "CONNECT / HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46886 - "GET /api/stats?id=1'%20OR%20'1'='1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46888 - "GET /api/stats?id=';%20DROP%20TABLE%20users;%20-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46900 - "GET /api/stats?id=1%20UNION%20SELECT%20NULL-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46912 - "GET /api/stats?id=admin'%20-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46918 - "GET /api/jobs?id=1'%20OR%20'1'='1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46926 - "GET /api/jobs?id=';%20DROP%20TABLE%20users;%20-- HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46942 - "GET /api/jobs?id=1%20UNION%20SELECT%20NULL-- HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46944 - "GET /api/jobs?id=admin'%20-- HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:46960 - "GET /submit_job?id=1'%20OR%20'1'='1 HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46974 - "GET /submit_job?id=';%20DROP%20TABLE%20users;%20-- HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46978 - "GET /submit_job?id=1%20UNION%20SELECT%20NULL-- HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46994 - "GET /submit_job?id=admin'%20-- HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:46998 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:47004 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:47014 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:47022 - "POST /submit_job HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:47034 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47036 - "GET /api/jobs HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57704 - "GET /admin HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57718 - "GET /dashboard HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57722 - "GET /api/stats?file=../../../../etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57728 - "GET /api/stats?file=..%5C..%5C..%5Cwindows%5Cwin.ini HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57736 - "GET /api/stats?file=....//....//....//etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57752 - "GET /submit_job?file=../../../../etc/passwd HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:57756 - "GET /submit_job?file=..%5C..%5C..%5Cwindows%5Cwin.ini HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:57762 - "GET /submit_job?file=....//....//....//etc/passwd HTTP/1.1" 405 Method Not Allowed
+INFO:     127.0.0.1:57778 - "GET /?file=../../../../etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57782 - "GET /?file=..%5C..%5C..%5Cwindows%5Cwin.ini HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57786 - "GET /?file=....//....//....//etc/passwd HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57798 - "GET /.git/config HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57802 - "GET /README.md HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57814 - "GET /requirements.txt HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57824 - "GET /.env HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57840 - "GET /config.json HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57852 - "GET /debug HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57864 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57872 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57882 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57888 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57900 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57916 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57928 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57940 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57952 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57958 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57970 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57980 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57992 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57994 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58008 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58018 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58028 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58036 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58038 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58044 - "GET /api/stats HTTP/1.1" 200 OK
