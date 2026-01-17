@@ -1,264 +1,249 @@
 /* ==========================================================================
-   TITAN PROTOCOL | ENTERPRISE UI SYSTEM (v1.0)
-   "Efficiency over Hashrate"
-   ========================================================================== */
+       TITAN PROTOCOL | MAINNET UI SYSTEM (v7.0)
+       "Institutional Grade DePIN"
+       ========================================================================== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
-/* --- 1. CORE VARIABLES & TYPOGRAPHY --- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+    :root {
+        /* --- COLOR PALETTE: DEEP SPACE --- */
+        --bg-void: #010101;
+        --bg-panel: rgba(12, 12, 14, 0.65);
+        --bg-overlay: rgba(0, 0, 0, 0.4);
+        
+        /* --- ACCENTS: TITANIUM CYAN --- */
+        --titan-core: #0afff0;
+        --titan-dim: rgba(10, 255, 240, 0.08);
+        --titan-border: rgba(10, 255, 240, 0.2);
+        
+        /* --- UTILITY --- */
+        --text-bright: #ffffff;
+        --text-muted: #8899a6;
+        --signal-success: #00ff9d;
+        --signal-warn: #ffd700;
+        
+        /* --- METRICS --- */
+        --grid-unit: 24px;
+        --radius-sm: 4px;
+        --radius-lg: 12px;
+        --font-ui: 'Inter', sans-serif;
+        --font-code: 'JetBrains Mono', monospace;
+    }
 
-:root {
-    /* Color Palette - Cybernetic Slate */
-    --bg-deep: #050505;
-    --bg-panel: #0a0a0a;
-    --bg-card: #0f0f0f;
+    /* --- GLOBAL RESET --- */
+    * { box-sizing: border-box; outline: none; }
     
-    /* Accents - Titan Green */
-    --accent-primary: #00ff41;
-    --accent-glow: rgba(0, 255, 65, 0.15);
-    --accent-border: rgba(0, 255, 65, 0.3);
+    body {
+        background-color: var(--bg-void);
+        color: var(--text-bright);
+        font-family: var(--font-ui);
+        margin: 0; min-height: 100vh;
+        display: flex; flex-direction: column;
+        /* TACTICAL GRID BACKGROUND */
+        background-image: 
+            linear-gradient(rgba(10, 255, 240, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(10, 255, 240, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-attachment: fixed;
+        overflow-x: hidden;
+    }
+
+    /* --- NAVIGATION: THE COMMAND BAR --- */
+    nav {
+        height: 70px; padding: 0 40px;
+        background: rgba(1, 1, 1, 0.85); backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--titan-border);
+        display: flex; justify-content: space-between; align-items: center;
+        position: sticky; top: 0; z-index: 1000;
+    }
     
-    /* Text Hierarchy */
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --text-muted: #444444;
+    .logo {
+        font-family: var(--font-code); font-weight: 700; font-size: 14px;
+        letter-spacing: 1px; color: #fff; text-decoration: none;
+        display: flex; align-items: center; gap: 12px;
+    }
+    .logo-icon {
+        width: 8px; height: 8px; background: var(--titan-core);
+        box-shadow: 0 0 15px var(--titan-core); transform: rotate(45deg);
+    }
     
-    /* Typography */
-    --font-ui: 'Inter', -apple-system, system-ui, sans-serif;
-    --font-data: 'JetBrains Mono', 'Courier New', monospace;
+    .nav-actions { display: flex; gap: 16px; align-items: center; }
+
+    /* --- COMPONENT: TACTICAL BUTTONS --- */
+    .btn-tac {
+        background: rgba(255,255,255,0.02); 
+        border: 1px solid rgba(255,255,255,0.15);
+        color: var(--text-muted); 
+        padding: 0 20px; height: 36px;
+        font-family: var(--font-code); font-size: 11px; font-weight: 600;
+        letter-spacing: 0.5px; text-transform: uppercase;
+        cursor: pointer; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: var(--radius-sm);
+        display: flex; align-items: center; justify-content: center;
+    }
+    .btn-tac:hover {
+        border-color: var(--text-bright); color: var(--text-bright);
+        background: rgba(255,255,255,0.05);
+    }
+    .btn-primary {
+        background: var(--titan-dim); 
+        border-color: var(--titan-core); 
+        color: var(--titan-core);
+        box-shadow: 0 0 20px rgba(10, 255, 240, 0.05);
+    }
+    .btn-primary:hover {
+        background: var(--titan-core); color: #000;
+        box-shadow: 0 0 30px rgba(10, 255, 240, 0.4);
+    }
+
+    /* --- HERO: THE PITCH --- */
+    .hero { 
+        text-align: center; padding: 140px 20px 100px; 
+        position: relative;
+        /* Vignette to focus attention */
+        background: radial-gradient(circle at 50% 40%, rgba(10, 255, 240, 0.04) 0%, transparent 60%);
+    }
     
-    /* Spacing & Layout */
-    --border-radius: 4px; /* Sharp, not rounded */
-    --nav-height: 80px;
-}
-
-/* --- 2. GLOBAL RESET & BASE --- */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--bg-deep);
-    color: var(--text-primary);
-    font-family: var(--font-ui);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+    /* NEW: The "Signal" Badge */
+    .hero-badge {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-family: var(--font-code); font-size: 10px; font-weight: 700;
+        color: var(--titan-core); background: rgba(10, 255, 240, 0.05);
+        border: 1px solid var(--titan-border);
+        padding: 6px 12px; border-radius: 100px;
+        margin-bottom: 32px; letter-spacing: 1px;
+    }
     
-    /* Tactical Grid Background Pattern */
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-}
-
-/* --- 3. NAVIGATION (HEADS UP DISPLAY) --- */
-nav {
-    height: var(--nav-height);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #222;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.logo {
-    font-family: var(--font-ui);
-    font-weight: 800;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    color: var(--text-primary);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo span {
-    color: var(--accent-primary);
-}
-
-.nav-links {
-    display: flex;
-    gap: 40px;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-    color: var(--text-primary);
-}
-
-.btn-connect {
-    background: transparent;
-    color: var(--accent-primary);
-    border: 1px solid var(--accent-primary);
-    padding: 10px 24px;
-    border-radius: var(--border-radius);
-    font-family: var(--font-data);
-    font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-connect:hover {
-    background: var(--accent-glow);
-    box-shadow: 0 0 15px var(--accent-glow);
-}
-
-/* --- 4. HERO SECTION (COMMAND CENTER) --- */
-.hero {
-    height: 85vh; /* Take up most of viewport */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    padding-top: var(--nav-height);
+    h1 {
+        font-size: clamp(42px, 5vw, 72px); font-weight: 300; 
+        letter-spacing: -2px; margin: 0; line-height: 1.1; color: #fff;
+    }
+    h1 strong {
+        font-weight: 600;
+        /* Metallic Gradient Text */
+        background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
     
-    /* Subtle Vignette */
-    background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 90%);
-}
+    .subtitle {
+        font-family: var(--font-code); color: var(--text-muted);
+        letter-spacing: 0.5px; margin-top: 24px; font-size: 13px; 
+        line-height: 1.8; max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .accent-text { color: var(--titan-core); font-weight: 500; }
 
-.status-badge {
-    background: #111;
-    border: 1px solid #333;
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-family: var(--font-data);
-    font-size: 11px;
-    color: var(--accent-primary);
-    margin-bottom: 24px;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
+    /* --- SECTIONS & HEADERS --- */
+    .dashboard-container, .marketplace-section { 
+        max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 20px 80px; 
+    }
+    .section-header {
+        font-family: var(--font-code); color: var(--titan-core);
+        font-size: 11px; font-weight: 700; letter-spacing: 2px;
+        margin-bottom: 32px; padding-bottom: 16px;
+        border-bottom: 1px solid var(--titan-border);
+        display: flex; justify-content: space-between; align-items: end;
+    }
 
-.live-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--accent-primary);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
+    /* --- CARDS: GLASS & METAL --- */
+    .rental-grid, .stats-grid {
+        display: grid; gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .rental-card, .hud-card {
+        background: var(--bg-panel); 
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: var(--radius-lg); padding: 32px;
+        backdrop-filter: blur(20px); position: relative;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .rental-card:hover, .hud-card:hover {
+        transform: translateY(-4px); 
+        border-color: var(--titan-core);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
 
-h1 {
-    font-size: clamp(40px, 5vw, 72px); /* Responsive Font Size */
-    font-weight: 800;
-    letter-spacing: -2px;
-    margin: 0 0 24px 0;
-    line-height: 1.05;
-    background: linear-gradient(180deg, #fff 0%, #888 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    /* TIER BADGES */
+    .tier-badge {
+        position: absolute; top: 24px; right: 24px;
+        font-family: var(--font-code); font-size: 9px; 
+        padding: 4px 8px; border-radius: 4px; border: 1px solid #333;
+        color: var(--text-muted); background: #000;
+    }
+    .tier-badge.pro {
+        border-color: var(--titan-core); color: var(--titan-core);
+        background: var(--titan-dim);
+    }
 
-.hero p {
-    font-size: 18px;
-    color: var(--text-secondary);
-    max-width: 540px;
-    margin-bottom: 48px;
-    font-weight: 400;
-}
+    /* CARD TYPOGRAPHY */
+    .hardware-name { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+    .specs { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; min-height: 36px; }
+    .price { 
+        font-family: var(--font-code); font-size: 24px; color: #fff; margin-bottom: 24px; 
+    }
+    
+    /* HUD METRICS */
+    .label {
+        font-family: var(--font-code); font-size: 10px; font-weight: 700;
+        color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;
+        margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
+    }
+    .value { font-family: var(--font-code); font-size: 32px; color: #fff; letter-spacing: -1px; }
+    .value.money { color: var(--titan-core); text-shadow: 0 0 25px var(--titan-dim); }
+    .value.points { color: var(--signal-warn); }
+    .sub-value { font-size: 10px; color: #556; font-family: var(--font-code); margin-top: 4px; }
 
-/* --- 5. STATS GRID (THE DASHBOARD) --- */
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-    width: 90%;
-    max-width: 1200px;
-    margin: -80px auto 100px; /* Pull up over hero */
-    position: relative;
-    z-index: 10;
-}
+    /* --- LEDGER TABLE --- */
+    .ledger-section { 
+        border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg);
+        background: rgba(10,12,16,0.6); backdrop-filter: blur(10px); overflow: hidden;
+    }
+    .ledger-header {
+        padding: 20px 30px; border-bottom: 1px solid rgba(255,255,255,0.08);
+        background: rgba(255,255,255,0.02); font-family: var(--font-ui); 
+        font-size: 12px; font-weight: 600; display: flex; justify-content: space-between;
+    }
+    .live-dot {
+        width: 6px; height: 6px; background: var(--titan-core); 
+        border-radius: 50%; display: inline-block; margin-right: 8px; 
+        box-shadow: 0 0 8px var(--titan-core); animation: pulse 2s infinite;
+    }
+    
+    table { width: 100%; border-collapse: collapse; font-family: var(--font-code); font-size: 11px; }
+    th { text-align: left; padding: 16px 30px; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    td { padding: 16px 30px; border-bottom: 1px solid rgba(255,255,255,0.02); color: #ccc; }
+    tr:hover td { background: rgba(10, 255, 240, 0.02); color: #fff; }
+    a.tx-link { color: var(--titan-core); text-decoration: none; border-bottom: 1px dotted rgba(10,255,240,0.3); }
 
-.stat-card {
-    background: var(--bg-panel);
-    border: 1px solid #222;
-    padding: 32px;
-    border-radius: var(--border-radius);
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
+    /* --- MODAL --- */
+    #deploy-modal {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9); z-index: 2000; justify-content: center; align-items: center;
+        backdrop-filter: blur(5px);
+    }
+    .modal-box {
+        background: #08080a; border: 1px solid var(--titan-core); border-radius: var(--radius-lg);
+        padding: 40px; width: 90%; max-width: 600px; position: relative;
+        box-shadow: 0 0 60px rgba(10, 255, 240, 0.1);
+    }
+    .code-block {
+        background: #000; border: 1px solid #333; border-radius: 4px; padding: 20px;
+        font-family: var(--font-code); color: var(--titan-core); font-size: 12px;
+        margin: 24px 0; overflow-x: auto;
+    }
+    .close-btn { position: absolute; top: 20px; right: 24px; color: #555; cursor: pointer; font-size: 20px; }
+    .close-btn:hover { color: #fff; }
 
-/* Hover Effect: Cybernetic Glow */
-.stat-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--accent-border);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
-}
-
-/* Optional: Decorative corner marker */
-.stat-card::after {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 0; height: 0;
-    border-style: solid;
-    border-width: 0 20px 20px 0;
-    border-color: transparent #222 transparent transparent;
-    transition: border-color 0.3s;
-}
-
-.stat-card:hover::after {
-    border-color: transparent var(--accent-primary) transparent transparent;
-}
-
-.stat-label {
-    font-family: var(--font-data);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 12px;
-    display: block;
-}
-
-.stat-value {
-    font-family: var(--font-data);
-    font-size: 42px;
-    font-weight: 400; /* Let the font weight carry it */
-    color: var(--text-primary);
-    letter-spacing: -1px;
-}
-
-/* Specific Colors for Data Types */
-.stat-value.money { color: #fff; } /* White for cash */
-.stat-value.nodes { color: var(--accent-primary); } /* Green for health */
-.stat-value.queue { color: #facc15; } /* Yellow for pending */
-
-/* --- 6. UTILITIES --- */
-@keyframes pulse {
-    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
-    70% { opacity: 0.5; box-shadow: 0 0 0 6px rgba(0, 255, 65, 0); }
-    100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .hero { height: auto; padding: 120px 20px 160px; }
-    .stats-container { margin-top: -60px; }
-    nav { padding: 0 20px; }
-    .nav-links { display: none; /* Hide links on mobile for v1 */ }
-}
+    /* --- FOOTER --- */
+    footer {
+        margin-top: auto; border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 5%;
+        display: flex; justify-content: space-between; font-family: var(--font-code);
+        font-size: 10px; color: #444; background: #010101;
+    }
+    
+    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+    
+    @media (max-width: 768px) {
+        h1 { font-size: 36px; }
+        .nav-actions { display: none; }
+        .stats-grid, .rental-grid { grid-template-columns: 1fr; }
+    }

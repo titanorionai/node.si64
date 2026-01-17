@@ -826,3 +826,1223 @@
 2026-01-16 23:56:01,406 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
 2026-01-16 23:56:06,410 | INFO | Connecting to: ws://127.0.0.1:8000/connect
 2026-01-16 23:56:06,436 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:06:13,419 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:06:13,424 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:06:18,426 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:06:18,428 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-17 00:06:28,438 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:06:28,440 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-17 00:06:43,454 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:06:43,455 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 20s...
+2026-01-17 00:07:03,476 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:07:03,477 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 25s...
+2026-01-17 00:07:28,478 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:07:28,479 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 30s...
+2026-01-17 00:07:58,506 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:07:58,508 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 35s...
+2026-01-17 00:08:33,542 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:08:33,543 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 40s...
+2026-01-17 00:09:13,584 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:09:13,585 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 45s...
+2026-01-17 00:09:58,630 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:09:58,631 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 50s...
+2026-01-17 00:10:48,682 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:10:48,683 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 55s...
+2026-01-17 00:11:43,726 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:11:43,727 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:12:43,786 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:12:43,791 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:13:43,851 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:13:43,853 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:14:43,913 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:14:43,914 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:15:43,974 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:15:43,975 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:16:44,026 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:16:44,028 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:17:44,088 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:17:44,089 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:18:44,146 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:18:44,148 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:19:44,206 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:19:44,207 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:20:44,255 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:20:44,256 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:21:44,314 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:21:44,316 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:22:44,374 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:22:44,375 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:23:44,378 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:23:44,379 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:24:44,425 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:24:44,426 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:25:44,486 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:25:44,487 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:26:44,510 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:26:44,511 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:27:44,518 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:27:44,519 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:28:44,554 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:28:44,555 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:29:44,614 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:29:44,615 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:30:44,674 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:30:44,675 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 00:31:44,736 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:31:44,744 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:31:57,483 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:31:57,484 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:32:02,487 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:32:02,501 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:33:08,555 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:33:08,557 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:33:13,562 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:33:13,579 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:33:35,448 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:33:35,449 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:33:40,454 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:33:40,471 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:34:24,917 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:34:24,918 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:34:29,922 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:34:29,942 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:34:53,269 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:34:53,270 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:34:58,274 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:34:58,293 | INFO | UPLINK ESTABLISHED.
+2026-01-17 00:55:39,196 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:55:39,197 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 00:55:44,202 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:55:44,203 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-17 00:55:54,213 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:55:54,215 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-17 00:56:09,228 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:56:09,229 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 20s...
+2026-01-17 00:56:29,246 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:56:29,247 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 25s...
+2026-01-17 00:56:54,262 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:56:54,263 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 30s...
+2026-01-17 00:57:24,290 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:57:24,291 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 35s...
+2026-01-17 00:57:59,326 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:57:59,327 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 40s...
+2026-01-17 00:58:39,330 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:58:39,331 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 45s...
+2026-01-17 00:59:24,374 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 00:59:24,375 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 50s...
+2026-01-17 01:00:14,422 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:00:14,423 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 55s...
+2026-01-17 01:01:09,478 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:01:09,479 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:02:09,502 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:02:09,503 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:03:09,546 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:03:09,547 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:04:09,554 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:04:09,555 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:05:09,614 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:05:09,615 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:06:09,650 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:06:09,651 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:07:09,710 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:07:09,711 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:08:09,770 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:08:09,771 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:09:09,782 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:09:09,783 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:10:09,842 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:10:09,844 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:11:09,902 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:11:09,903 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 01:12:09,962 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 01:12:09,975 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:17:44,260 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:17:44,267 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:17:46,019 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:17:46,020 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 02:17:51,022 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:17:51,023 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 10s...
+2026-01-17 02:18:01,030 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:18:01,031 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 15s...
+2026-01-17 02:18:16,046 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:18:16,047 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 20s...
+2026-01-17 02:18:36,066 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:18:36,067 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 25s...
+2026-01-17 02:19:01,090 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:19:01,091 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 30s...
+2026-01-17 02:19:31,121 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:19:31,123 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 35s...
+2026-01-17 02:20:06,158 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:20:06,159 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 40s...
+2026-01-17 02:20:46,198 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:20:46,199 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 45s...
+2026-01-17 02:21:31,242 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:31,249 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:32,212 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:32,217 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:34,204 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:34,215 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:36,215 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:36,219 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:38,206 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:38,222 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:40,222 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:40,233 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:42,218 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:42,224 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:44,224 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:44,232 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:46,221 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:46,230 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:48,227 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:48,237 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:50,223 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:50,231 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:52,241 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:52,253 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:54,235 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:54,246 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:56,226 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:56,233 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:21:58,227 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:21:58,233 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:00,241 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:00,249 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:02,232 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:02,241 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:04,230 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:04,241 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:06,240 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:06,247 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:08,237 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:08,245 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:10,238 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:10,246 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:12,244 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:12,249 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:14,243 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:14,252 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:16,240 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:16,251 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:18,243 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:18,250 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:20,254 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:20,259 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:22,243 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:22,251 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:24,248 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:24,257 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:26,252 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:26,264 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:28,260 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:28,268 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:30,254 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:30,266 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:32,249 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:32,258 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:34,250 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:34,258 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:36,263 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:36,272 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:38,260 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:38,267 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:40,264 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:40,275 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:42,273 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:42,278 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:44,265 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:44,273 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:46,265 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:46,272 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:48,268 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:48,282 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:50,279 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:50,285 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:52,268 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:52,276 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:54,287 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:54,293 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:56,293 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:56,308 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:22:58,287 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:22:58,300 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:00,300 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:00,308 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:02,290 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:02,296 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:04,285 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:04,298 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:06,288 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:06,297 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:08,290 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:08,304 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:10,284 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:10,294 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:12,292 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:12,300 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:14,306 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:14,315 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:16,286 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:16,295 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:18,299 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:18,309 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:20,304 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:20,315 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:22,311 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:22,317 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:24,305 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:24,314 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:26,323 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:26,337 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:28,311 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:28,317 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:30,300 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:30,310 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:32,326 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:32,333 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:34,304 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:34,311 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:36,317 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:36,321 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:38,317 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:38,323 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:40,315 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:40,324 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:42,318 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:42,335 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:44,335 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:44,350 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:46,315 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:46,328 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:48,330 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:48,348 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:50,317 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:50,329 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:52,330 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:52,334 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:54,321 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:54,327 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:56,322 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:56,332 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:23:58,329 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:23:58,337 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:00,338 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:00,347 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:02,337 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:02,348 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:04,327 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:04,342 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:06,331 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:06,341 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:08,328 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:08,334 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:10,332 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:10,343 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:12,332 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:12,345 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:14,350 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:14,365 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:16,347 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:16,354 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:18,348 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:18,354 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:20,338 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:20,344 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:22,342 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:22,348 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:24,343 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:24,351 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:26,346 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:26,353 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:28,343 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:28,352 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:30,354 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:30,359 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:32,374 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:32,378 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:34,382 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:34,401 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:36,363 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:36,374 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:38,373 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:38,380 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:40,370 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:40,376 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:42,359 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:42,363 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:44,369 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:44,381 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:46,375 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:46,381 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:48,367 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:48,371 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:50,367 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:50,373 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:52,366 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:52,372 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:54,376 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:54,386 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:56,371 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:56,377 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:24:58,373 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:24:58,382 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:00,380 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:00,391 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:02,376 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:02,383 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:04,386 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:04,396 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:06,380 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:06,386 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:08,382 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:08,388 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:10,384 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:10,393 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:12,385 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:12,395 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:14,412 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:14,417 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:16,397 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:16,403 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:18,395 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:18,402 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:20,395 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:20,401 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:22,403 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:22,413 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:24,396 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:24,405 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:26,398 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:26,406 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:28,397 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:28,406 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:30,401 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:30,410 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:32,400 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:32,414 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:34,406 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:34,419 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:36,411 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:36,422 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:38,410 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:38,419 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:40,405 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:40,412 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:42,415 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:42,425 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:44,423 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:44,433 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:46,422 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:46,429 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:48,419 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:48,426 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:50,416 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:50,423 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:52,418 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:52,428 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:54,418 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:54,424 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:56,426 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:56,434 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:25:58,427 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:25:58,434 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:00,428 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:00,435 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:02,426 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:02,434 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:04,433 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:04,439 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:06,424 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:06,429 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:08,433 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:08,441 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:10,431 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:10,438 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:12,435 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:12,442 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:14,448 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:14,455 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:16,444 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:16,451 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:18,440 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:18,449 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:20,443 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:20,454 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:22,445 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:22,454 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:24,448 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:24,457 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:26,446 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:26,453 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:28,444 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:28,452 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:30,448 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:30,454 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:32,449 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:32,453 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:34,450 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:34,456 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:36,456 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:36,464 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:38,459 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:38,464 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:40,452 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:40,461 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:42,456 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:42,467 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:44,497 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:44,510 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:46,462 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:46,470 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:48,467 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:48,476 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:50,469 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:50,473 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:52,465 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:52,473 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:54,466 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:54,480 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:56,466 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:56,476 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:26:58,473 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:26:58,479 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:00,476 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:00,487 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:02,474 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:02,480 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:04,476 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:04,484 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:06,480 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:06,486 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:08,479 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:08,490 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:10,496 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:10,502 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:12,490 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:12,498 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:14,496 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:14,505 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:16,492 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:16,497 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:18,493 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:18,500 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:20,496 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:20,506 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:22,488 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:22,494 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:24,500 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:24,506 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:26,504 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:26,516 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:28,499 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:28,504 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:30,500 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:30,511 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:32,507 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:32,520 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:34,502 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:34,511 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:36,515 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:36,522 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:38,504 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:38,512 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:40,504 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:40,514 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:42,508 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:42,520 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:44,525 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:44,534 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:46,522 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:46,534 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:48,525 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:48,534 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:50,518 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:50,524 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:52,518 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:52,527 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:54,522 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:54,529 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:56,524 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:56,532 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:27:58,524 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:27:58,531 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:00,532 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:00,547 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:02,539 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:02,544 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:04,544 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:04,550 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:06,550 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:06,563 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:08,533 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:08,538 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:10,542 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:10,555 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:12,541 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:12,546 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:14,548 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:14,558 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:16,542 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:16,552 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:18,542 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:18,554 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:20,541 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:20,549 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:22,537 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:22,550 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:24,543 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:24,549 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:26,544 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:26,554 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:28,551 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:28,556 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:30,549 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:30,560 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:32,548 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:32,552 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:34,546 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:34,557 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:36,548 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:36,560 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:38,547 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:38,555 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:40,553 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:40,565 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:42,557 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:42,569 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:44,582 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:44,590 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:46,565 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:46,571 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:48,571 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:48,580 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:50,560 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:50,567 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:52,564 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:52,569 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:54,568 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:54,575 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:56,566 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:56,573 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:28:58,568 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:28:58,576 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:00,582 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:00,593 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:02,576 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:02,587 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:04,573 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:04,586 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:06,577 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:06,584 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:08,577 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:08,586 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:10,576 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:10,583 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:12,580 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:12,588 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:14,607 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:14,619 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:16,595 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:16,600 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:18,590 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:18,599 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:20,591 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:20,599 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:22,598 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:22,605 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:24,588 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:24,598 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:26,597 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:26,607 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:28,600 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:28,604 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:30,606 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:30,612 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:32,610 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:32,615 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:34,601 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:34,611 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:36,603 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:36,613 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:38,607 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:38,616 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:40,603 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:40,614 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:42,611 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:42,616 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:44,625 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:44,638 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:46,622 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:46,633 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:48,615 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:48,623 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:50,611 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:50,621 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:52,612 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:52,622 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:54,619 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:54,627 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:56,614 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:56,623 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:29:58,618 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:29:58,625 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:00,627 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:00,632 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:02,623 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:02,633 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:04,627 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:04,637 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:06,624 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:06,629 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:08,624 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:08,634 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:10,631 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:10,639 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:12,636 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:12,640 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:14,651 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:14,665 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:16,644 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:16,655 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:18,635 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:18,643 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:20,637 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:20,645 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:22,647 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:22,653 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:24,642 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:24,646 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:26,640 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:26,648 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:28,641 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:28,653 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:30,645 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:30,652 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:32,644 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:32,649 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:34,646 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:34,660 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:36,648 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:36,656 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:38,655 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:38,665 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:40,649 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:40,661 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:42,653 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:42,661 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:44,681 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:44,689 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:46,656 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:46,664 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:48,655 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:48,672 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:50,670 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:50,678 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:52,659 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:52,670 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:54,672 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:54,683 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:56,669 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:56,675 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:30:58,672 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:30:58,678 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:00,678 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:00,688 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:02,678 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:02,683 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:04,673 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:04,685 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:06,667 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:06,677 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:08,681 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:08,687 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:10,684 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:10,701 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:12,684 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:12,691 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:14,705 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:14,716 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:16,685 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:16,689 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:18,692 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:18,699 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:20,700 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:20,710 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:22,688 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:22,700 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:24,702 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:24,707 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:26,704 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:26,710 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:28,707 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:28,715 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:30,707 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:30,715 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:32,704 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:32,710 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:34,700 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:34,708 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:36,717 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:36,727 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:38,705 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:38,713 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:40,707 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:40,712 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:42,713 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:42,724 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:44,719 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:44,724 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:46,718 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:46,726 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:48,720 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:48,727 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:50,731 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:50,736 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:52,720 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:52,732 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:54,714 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:54,726 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:56,729 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:56,736 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:31:58,718 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:31:58,725 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:00,727 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:00,735 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:02,731 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:02,736 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:04,729 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:04,738 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:06,729 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:06,735 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:08,727 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:08,736 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:10,726 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:10,732 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:12,730 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:12,738 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:14,728 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:14,737 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:16,732 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:16,742 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:18,737 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:18,747 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:20,768 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:20,778 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:22,737 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:22,747 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:24,739 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:24,755 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:32:26,734 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:32:26,751 | INFO | UPLINK ESTABLISHED.
+2026-01-17 02:56:10,348 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:56:10,462 | ERROR | Connection Lost: did not receive a valid HTTP response. Retry in 5s...
+2026-01-17 02:56:15,466 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 02:56:15,477 | INFO | UPLINK ESTABLISHED.
+2026-01-17 06:16:43,673 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:16:43,692 | INFO | UPLINK ESTABLISHED.
+2026-01-17 06:18:13,727 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:18:13,728 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 5s...
+2026-01-17 06:18:18,734 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:18:18,738 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 10s...
+2026-01-17 06:18:28,746 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:18:28,751 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 15s...
+2026-01-17 06:18:43,767 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:18:43,771 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 20s...
+2026-01-17 06:19:03,790 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:19:03,797 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 25s...
+2026-01-17 06:19:28,822 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:19:28,826 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 30s...
+2026-01-17 06:19:58,854 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:19:58,858 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 35s...
+2026-01-17 06:20:33,890 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:20:33,894 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 40s...
+2026-01-17 06:21:13,934 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:21:13,937 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 45s...
+2026-01-17 06:21:58,941 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:21:58,955 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 50s...
+2026-01-17 06:22:48,982 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:22:48,986 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 55s...
+2026-01-17 06:23:44,024 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:23:44,029 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:24:44,074 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:24:44,079 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:25:44,138 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:25:44,142 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:26:44,202 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:26:44,216 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:27:44,276 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:27:44,290 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:28:44,351 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:28:44,355 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:29:44,414 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:29:44,419 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:30:44,434 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:30:44,437 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:31:44,494 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:31:44,498 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:32:44,559 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:32:44,563 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:33:44,582 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:33:44,587 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:34:44,642 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:34:44,647 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:35:44,670 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:35:44,674 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:36:44,713 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:36:44,717 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:37:44,746 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:37:44,750 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:38:44,770 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:38:44,774 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:39:44,835 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:39:44,839 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:40:44,873 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:40:44,877 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:41:44,906 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:41:44,910 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:42:44,938 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:42:44,942 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:43:45,002 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:43:45,015 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:44:45,030 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:44:45,034 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:45:45,090 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:45:45,094 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:46:45,155 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:46:45,159 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:47:45,178 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:47:45,182 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:48:45,242 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:48:45,246 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:49:45,259 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:49:45,264 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:50:45,324 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:50:45,328 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:51:45,331 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:51:45,336 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:52:45,350 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:52:45,354 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:53:45,366 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:53:45,370 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:54:45,382 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:54:45,386 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:55:45,394 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:55:45,398 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:56:45,458 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:56:45,462 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:57:45,522 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:57:45,526 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:58:45,574 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:58:45,578 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 06:59:45,638 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 06:59:45,642 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:00:45,702 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:00:45,706 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:01:45,712 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:01:45,716 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:02:45,758 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:02:45,762 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:03:45,770 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:03:45,774 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:04:45,806 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:04:45,810 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:05:45,870 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:05:45,875 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:06:45,914 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:06:45,918 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:07:45,971 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:07:45,975 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:08:46,018 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:08:46,022 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:09:46,066 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:09:46,070 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:10:46,078 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:10:46,082 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:11:46,138 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:11:46,142 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:12:46,202 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:12:46,206 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:13:46,226 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:13:46,230 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:14:46,290 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:14:46,294 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:15:46,322 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:15:46,326 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:16:46,382 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:16:46,386 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:17:46,446 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:17:46,451 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:18:46,506 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:18:46,510 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:19:46,568 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:19:46,572 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:20:46,628 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:20:46,633 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:21:46,638 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:21:46,642 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:22:46,702 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:22:46,706 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:23:46,766 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:23:46,770 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:24:46,774 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:24:46,778 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:25:46,782 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:25:46,786 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:26:46,846 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:26:46,850 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:27:46,910 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:27:46,914 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:28:46,975 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:28:46,979 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:29:47,002 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:29:47,007 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:30:47,018 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:30:47,022 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:31:47,060 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:31:47,064 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:32:47,124 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:32:47,128 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:33:47,189 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:33:47,193 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:34:47,224 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:34:47,228 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:35:47,288 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:35:47,292 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:36:47,353 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:36:47,357 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:37:47,390 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:37:47,394 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:38:47,454 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:38:47,458 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:39:47,464 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:39:47,468 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:40:47,526 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:40:47,530 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:41:47,550 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:41:47,554 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:42:47,563 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:42:47,567 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:43:47,614 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:43:47,618 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:44:47,670 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:44:47,674 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:45:47,726 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:45:47,731 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:46:47,779 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:46:47,783 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:47:47,788 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:47:47,792 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:48:47,824 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:48:47,828 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:49:47,834 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:49:47,838 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:50:47,898 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:50:47,902 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:51:47,914 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:51:47,918 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:52:47,978 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:52:47,983 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:53:48,043 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:53:48,047 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 07:54:48,106 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:54:48,108 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 07:55:48,166 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:55:48,167 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 07:56:48,226 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:56:48,227 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 07:57:48,286 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:57:48,287 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 07:58:48,346 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:58:48,347 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 07:59:48,406 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 07:59:48,407 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 08:00:48,466 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:00:48,467 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 08:01:48,528 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:01:48,529 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 08:02:48,588 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:02:48,589 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 08:03:48,646 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:03:48,647 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 60s...
+2026-01-17 08:04:48,708 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:04:48,711 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:05:48,770 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:05:48,774 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:06:48,834 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:06:48,840 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:07:48,887 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:07:48,894 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:08:48,950 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:08:48,954 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:09:48,973 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:09:48,977 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:10:49,034 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:10:49,039 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:11:49,086 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:11:49,091 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:12:49,134 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:12:49,139 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:13:49,198 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:13:49,203 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:14:49,262 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:14:49,267 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:15:49,292 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:15:49,297 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:16:49,357 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:16:49,362 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:17:49,368 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:17:49,373 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:18:49,430 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:18:49,435 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:19:49,495 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:19:49,501 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:20:49,555 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:20:49,559 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:21:49,618 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:21:49,624 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:22:49,684 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:22:49,689 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:23:49,750 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:23:49,756 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:24:49,777 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:24:49,781 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:25:49,810 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:25:49,815 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:26:49,874 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:26:49,879 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:27:49,938 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:27:49,943 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:28:50,002 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:28:50,007 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:29:50,066 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:29:50,071 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:30:50,130 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:30:50,135 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:31:50,196 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:31:50,200 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:32:50,222 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:32:50,226 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:33:50,254 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:33:50,258 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:34:50,318 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:34:50,323 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:35:50,382 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:35:50,388 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:36:50,446 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:36:50,451 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:37:50,511 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:37:50,516 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:38:50,573 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:38:50,578 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:39:50,638 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:39:50,643 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:40:50,702 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:40:50,707 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:41:50,766 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:41:50,771 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:42:50,830 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:42:50,835 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:43:50,894 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:43:50,905 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:44:50,962 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:44:50,967 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:45:51,027 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:45:51,032 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:46:51,038 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:46:51,045 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:47:51,094 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:47:51,099 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:48:51,158 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:48:51,163 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:49:51,222 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:49:51,228 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:50:51,238 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:50:51,242 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:51:51,302 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:51:51,307 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:52:51,367 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:52:51,372 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:53:51,398 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:53:51,403 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:54:51,414 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:54:51,419 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:55:51,478 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:55:51,486 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:56:51,510 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:56:51,515 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:57:51,574 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:57:51,581 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:58:51,601 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:58:51,606 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 08:59:51,666 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 08:59:51,672 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:00:51,678 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:00:51,683 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:01:51,742 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:01:51,747 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:02:51,778 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:02:51,783 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:03:51,842 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:03:51,849 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:04:51,906 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:04:51,913 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:05:51,926 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:05:51,930 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:06:51,990 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:06:51,996 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:07:52,054 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:07:52,059 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:08:52,070 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:08:52,076 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:09:52,136 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:09:52,142 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:10:52,202 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:10:52,206 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:11:52,210 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:11:52,215 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:12:52,227 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:12:52,232 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:13:52,242 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:13:52,247 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:14:52,282 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:14:52,287 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:15:52,346 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:15:52,351 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:16:52,410 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:16:52,415 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:17:52,474 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:17:52,479 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:18:52,534 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:18:52,538 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:19:52,598 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:19:52,603 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:20:52,662 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:20:52,667 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:21:52,727 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:21:52,731 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:22:52,790 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:22:52,795 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:23:52,800 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:23:52,804 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:24:52,862 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:24:52,868 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:25:52,928 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:25:52,933 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:26:52,992 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:26:52,997 | ERROR | Connection Lost: server rejected WebSocket connection: HTTP 403. Retry in 60s...
+2026-01-17 09:27:53,054 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:27:53,060 | INFO | UPLINK ESTABLISHED.
+2026-01-17 09:28:29,404 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:28:29,411 | INFO | UPLINK ESTABLISHED.
+2026-01-17 09:28:30,429 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:28:40,440 | ERROR | Connection Lost: timed out during opening handshake. Retry in 5s...
+2026-01-17 09:28:45,445 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:28:55,454 | ERROR | Connection Lost: timed out during opening handshake. Retry in 10s...
+2026-01-17 09:29:05,462 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:29:15,470 | ERROR | Connection Lost: timed out during opening handshake. Retry in 15s...
+2026-01-17 09:29:30,486 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:29:40,494 | ERROR | Connection Lost: timed out during opening handshake. Retry in 20s...
+2026-01-17 09:30:00,514 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:30:00,515 | ERROR | Connection Lost: [Errno 111] Connect call failed ('127.0.0.1', 8000). Retry in 25s...
+2026-01-17 09:30:25,538 | INFO | Connecting to: ws://127.0.0.1:8000/connect
+2026-01-17 09:30:25,543 | INFO | UPLINK ESTABLISHED.

@@ -1,49 +1,49 @@
 {
-  "timestamp": "2026-01-16T23:56:31.865445",
+  "timestamp": "2026-01-17T00:35:00.353692",
   "tests": [
     {
       "name": "Job Stress Test",
       "status": "COMPLETED",
       "metrics": {
         "total_jobs": 50,
-        "successful": 49,
-        "failed": 1,
-        "success_rate": "98.0%",
-        "total_time": 0.14091849327087402,
-        "avg_response_time": 0.012004302472484355,
-        "min_response_time": 0.009232759475708008,
-        "max_response_time": 0.01871514320373535,
-        "throughput_jobs_per_sec": 354.81503413387924
+        "successful": 50,
+        "failed": 0,
+        "success_rate": "100.0%",
+        "total_time": 0.15454387664794922,
+        "avg_response_time": 0.01299656867980957,
+        "min_response_time": 0.009215593338012695,
+        "max_response_time": 0.023692607879638672,
+        "throughput_jobs_per_sec": 323.5327150094723
       }
     },
     {
       "name": "SQL Injection Attack",
-      "status": "PARTIAL",
-      "blocked": 0,
+      "status": "MITIGATED",
+      "blocked": 20,
       "total_attempts": 20,
-      "block_rate": "0.0%"
+      "block_rate": "100.0%"
     },
     {
       "name": "XSS Attack",
-      "status": "PARTIAL",
-      "sanitized": 7,
+      "status": "MITIGATED",
+      "sanitized": 15,
       "total_attempts": 15,
-      "sanitize_rate": "46.7%"
+      "sanitize_rate": "100.0%"
     },
     {
       "name": "Authentication Bypass",
-      "status": "VULNERABLE",
-      "blocked": 0,
+      "status": "SECURE",
+      "blocked": 25,
       "total_attempts": 25,
-      "block_rate": "0.0%"
+      "block_rate": "100.0%"
     },
     {
       "name": "Rate Limiting / DoS Protection",
-      "status": "INSUFFICIENT",
-      "rate_limited": 0,
+      "status": "EFFECTIVE",
+      "rate_limited": 150,
       "successful": 0,
       "total_requests": 150,
-      "effectiveness": "0.0%"
+      "effectiveness": "100.0%"
     }
   ],
   "metrics": {}

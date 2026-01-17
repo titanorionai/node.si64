@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:34:16 AM UTC 2026",
+  "data": {
+    "response": "You've included a script that displays an alert box with the text \"XSS\".\n\nFor those who may not be familiar, XSS stands for Cross-Site Scripting. It's a type of attack where an attacker injects malicious JavaScript code into a website, which is then executed by the user's browser.\n\nIn this specific example, the `alert()` function is being used to display the text \"XSS\" in the browser's alert box. This is likely intended as an educational or demonstration purpose, rather than as a actual security vulnerability.\n\nHowever, in a real-world scenario, you would never want to include script tags and execute arbitrary code on a user's device. That would be a serious security risk!\n\nIs there something specific you'd like to know about XSS or security in general? I'm here to help!"
+  }
+}

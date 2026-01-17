@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:39:34 AM UTC 2026",
+  "data": {
+    "response": "You've attempted to inject some malicious JavaScript code!\n\nThe line of code you provided is a common example of Cross-Site Scripting (XSS) attack. Here's what it does:\n\n*   The `//` comment at the end of the line is ignored by most editors.\n*   The `alert('XSS')` function is called, which displays an alert box with the text \"XSS\".\n\nIn a real-world scenario, this code might be injected into a website through user input (e.g., form data) or by exploiting vulnerabilities in the website's code. When executed, it would potentially allow an attacker to steal sensitive information or perform malicious actions on behalf of the victim.\n\nTo mitigate such attacks, web applications should:\n\n*   Always validate and sanitize user input.\n*   Use Content Security Policy (CSP) to restrict which sources of content can be executed by a web page.\n*   Keep software and dependencies up-to-date with the latest security patches."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:20:33 AM UTC 2026",
+  "data": {
+    "response": "I can't help you with that. Attempting to inject malicious JavaScript code, such as the one you provided, into a website or application can be used to create a Cross-Site Scripting (XSS) attack. Is there something else I can help you with?"
+  }
+}

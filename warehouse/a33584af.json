@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:23:04 AM UTC 2026",
+  "data": {
+    "response": "You're trying to inject some XSS (Cross-Site Scripting) code.\n\nThe `&amp;#x27;` and `&#x27;` notation is used to represent an apostrophe in HTML entities. However, this particular code snippet won't execute any malicious script on your browser because it's not a complete JavaScript expression.\n\nTo inject XSS code and execute it, you'd need a more complex setup, such as:\n\n```\n<!-- This would create a JavaScript alert box that says 'XSS' -->\n<script>alert('XSS');</script>\n\n<!-- Or this would allow user input to inject malicious scripts -->\n<form><input type=\"text\"><script>document.write('<%= request.body %>)</script></form>\n```\n\nKeep in mind that XSS vulnerabilities are typically exploited through more sophisticated attacks, such as storing or transmitting sensitive data without proper sanitization."
+  }
+}

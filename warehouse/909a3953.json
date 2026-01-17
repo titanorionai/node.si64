@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:33:48 AM UTC 2026",
+  "data": {
+    "response": "You've tried to inject an XSS (Cross-Site Scripting) attack!\n\nThe code `&#x27;;alert(&#x27;XSS&#x27;);//` is attempting to execute a JavaScript alert box with the text \"XSS\". However, this will not work in most modern browsers that have implemented Content Security Policy (CSP) and other security measures to prevent XSS attacks.\n\nIn a real-world scenario, this type of attack would be prevented by the browser's CSP policy, which defines which sources of content are allowed to be executed within a web page. Most modern browsers will not allow scripts from unknown or untrusted sources to run, preventing the alert box from being displayed.\n\nIf you're trying to test for XSS vulnerabilities, I'd be happy to help with that!"
+  }
+}

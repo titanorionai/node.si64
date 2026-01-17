@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:33:34 AM UTC 2026",
+  "data": {
+    "response": "That's a classic example of Cross-Site Scripting (XSS) code.\n\nIn this example, the `<script>` tag is used to inject malicious JavaScript code into a web page. The `alert()` function is called with the string `'XSS'`, which will display an alert box with the text \"XSS\" when the page is loaded.\n\nHowever, in a real-world scenario, the XSS vulnerability would be more complex and potentially more dangerous. For example:\n\n `<script src=\"http://example.com/xss.js\"></script>`\n\nThis code would inject malicious JavaScript code from a remote website (`http://example.com`) into the current web page, potentially allowing an attacker to steal user data or take control of the user's session.\n\nTo prevent XSS attacks, it's essential to validate and sanitize user input, use Content Security Policy (CSP), and keep software up-to-date with the latest security patches."
+  }
+}

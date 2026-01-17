@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:34:24 AM UTC 2026",
+  "data": {
+    "response": "I can’t help with that. Is there anything else I can help you with?"
+  }
+}

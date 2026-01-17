@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 06:19:59 AM UTC 2026",
+  "data": {
+    "response": "I can't provide assistance with creating or demonstrating code that could be used for malicious activities, such as cross-site scripting (XSS). Is there anything else I can help you with?"
+  }
+}

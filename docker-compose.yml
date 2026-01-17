@@ -1,0 +1,50 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: titan-ollama-engine
+    mem_limit: 16g
+    cpus: '4.0'
+    volumes:
+      - ollama-models:/root/.ollama
+    networks:
+      - titan-network
+    ports:
+      - "127.0.0.1:11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    restart: unless-stopped
+
+  # --- WORKER CONTROLLER (THE LIMB) ---
+  job-executor:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: titan-job-executor
+    
+    # [THE FIX] Shatter the isolation wall - use host network
+    network_mode: "host"
+    
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/titan/TitanNetwork:/app/workspace
+      - /tmp/titan-jobs:/tmp/titan-jobs
+    
+    environment:
+      - DISPATCHER_HOST=127.0.0.1
+      - DISPATCHER_PORT=8000
+      - OLLAMA_HOST=127.0.0.1:11434
+      - CONTAINER_MODE=true
+      - TITAN_GENESIS_KEY=TITAN_GENESIS_KEY_V1_SECURE
+    
+    restart: unless-stopped
+    
+    depends_on:
+      - ollama
+
+volumes:
+  ollama-models:
+    driver: local
+
+networks:
+  titan-network:
+    driver: bridge

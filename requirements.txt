@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+websockets
+requests
+python-dotenv
+docker
+solders
+solana
+jetson-statsaiohttp
+redis
+pydantic

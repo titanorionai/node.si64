@@ -13,3 +13,5 @@ bot_keypair.json
 .env
 .vscode/
 /.idea/
+.env
+__pycache__/
