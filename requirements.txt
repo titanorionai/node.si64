@@ -6,6 +6,8 @@ python-dotenv
 docker
 solders
 solana
-jetson-statsaiohttp
+jetson-stats
+aiohttp
 redis
 pydantic
+jinja2

@@ -1,4 +1,45 @@
 services:
+  # --- MEMORY LAYER (CACHE & STATE) ---
+  redis:
+    image: redis:7-alpine
+    container_name: titan-memory
+    ports:
+      - "127.0.0.1:6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - titan-network
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+
+  # --- BRAIN LAYER (DISPATCHER & API) ---
+  brain:
+    build:
+      context: .
+      dockerfile: Dockerfile.brain
+    container_name: titan-brain
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - /home/titan/TitanNetwork:/app
+      - /home/titan/TitanNetwork/titan_bank.json:/app/titan_bank.json
+    networks:
+      - titan-network
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/stats"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # --- ENGINE LAYER (AI INFERENCE) ---
   ollama:
     image: ollama/ollama:latest
     container_name: titan-ollama-engine
@@ -21,7 +62,7 @@ services:
       dockerfile: Dockerfile.worker
     container_name: titan-job-executor
     
-    # [THE FIX] Shatter the isolation wall - use host network
+    # Keep host network to allow sub-containers to spawn and reach services
     network_mode: "host"
     
     volumes:
@@ -33,16 +74,22 @@ services:
       - DISPATCHER_HOST=127.0.0.1
       - DISPATCHER_PORT=8000
       - OLLAMA_HOST=127.0.0.1:11434
-      - CONTAINER_MODE=true
+      - REDIS_HOST=127.0.0.1
+      - REDIS_PORT=6379
+      - TITAN_CONTAINER_MODE=true
       - TITAN_GENESIS_KEY=TITAN_GENESIS_KEY_V1_SECURE
     
     restart: unless-stopped
     
     depends_on:
+      - brain
+      - redis
       - ollama
 
 volumes:
   ollama-models:
+    driver: local
+  redis-data:
     driver: local
 
 networks:

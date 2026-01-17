@@ -1,0 +1,10 @@
+[Unit]
+Description=Run SI64 Tunnel Parity Monitor every 5 minutes
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=monitor_tunnel.service
+
+[Install]
+WantedBy=timers.target

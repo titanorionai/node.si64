@@ -1,0 +1,11 @@
+[Unit]
+Description=SI64 Tunnel Parity Monitor
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/titan/TitanNetwork
+ExecStart=/usr/bin/python3 /home/titan/TitanNetwork/scripts/monitor_tunnel.py
+Nice=10
+Restart=no

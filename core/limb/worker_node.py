@@ -102,12 +102,17 @@ class TitanLimb:
         self.container_mode = container_mode or CONTAINER_MODE
         self.docker_client = DOCKER_CLIENT
         
+        # Active job tracking for janitor loop
+        self.active_jobs = {}  # {job_id: {"start_time": timestamp, "container_id": id}}
+        self.job_timeout = 300  # 5 minutes max execution time
+        
         # Thread pool for blocking I/O (Telemetry subprocesses)
         self.executor = ThreadPoolExecutor(max_workers=2)
         
         # Verify Neural Uplink at Startup
         self.loop = asyncio.get_event_loop()
         self.loop.create_task(self._verify_ollama_link())
+        self.loop.create_task(self._janitor_loop())
         
         logger.info(f"[SECURITY] Container Mode: {'ENABLED' if self.container_mode else 'DISABLED'}")
 
@@ -125,6 +130,48 @@ class TitanLimb:
         except Exception as e:
             logger.critical(f"NEURAL UPLINK FAILED: {e}")
             logger.critical("CHECK OLLAMA SERVICE (systemctl status ollama)")
+
+    # --- JANITOR LOOP (STALE HEARTBEAT CLEANUP) ---
+    async def _janitor_loop(self):
+        """Monitors active jobs and cleans up stale heartbeats."""
+        while True:
+            try:
+                await asyncio.sleep(10)  # Check every 10 seconds
+                current_time = datetime.now()
+                stale_jobs = []
+                
+                # Find stale jobs
+                for job_id, job_data in self.active_jobs.items():
+                    elapsed = (current_time - job_data["start_time"]).total_seconds()
+                    
+                    if elapsed > self.job_timeout:
+                        stale_jobs.append((job_id, elapsed, job_data.get("container_id")))
+                        logger.warning(f"[JANITOR] Job {job_id} STALE (timeout: {elapsed:.0f}s)")
+                
+                # Clean up stale jobs
+                for job_id, elapsed, container_id in stale_jobs:
+                    # Stop container if running
+                    if self.container_mode and self.docker_client and container_id:
+                        try:
+                            container = self.docker_client.containers.get(container_id)
+                            if container.status == "running":
+                                logger.info(f"[JANITOR] Killing stale container: {container_id}")
+                                container.kill()
+                                container.remove()
+                        except Exception as e:
+                            logger.error(f"[JANITOR] Failed to kill container {container_id}: {e}")
+                    
+                    # Remove from tracking
+                    del self.active_jobs[job_id]
+                    logger.info(f"[JANITOR] Removed stale job {job_id} after {elapsed:.0f}s")
+                
+                # Log active jobs status
+                if self.active_jobs:
+                    logger.debug(f"[JANITOR] Tracking {len(self.active_jobs)} active jobs")
+                    
+            except Exception as e:
+                logger.error(f"[JANITOR] Loop error: {e}")
+                await asyncio.sleep(5)
 
     # --- TRUE SILICON TELEMETRY (HARDENED) ---
     def _read_apple_silicon_sensors(self):
@@ -185,9 +232,17 @@ class TitanLimb:
     async def execute_task(self, job_data: dict) -> Dict:
         """
         Routes the intelligence request to the local Ollama instance.
+        Tracks job lifecycle for janitor loop.
         """
         job_id = job_data.get('job_id', 'UNKNOWN')
         prompt = job_data.get('prompt', '')
+        
+        # Track job start
+        self.active_jobs[job_id] = {
+            "start_time": datetime.now(),
+            "container_id": None
+        }
+        logger.info(f"[JANITOR] Job {job_id} registered (tracking started)")
         
         # Strategic Model Selection
         # Jetson Orin (64GB) -> Heavyweight Commander (70B)
@@ -232,6 +287,12 @@ class TitanLimb:
         except Exception as e:
             logger.error(f"EXECUTION FAILURE: {e}")
             result_payload["result"] = f"CRITICAL: {str(e)}"
+        
+        # Clean up job tracking
+        if job_id in self.active_jobs:
+            elapsed = (datetime.now() - self.active_jobs[job_id]["start_time"]).total_seconds()
+            del self.active_jobs[job_id]
+            logger.info(f"[JANITOR] Job {job_id} completed in {elapsed:.2f}s")
         
         self.is_busy = False
         return result_payload

@@ -114,7 +114,10 @@ def preflight_system_check():
 
 preflight_system_check()
 
-redis_client = redis.Redis(host='localhost', port=6379, db=0, decode_responses=True)
+# Redis connection - use environment variables if running in Docker
+REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
+REDIS_PORT = int(os.getenv('REDIS_PORT', '6379'))
+redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
 api_key_header = APIKeyHeader(name="x-genesis-key", auto_error=False)
 
 # --- SECURITY: RATE LIMITING MIDDLEWARE ---
@@ -330,6 +333,20 @@ class TitanBank:
             logger.error(f"SETTLEMENT FAILED: {e}")
             return "FAILED"
     
+    async def get_balance(self) -> float:
+        """Returns balance of TITAN bank wallet in SOL"""
+        if not self.enabled or not self.client or not self.keypair:
+            return 0.0
+        
+        try:
+            balance_response = await self.client.get_balance(self.keypair.pubkey())
+            balance_lamports = balance_response.value
+            balance_sol = balance_lamports / 1_000_000_000
+            return balance_sol
+        except Exception as e:
+            logger.error(f"Error fetching balance: {e}")
+            return 0.0
+    
     async def close(self):
         if self.client: await self.client.close()
 
@@ -373,6 +390,34 @@ async def stats(key: str = Security(api_key_header)):
         "total_revenue": vault.get_financials(),
         "transactions": vault.get_recent_activity(10)
     }
+
+@app.get("/api/wallet")
+async def get_wallet_info():
+    """Returns TITAN bank wallet info (no auth required - public data)"""
+    try:
+        if bank and bank.keypair:
+            balance = await bank.get_balance()
+            return {
+                "connected": True,
+                "address": str(bank.keypair.pubkey()),
+                "balance": balance,
+                "mode": "MAINNET" if bank.enabled else "SIMULATION"
+            }
+        else:
+            return {
+                "connected": False,
+                "address": None,
+                "balance": 0,
+                "mode": "UNKNOWN"
+            }
+    except Exception as e:
+        logger.error(f"Error fetching wallet info: {e}")
+        return {
+            "connected": False,
+            "address": None,
+            "balance": 0,
+            "error": str(e)
+        }
 
 @app.get("/api/devices/{tier}")
 async def get_devices(tier: str):
