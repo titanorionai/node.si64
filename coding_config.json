@@ -1,0 +1,1 @@
+{"model": "/home/titan/llama.cpp/codestral-22b-v0.1-q6_k.gguf", "host": "0.0.0.0", "port": 8080, "flags": ["-fa", "--mlock"]}
