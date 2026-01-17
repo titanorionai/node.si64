@@ -13,7 +13,11 @@ import httpx
 BASE = Path(__file__).resolve().parent
 VENV_PY = BASE / 'venv' / 'bin' / 'python'
 DISPATCHER_URL = 'http://127.0.0.1:8000'
-GENESIS_KEY = os.environ.get('GENESIS_KEY', 'TITAN_GENESIS_KEY_V1_SECURE')
+# Read genesis key strictly from environment; no hardcoded default
+GENESIS_KEY = os.environ.get('TITAN_GENESIS_KEY')
+if not GENESIS_KEY:
+    print("ERROR: TITAN_GENESIS_KEY env var is not set. Aborting stress test.")
+    sys.exit(1)
 
 async def submit_jobs(total: int, concurrent: int = 50):
     async with httpx.AsyncClient(timeout=30.0) as client:

@@ -16,9 +16,11 @@ from collections import defaultdict
 from urllib.parse import urlencode
 
 class StressTestHarness:
-    def __init__(self, base_url="http://127.0.0.1:8000", api_key="TITAN_GENESIS_KEY_V1_SECURE"):
+    def __init__(self, base_url="http://127.0.0.1:8000", api_key=None):
         self.base_url = base_url
-        self.api_key = api_key
+        self.api_key = api_key or os.getenv("TITAN_GENESIS_KEY")
+        if not self.api_key:
+            raise RuntimeError("Missing TITAN_GENESIS_KEY environment variable for authenticated tests.")
         self.results = {
             "timestamp": datetime.now().isoformat(),
             "tests": [],

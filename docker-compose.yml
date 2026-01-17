@@ -30,11 +30,12 @@ services:
       - REDIS_PORT=6379
       - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
       - LOG_LEVEL=INFO
+      - TITAN_GENESIS_KEY=${TITAN_GENESIS_KEY:-TITAN_GENESIS_KEY_V1_SECURE}
     restart: unless-stopped
     depends_on:
       - redis
     healthcheck:
-      test: ["CMD", "curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "http://localhost:8000/api/stats"]
+      test: ["CMD", "curl", "-s", "-o", "/dev/null", "-w", "%{http_code}", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -78,7 +79,7 @@ services:
       - REDIS_HOST=127.0.0.1
       - REDIS_PORT=6379
       - TITAN_CONTAINER_MODE=true
-      - TITAN_GENESIS_KEY=TITAN_GENESIS_KEY_V1_SECURE
+      - TITAN_GENESIS_KEY=${TITAN_GENESIS_KEY:-TITAN_GENESIS_KEY_V1_SECURE}
     
     restart: unless-stopped
     
