@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:19:26 PM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test! Here's a question for you:\n\nWhat is the primary function of the hypothalamus in the brain?\n\nA) To regulate body temperature\nB) To control emotions and behavior\nC) To manage hunger and thirst\nD) To process sensory information\n\nLet me know your answer, and I'll provide feedback!"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:20:57 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with your stress testing! However, I need more information about what you're trying to test. Can you please provide some details about the system or application you're testing? For example:\n\n* What type of system are you testing (e.g. web server, database, network)?\n* What is the goal of the stress test (e.g. load testing, performance testing, security testing)?\n* What are the expected inputs and outputs?\n* Are there any specific requirements or constraints that need to be met during the test?\n\nOnce I have a better understanding of what you're trying to test, I can provide guidance on how to design and execute a stress test to meet your needs.\n\nAlso, please note that I'll be using a simulated environment for our conversation. If you want to run an actual stress test, I recommend using specialized tools like Apache JMeter, Locust, or Gatling."
+  }
+}

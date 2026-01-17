@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:38:38 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Here's a challenge:\n\n**Stress Test #57: \"The Island Rescue\"**\n\nYou are the captain of a rescue boat, and you've been tasked with rescuing a group of stranded hikers on a remote island. The island is located several miles off the coast, and the weather conditions are unfavorable.\n\nAs you approach the island, you notice that:\n\n* The winds are strong (35 knots), making it difficult to maintain control of the boat.\n* The waves are high (10-15 feet), threatening to capsize your vessel if you're not careful.\n* The hikers are scattered across the island, some of them injured and unable to move on their own.\n\nYour goal is to safely rescue all 12 hikers and bring them back to shore. You have a limited amount of fuel (200 gallons) and a single rescue basket that can hold up to 4 people at a time.\n\nYou're currently located about 2 miles off the coast, and you need to make decisions quickly to ensure everyone's safety.\n\nHere are your current resources:\n\n* Fuel: 200 gallons\n* Rescue Basket Capacity: 4 people\n\nWhat do you want to do first?\n\nA) Send out the rescue basket with 2 people on board to scout out the island.\nB) Try to navigate closer to the shore to pick up more hikers directly.\nC) Use your boat's engines to create a makeshift \"channel\" to slow down the waves and stabilize the vessel.\n\nChoose your response:"
+  }
+}

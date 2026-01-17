@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:49:06 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Please provide me with the details of what you'd like to stress test, such as:\n\n* A specific application or system\n* A network or infrastructure\n* A hardware component or device\n* Something else (please specify)\n\nAdditionally, it would be helpful to know what kind of stress test you're looking to perform, such as:\n\n* Load testing (e.g., how many users can the system handle before performance drops?)\n* Performance testing (e.g., how well does the system perform under heavy loads?)\n* Endurance testing (e.g., how long can the system withstand continuous stress before failing?)\n* Other (please specify)\n\nPlease provide me with more information so I can better assist you with your stress test."
+  }
+}

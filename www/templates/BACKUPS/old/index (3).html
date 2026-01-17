@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITAN PROTOCOL | Sovereign DeFi Marketplace</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           TITAN CORTEX | V6.0 [SOVEREIGN GRID AESTHETIC]
+           ========================================================================== */
+        :root {
+            /* PALETTE: Deep Space + Bioluminescent Cyan */
+            --bg-deep: #020408;
+            --bg-glass: rgba(10, 20, 30, 0.6);
+            --titan-glow: #0afff0;  /* The "Greenish-Blueish" DeFi Color */
+            --titan-dim: rgba(10, 255, 240, 0.08);
+            --text-primary: #e0f7fa;
+            --text-muted: #94a3b8;
+            --border-color: rgba(10, 255, 240, 0.15);
+            --grid-line: rgba(10, 255, 240, 0.03);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0; 
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            
+            /* DYNAMIC GLOWING GRID BACKGROUND */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(10, 255, 240, 0.15) 0%, transparent 50%),
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 100% 100%, 60px 60px, 60px 60px;
+            background-attachment: fixed;
+        }
+        
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 20px 5%;
+            border-bottom: 1px solid var(--border-color);
+            background: rgba(2, 4, 8, 0.8);
+            backdrop-filter: blur(12px);
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700; font-size: 16px;
+            display: flex; align-items: center; gap: 12px;
+            color: #fff; text-decoration: none; letter-spacing: -0.5px;
+        }
+        .logo-icon {
+            width: 10px; height: 10px; 
+            background: var(--titan-glow);
+            box-shadow: 0 0 15px var(--titan-glow);
+            transform: rotate(45deg); /* Diamond shape for elegance */
+        }
+        .nav-actions { display: flex; gap: 12px; align-items: center; }
+
+        .btn-tac {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-color);
+            color: var(--titan-glow);
+            padding: 10px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 4px;
+            text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .btn-tac:hover {
+            border-color: var(--titan-glow);
+            background: var(--titan-dim);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(10, 255, 240, 0.15);
+            transform: translateY(-1px);
+        }
+        .btn-ghost { 
+            border-color: transparent; 
+            color: var(--text-muted); 
+            background: transparent;
+        }
+        .btn-ghost:hover { 
+            border-color: rgba(255,255,255,0.1); 
+            color: #fff; 
+            box-shadow: none;
+        }
+
+        /* --- HERO --- */
+        .hero { 
+            text-align: center; 
+            padding: 140px 20px 100px; 
+            position: relative;
+        }
+        h1 {
+            font-size: clamp(48px, 6vw, 72px);
+            font-weight: 300; /* Lighter weight for professional look */
+            letter-spacing: -2px;
+            margin: 0; line-height: 1.1;
+            color: #fff;
+            text-shadow: 0 0 80px rgba(10, 255, 240, 0.2);
+        }
+        h1 strong {
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff 40%, var(--titan-glow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--titan-glow);
+            letter-spacing: 2px;
+            margin-top: 24px;
+            font-size: 13px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            background: rgba(10, 255, 240, 0.05);
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(10, 255, 240, 0.1);
+        }
+
+        /* --- DASHBOARD --- */
+        .dashboard-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            width: 100%; 
+            padding: 0 20px; 
+        }
+        
+        .stats-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .hud-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            position: relative;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .hud-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--titan-glow);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3), 0 0 20px rgba(10, 255, 240, 0.05);
+        }
+
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .label::after {
+            content: ""; display: block; width: 6px; height: 6px; 
+            background: var(--titan-glow); border-radius: 50%;
+            box-shadow: 0 0 10px var(--titan-glow);
+        }
+
+        .value { 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 36px; 
+            color: #fff; 
+            font-weight: 500;
+            letter-spacing: -1.5px; 
+            margin-bottom: 8px;
+        }
+        .value.money { 
+            color: var(--titan-glow); 
+            text-shadow: 0 0 30px rgba(10, 255, 240, 0.3); 
+        }
+        .sub-value {
+            font-size: 11px; 
+            color: #556; 
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* --- LEDGER TABLE --- */
+        .ledger-section { 
+            margin-bottom: 120px; 
+            border: 1px solid var(--border-color); 
+            background: rgba(10, 20, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+        .ledger-header {
+            padding: 24px 30px;
+            border-bottom: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 13px;
+            letter-spacing: 1px;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 255, 240, 0.02);
+        }
+        .live-dot {
+            width: 6px; height: 6px; background: #ff3333; border-radius: 50%;
+            display: inline-block; margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        .ledger-table {
+            width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        }
+        .ledger-table th {
+            text-align: left; padding: 20px 30px; color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 500; text-transform: uppercase; font-size: 11px;
+        }
+        .ledger-table td {
+            padding: 20px 30px; 
+            border-bottom: 1px solid rgba(255,255,255,0.03); 
+            color: #ccd;
+        }
+        .ledger-table tr:last-child td { border-bottom: none; }
+        .ledger-table tr:hover td { 
+            background: rgba(10, 255, 240, 0.03); 
+            color: #fff; 
+        }
+        a.tx-link { 
+            color: var(--text-muted); text-decoration: none; 
+            border-bottom: 1px dotted #555; transition: all 0.2s;
+        }
+        a.tx-link:hover { 
+            color: var(--titan-glow); border-bottom-color: var(--titan-glow); 
+        }
+
+        /* --- FEATURES --- */
+        .features-section {
+            border-top: 1px solid var(--border-color);
+            padding: 100px 0;
+            background: linear-gradient(180deg, rgba(2,4,8,0) 0%, rgba(10, 255, 240, 0.02) 100%);
+        }
+        .section-header {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--titan-glow);
+            font-size: 12px; font-weight: 700;
+            text-transform: uppercase; margin-bottom: 60px;
+            letter-spacing: 2px; text-align: center;
+            opacity: 0.8;
+        }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px;
+        }
+        .feature-item { padding: 0 20px; }
+        .feature-item h3 {
+            font-family: 'Inter', sans-serif;
+            color: #fff; font-size: 18px;
+            margin-bottom: 16px; font-weight: 600;
+        }
+        .feature-item p { 
+            color: var(--text-muted); font-size: 15px; line-height: 1.7; 
+            font-weight: 300;
+        }
+
+        /* --- MODAL & FOOTER --- */
+        #deploy-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 200; 
+            justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .modal-box {
+            background: #050a10; 
+            border: 1px solid var(--titan-glow); 
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px; width: 90%; 
+            box-shadow: 0 0 100px rgba(10, 255, 240, 0.1); 
+            position: relative;
+        }
+        .code-block {
+            background: #020202; border: 1px solid #222; border-radius: 8px;
+            padding: 20px; font-family: 'JetBrains Mono', monospace;
+            color: #aaddff; font-size: 13px; overflow-x: auto; 
+            margin: 24px 0; line-height: 1.6;
+        }
+        .close-btn {
+            position: absolute; top: 20px; right: 24px; color: #666;
+            cursor: pointer; font-size: 24px; transition: color 0.2s;
+        }
+        .close-btn:hover { color: #fff; }
+
+        footer {
+            margin-top: auto; 
+            border-top: 1px solid var(--border-color); 
+            padding: 40px 5%;
+            display: flex; justify-content: space-between; 
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; color: #555; 
+            background: #010204;
+        }
+        
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 42px; }
+            .nav-actions { display: none; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon"></div> TITAN PROTOCOL
+        </a>
+        <div class="nav-actions">
+            <a href="https://solscan.io" target="_blank" class="btn-tac btn-ghost">EXPLORE LEDGER</a>
+            <button class="btn-tac btn-ghost" onclick="openDeployModal()">DEPLOY NODE</button>
+            <button class="btn-tac" id="wallet-btn" onclick="connectWallet()">CONNECT WALLET</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>TITAN PROTOCOL<br><strong>The Sovereign DeFi Marketplace</strong></h1>
+        <div class="subtitle">Decentralized AI Inference • Settled on Solana</div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="stats-grid">
+            <div class="hud-card">
+                <div class="label">Active Neural Units</div>
+                <div class="value" id="fleet-size">--</div>
+                <div class="sub-value">TARGET: ARM64 / APPLE M-SERIES</div>
+            </div>
+            <div class="hud-card">
+                <div class="label">Global Task Queue</div>
+                <div class="value" id="queue-depth">--</div>
+                <div class="sub-value">PENDING INFERENCE JOBS</div>
+            </div>
+            <div class="hud-card">
+                <div class="label">Protocol Volume</div>
+                <div class="value money" id="revenue">◎ -.----</div>
+                <div class="sub-value">ON-CHAIN SETTLEMENT (SOL)</div>
+            </div>
+        </div>
+
+        <div class="ledger-section">
+            <div class="ledger-header">
+                <span>RECENT SETTLEMENTS</span>
+                <span style="display: flex; align-items: center; font-size: 11px; color: var(--titan-glow);">
+                    <div class="live-dot" style="background: var(--titan-glow); box-shadow: 0 0 10px var(--titan-glow);"></div> 
+                    LIVE FEED
+                </span>
+            </div>
+            <table class="ledger-table">
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Worker Node</th>
+                        <th>Bounty (SOL)</th>
+                        <th>Timestamp</th>
+                        <th>Proof (TX)</th>
+                    </tr>
+                </thead>
+                <tbody id="ledger-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #556; padding: 60px;">
+                            ESTABLISHING SECURE UPLINK...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="features-section">
+            <div class="section-header">/// SYSTEM CAPABILITIES</div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>[01] DePIN Infrastructure</h3>
+                    <p>Titan aggregates idle high-performance <strong>ARM64</strong> chips (NVIDIA Jetson, Apple Silicon) into a unified supercomputer. Eliminating centralized datacenters removes failure points and decentralizes control.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>[02] Cryptographic Trust</h3>
+                    <p>Every inference job is cryptographically verified. Payments are streamed instantly to workers using the <strong>Solana SPL</strong> standard. No invoices. No delays. Code is Law.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>[03] Edge Optimization</h3>
+                    <p>Purpose-built for Unified Memory architectures. Zero-copy tensor operations enable large context window LLMs to run at the edge with lower latency than cloud clusters.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deploy-modal">
+        <div class="modal-box">
+            <div class="close-btn" onclick="closeDeployModal()">×</div>
+            <h3 style="color: #fff; font-family: 'Inter'; margin-top: 0; font-size: 18px; font-weight: 600;">INITIALIZE WORKER NODE</h3>
+            <p style="color: #889; font-size: 14px; margin-bottom: 20px; line-height: 1.5;">
+                Run this sequence on your <strong>NVIDIA Jetson Orin</strong> or <strong>Mac Studio</strong> to join the grid and begin earning SOL.
+            </p>
+            <div class="code-block" id="deploy-cmd">git clone https://github.com/titan-protocol/core.git
+cd core && python3 limb/worker_node.py --connect wss://titan-grid.network</div>
+            <button class="btn-tac" style="width: 100%; justify-content: center;" onclick="navigator.clipboard.writeText(document.getElementById('deploy-cmd').innerText); this.innerText='COPIED TO CLIPBOARD';">COPY SEQUENCE</button>
+        </div>
+    </div>
+
+    <footer>
+        <div>© 2026 TITAN PROTOCOL FOUNDATION</div>
+        <div id="footer-status">SYSTEM STATUS: INITIALIZING...</div>
+    </footer>
+
+    <script>
+        // --- 1. WALLET LOGIC ---
+        async function connectWallet() {
+            const btn = document.getElementById('wallet-btn');
+            if ('solana' in window) {
+                try {
+                    const resp = await window.solana.connect();
+                    const key = resp.publicKey.toString();
+                    btn.innerText = "LINKED: " + key.slice(0, 4) + "..." + key.slice(-4);
+                    btn.style.borderColor = "var(--titan-glow)";
+                    btn.style.color = "#fff";
+                    btn.style.background = "var(--titan-dim)";
+                } catch (err) { console.error("Wallet Denied"); }
+            } else { window.open("https://phantom.app/", "_blank"); }
+        }
+
+        // --- 2. MODAL LOGIC ---
+        function openDeployModal() { document.getElementById('deploy-modal').style.display = 'flex'; }
+        function closeDeployModal() { document.getElementById('deploy-modal').style.display = 'none'; }
+
+        // --- 3. TELEMETRY LOGIC ---
+        const API_ENDPOINT = '/api/stats';
+        
+        async function updateDashboard() {
+            try {
+                const response = await fetch(API_ENDPOINT);
+                if (!response.ok) throw new Error("API Offline");
+                const data = await response.json();
+
+                // UNIVERSAL DATA BINDING (Handles both v4 and v5 data structures)
+                const fleet = data.fleet_size || data.fleet || 0;
+                const queue = (data.queue_depth || data.queue || 0).toLocaleString();
+                const revenue = parseFloat(data.total_revenue || data.paid || 0).toFixed(4);
+
+                document.getElementById('fleet-size').innerText = fleet;
+                document.getElementById('queue-depth').innerText = queue;
+                document.getElementById('revenue').innerText = "◎ " + revenue;
+
+                // STATUS UPDATE
+                const footerStatus = document.getElementById('footer-status');
+                footerStatus.innerText = "SYSTEM STATUS: NOMINAL";
+                footerStatus.style.color = "var(--titan-glow)";
+
+                // LEDGER BINDING
+                const tbody = document.getElementById('ledger-body');
+                if (data.transactions && data.transactions.length > 0) {
+                    tbody.innerHTML = data.transactions.map(tx => `
+                        <tr>
+                            <td style="font-family:'JetBrains Mono'; color: #fff;">${tx.job_id}</td>
+                            <td style="color:#889">${tx.worker}</td>
+                            <td style="color:var(--titan-glow)">◎ ${parseFloat(tx.amount).toFixed(4)}</td>
+                            <td>${tx.time.split(' ')[1] || tx.time}</td>
+                            <td><a href="https://solscan.io/tx/${tx.tx}" target="_blank" class="tx-link">VIEW ↗</a></td>
+                        </tr>
+                    `).join('');
+                } else {
+                    // Only show "Waiting" if we are connected but have no txs
+                    if (!tbody.innerHTML.includes("tr")) {
+                         tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #556; padding: 40px;">WAITING FOR NEXT BLOCK...</td></tr>`;
+                    }
+                }
+
+            } catch (e) {
+                console.error("Telemetry Link Lost", e);
+                const footerStatus = document.getElementById('footer-status');
+                footerStatus.innerText = "SYSTEM STATUS: OFFLINE - CHECK UPLINK";
+                footerStatus.style.color = "#FF3333";
+            }
+        }
+
+        updateDashboard();
+        setInterval(updateDashboard, 2000);
+    </script>
+</body>
+</html>

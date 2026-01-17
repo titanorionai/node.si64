@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:15:03 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! Here's a problem for you:\n\n**Stress Test #33**\n\nYou are the manager of an online store that sells a variety of products. You have two warehouses, A and B, each with a capacity of 1000 units. You receive a new shipment of products every day at 9:00 AM, and you need to process and ship them out by 5:00 PM.\n\nThe shipping company charges you $10 per unit for domestic delivery, $20 per unit for international delivery, and $15 per unit for express delivery. The processing time is typically 30 minutes, but it can take up to an hour in peak hours.\n\nAs the manager, your goal is to minimize costs while ensuring that all orders are fulfilled on time.\n\n**Initial Conditions:**\n\n* Warehouse A has 800 units available\n* Warehouse B has 200 units available\n* The current date is March 12th\n* The shipping company charges $10 per unit for domestic delivery\n* The processing time is typically 30 minutes\n\n**New Shipment Arrives:**\n\n* 500 units of a new product are received from the supplier\n* 300 units of another product are also received\n\nYou need to decide how many units to process and ship out by 5:00 PM. You can choose to use either Warehouse A or Warehouse B for processing.\n\n**Questions:**\n\n1. How many units should you process and ship out?\n2. Which warehouse should you use for processing (A or B)?\n3. What is the estimated total cost of shipping and processing?\n\nPlease provide your answers, and I'll let you know if you're correct!"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 04:28:25 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Here's a scenario:\n\n**Stress Test #33: Financial Planning**\n\nYou are the financial advisor for a wealthy individual who has just inherited a large sum of money from a distant relative. The individual wants to know how they can invest their inheritance to maximize their returns while minimizing their risk.\n\nThe individual has the following assets:\n\n* $1,000,000 in cash\n* A primary residence worth $500,000\n* A vacation home worth $200,000\n* A portfolio of stocks and bonds worth $300,000\n\nThe individual is 40 years old and wants to retire in 20 years. They expect to live off their investments and do not need to supplement their income with a pension or other sources.\n\nWhat investment strategy should the individual consider?\n\nA) Invest the entire inheritance in a mix of stocks and bonds to generate high returns.\nB) Put half of the inheritance into a tax-efficient retirement account, such as a 401(k) or IRA, and use the other half for other investments.\nC) Invest the cash in a low-risk investment, such as a high-yield savings account, and use the remaining assets for other investments.\nD) Sell the vacation home and invest the proceeds into a mix of stocks and bonds.\n\nPlease choose an answer from the above options."
+  }
+}

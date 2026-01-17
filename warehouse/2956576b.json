@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:37:37 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I need to know what kind of stress test you're referring to. Are you looking for a:\n\n1. **Financial stress test**: To evaluate the resilience of an investment or a portfolio under different market scenarios?\n2. **Cybersecurity stress test**: To assess an organization's security posture and identify potential vulnerabilities?\n3. **Performance stress test**: To optimize system performance and scalability under heavy loads?\n4. **Other type of stress test**: Please specify, and I'll do my best to assist you.\n\nPlease provide more context or clarify which type of stress test you're interested in, and I'll get started!"
+  }
+}

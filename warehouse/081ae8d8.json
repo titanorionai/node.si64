@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:35:17 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Here's a scenario for you:\n\n**Stress Test #5: Emergency Response**\n\nYou are the emergency response coordinator at a busy hospital. You receive an alert that a severe storm is heading towards the city, and several patients have been admitted to the hospital due to injuries sustained during the storm.\n\nYour team has just received word that one of these patients, a young woman named Sarah, has gone into cardiac arrest. She was brought in by ambulance and is currently being treated in the emergency room.\n\nAs the coordinator, you need to prioritize your resources and make decisions quickly to ensure the best possible outcome for all patients. The hospital's emergency response system is functioning normally, but there are concerns about power outages and communication disruptions due to the storm.\n\nYour team consists of:\n\n* 5 nurses\n* 3 doctors (2 surgeons and 1 intern)\n* 2 pharmacists\n* 1 respiratory therapist\n\nThe current situation is as follows:\n\n* Sarah is in cardiac arrest and requires immediate attention.\n* The hospital's power system is still operational, but there are concerns about the stability of the backup generators.\n* The storm is expected to hit within the next hour, which may affect communication and transportation services.\n\nWhat do you do first?\n\nA) Order a code brown to mobilize all available medical staff to Sarah's room\nB) Prioritize stabilizing the power system before attending to Sarah\nC) Attempt to contact emergency services via radio or phone to request additional support\nD) Review the patient charts of the other storm-related patients to prioritize their care\n\nPlease choose a response."
+  }
+}

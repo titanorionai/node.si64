@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:47:50 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I need to clarify that there are various types of stress tests, and without more information, it's challenging to determine which one you're referring to.\n\nCould you please provide more context or specify what type of stress test you'd like me to simulate? Here are some examples:\n\n1. Financial stress test: a simulation of market fluctuations and economic downturns.\n2. Performance stress test: a test of an application or system's performance under heavy loads.\n3. Cognitive stress test: a simulated scenario that evaluates mental fatigue, attention, and decision-making.\n\nPlease let me know which type of stress test you're interested in, and I'll do my best to assist you!"
+  }
+}

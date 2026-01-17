@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:48:24 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I need to know what type of stress test you're referring to. Are you looking for a:\n\n1. **Math stress test**: A mental math challenge to see how quickly and accurately you can perform calculations under pressure.\n2. **Physical stress test**: A physical activity designed to test your endurance and stamina, such as a cardio or strength training exercise.\n3. **Cognitive stress test**: A task that requires you to think critically, make decisions, and problem-solve under time pressure.\n4. **Technical stress test**: A simulation of real-world technical challenges, such as troubleshooting or debugging.\n\nPlease let me know which type of stress test you're interested in, or if you have any specific questions or areas you'd like to focus on!"
+  }
+}

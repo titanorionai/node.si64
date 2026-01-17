@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:19:48 PM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help you with a stress test! However, I need to clarify that there are different types of stress tests. Could you please specify which type of stress test you're referring to?\n\nHere are some common types of stress tests:\n\n1. **Financial Stress Test**: A simulation of an economic downturn to assess the resilience of financial systems and institutions.\n2. **Physical Stress Test**: A medical test to evaluate the ability of the heart to withstand exercise or stress, often used to diagnose cardiovascular disease.\n3. **Cybersecurity Stress Test**: A simulated attack on a computer system to assess its defenses and vulnerabilities.\n4. **Neurological Stress Test**: A medical test to evaluate the brain's response to stress, often used to diagnose anxiety disorders.\n\nPlease let me know which type of stress test you're interested in, or if you have any specific scenario in mind, I'll do my best to help!"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:48:17 AM UTC 2026",
+  "data": {
+    "response": "I'm ready to help with the stress test. What kind of test would you like to simulate? Would you like me to:\n\n1. Answer a series of questions on a particular topic?\n2. Engage in a conversation and respond to statements or scenarios?\n3. Solve a logical puzzle or play a game?\n\nLet me know, and I'll do my best to simulate the stress test!"
+  }
+}

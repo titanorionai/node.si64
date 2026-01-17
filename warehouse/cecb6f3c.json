@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:47:29 AM UTC 2026",
+  "data": {
+    "response": "I'm ready to help with your stress test. What kind of scenario or problem would you like me to simulate? Would you like it to be related to:\n\nA) Coding-related stress (e.g., debugging, performance optimization)\nB) Problem-solving under pressure\nC) Critical thinking exercises\nD) Something else?\n\nLet me know, and I'll do my best to create a challenging scenario for you!"
+  }
+}

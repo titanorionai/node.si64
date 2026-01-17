@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:35:24 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test. Since I don't know what specific area of performance you're looking to stress test (e.g., CPU, memory, network), could you please specify? Here are some general options:\n\n1. **CPU Stress Test**: We can simulate intense calculations or computations to see how your processor handles the load.\n2. **Memory Stress Test**: We can try to exhaust your system's RAM to see how it handles memory-intensive tasks.\n3. **Network Stress Test**: We can simulate high levels of network traffic to test your system's ability to handle concurrent connections and transfers.\n4. **Multitasking Stress Test**: We can create multiple tasks or processes that require simultaneous attention to see how well your system can multitask.\n\nLet me know which one you'd like to try, or if you have a specific scenario in mind!"
+  }
+}

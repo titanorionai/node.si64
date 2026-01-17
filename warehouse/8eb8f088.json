@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:33:07 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test, but I need more information about what you're trying to simulate. Can you please provide more context or details about the system, application, or scenario you'd like me to stress test?\n\nHere are some general questions to get started:\n\n1. What is the purpose of the stress test? (e.g., performance benchmarking, security testing, load testing)\n2. What type of system or application are we testing? (e.g., web server, database, network infrastructure)\n3. Are there any specific scenarios or workloads you'd like to simulate?\n4. Do you have any specific metrics or KPIs in mind for the test?\n\nOnce I have a better understanding of what you're trying to achieve with the stress test, I can provide more targeted guidance and assistance!"
+  }
+}

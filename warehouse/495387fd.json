@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:18:52 PM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test. What type of stress test are you looking for? Would you like me to:\n\n1. Create a hypothetical scenario and simulate a stress test in a fictional setting?\n2. Discuss a specific industry or system that needs stress testing (e.g., financial, healthcare, etc.)?\n3. Explore a particular aspect of stress testing, such as identifying vulnerabilities or evaluating the effectiveness of mitigation strategies?\n\nPlease let me know, and I'll do my best to assist you with your stress test!"
+  }
+}

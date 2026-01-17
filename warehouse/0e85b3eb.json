@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:32:21 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I need more information about what type of stress test you're referring to.\n\nHere are a few options:\n\n1. **Financial stress test**: A simulation of market fluctuations or economic downturns to assess an individual's or organization's financial resilience.\n2. **Physical stress test**: A medical examination to evaluate the body's ability to respond to physical stress, such as exercise or mental challenge.\n3. **Performance stress test**: A evaluation of a system, software, or process under simulated loads or pressure to identify potential bottlenecks and areas for improvement.\n\nWhich type of stress test are you referring to? Or would you like me to come up with a hypothetical scenario?"
+  }
+}

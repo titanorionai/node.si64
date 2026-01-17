@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:43:00 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help you with a stress test! However, I need more information about what type of stress test you are referring to. Are you looking for:\n\n1. A web application stress test?\n2. A CPU or memory intensive stress test?\n3. A network performance stress test?\n\nPlease provide more context or clarify which type of stress test you need help with.\n\nIf you're looking for a general-purpose stress testing framework, I can suggest some popular options like:\n\n* Apache JMeter\n* Gatling\n* Locust\n* Stress\n\nLet me know if any of these options interest you, and I'll do my best to assist you."
+  }
+}

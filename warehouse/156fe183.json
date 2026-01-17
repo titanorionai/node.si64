@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:14:53 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I need a bit more information from you. What type of stress test are you referring to? Are you looking for a mental health-related stress test, a physical exercise stress test, or something else?\n\nIf you're talking about a physical stress test, could you provide me with some details about the specific test you'd like me to simulate, such as:\n\n* A duration (e.g., 5 minutes, 30 minutes)\n* An intensity level (e.g., mild, moderate, high)\n* A type of activity or stimulus (e.g., exercise, puzzles, conversation)\n\nIf it's a mental health-related stress test, could you please provide more context about what you're looking for? Are you trying to simulate a specific scenario, assess your resilience, or practice relaxation techniques?\n\nLet me know how I can assist you!"
+  }
+}

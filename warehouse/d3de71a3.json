@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:12:26 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test, but I need more context. Can you please specify what type of stress test you are referring to? Is it:\n\n1. A financial stress test (e.g., a test of an individual's or company's ability to pay bills during economic downturns)?\n2. A cognitive stress test (e.g., a test of mental performance under pressure, such as a marathon or a high-stakes competition)?\n3. A physical stress test (e.g., a medical test to evaluate the heart's function and overall health)?\n\nPlease provide more information so I can better understand what you're looking for.\n\nIf you're referring to a general cognitive stress test, here are 5 questions:\n\n1. You're in charge of leading a team on a critical project with a tight deadline.\n2. You're having trouble sleeping due to anxiety and have to get up multiple times during the night.\n3. Your boss is breathing down your neck because of a difficult customer.\n4. You've just received news that you'll be working a 12-hour shift tonight.\n5. You've got an important presentation in front of investors tomorrow morning.\n\nLet me know if any of these scenarios relate to what you're looking for, or if I'm completely off the mark!"
+  }
+}

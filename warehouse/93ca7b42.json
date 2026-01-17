@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:47:39 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help you with a stress test. Here's one:\n\n**Stress Test #32: The Island Survival**\n\nYou are stranded on a deserted island after a shipwreck. You have no food, water, or shelter. Your goal is to survive for as long as possible.\n\n**Initial Conditions:**\n\n* Health: 100%\n* Hunger: 50% (you're getting hungry)\n* Thirst: 75% (you need to find water soon)\n* Energy: 80% (you can move around, but it's tiring)\n\n**Your Environment:**\n\nThe island is covered in dense jungle. You see a few coconut trees nearby, and you notice that the air is hot and humid. You hear the sound of waves crashing against the shore.\n\n**What do you want to do?**\n\nA) Climb one of the coconut trees to get food and shelter\nB) Search for fresh water sources in the jungle\nC) Try to build a shelter using natural materials\nD) Follow the coastline to see if you can find any signs of civilization\n\nChoose your response:"
+  }
+}

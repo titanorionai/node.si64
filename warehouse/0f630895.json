@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:34:47 AM UTC 2026",
+  "data": {
+    "response": "I'm ready to help with the stress test. What's the scenario or problem you'd like me to simulate?"
+  }
+}

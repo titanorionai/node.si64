@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:04:12 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with your stress test. However, I need a bit more information from you. Can you please provide more context or clarify what type of stress test this is (e.g., financial, physical, mental)?\n\nIf it's a financial stress test, can you tell me:\n\n1. What are the assumptions and parameters for the test?\n2. Are there any specific financial metrics you'd like to focus on (e.g., debt-to-income ratio, credit score)?\n3. Do you have any pre-test values or starting points that I should be aware of?\n\nIf it's a physical or mental stress test, can you provide more details on:\n\n1. What type of activity or scenario is being simulated?\n2. Are there any specific physiological or psychological measures you'd like to track?\n3. Are there any pre-test conditions or baseline values that I should know about?\n\nPlease provide as much context as possible so I can better assist you with your stress test."
+  }
+}

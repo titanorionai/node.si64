@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:21:47 PM UTC 2026",
+  "data": {
+    "response": "I'll simulate a stress test for you. Here's what I'll do:\n\n1. Ask you a series of questions that will push your knowledge and limits.\n2. Provide you with challenging problems to solve.\n3. Test your ability to think critically and make decisions under pressure.\n\nAre you ready to begin? Let's get started!\n\n**Question 1:** What is the capital of Australia, but only if it's not Monday?\n\nA) Sydney\nB) Melbourne\nC) Canberra\nD) Perth\n\nPlease respond with the answer."
+  }
+}

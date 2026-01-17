@@ -1,0 +1,341 @@
+2026-01-15 09:19:15,141 | INFO | [TITAN_LIMB_ARM] | TITAN LIMB ONLINE. ID: titanagx_ARM | Arch: aarch64 | OS: linux
+2026-01-15 09:19:15,141 | INFO | [TITAN_LIMB_ARM] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 09:19:15,165 | ERROR | [TITAN_LIMB_ARM] | Connection Failure: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-01-15 09:19:15,165 | INFO | [TITAN_LIMB_ARM] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 09:19:20,168 | INFO | [TITAN_LIMB_ARM] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 09:19:20,168 | ERROR | [TITAN_LIMB_ARM] | Connection Failure: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-01-15 09:19:20,178 | INFO | [TITAN_LIMB_ARM] | Survival Mode: Retrying in 10 seconds...
+2026-01-15 09:19:24,740 | INFO | [TITAN_LIMB_ARM] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:06:47,697 | INFO | [TITAN_LIMB_ARM] | TITAN LIMB ONLINE. ID: titanagx_ARM | Arch: aarch64 | OS: linux
+2026-01-15 11:06:47,699 | INFO | [TITAN_LIMB_ARM] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:06:47,786 | ERROR | [TITAN_LIMB_ARM] | Connection Failure: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-01-15 11:06:47,787 | INFO | [TITAN_LIMB_ARM] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 11:06:52,790 | INFO | [TITAN_LIMB_ARM] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:06:52,791 | ERROR | [TITAN_LIMB_ARM] | Connection Failure: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-01-15 11:06:52,791 | INFO | [TITAN_LIMB_ARM] | Survival Mode: Retrying in 10 seconds...
+2026-01-15 11:06:54,883 | INFO | [TITAN_LIMB_ARM] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:27:01,983 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:27:01,984 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:27:02,039 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-01-15 11:27:02,040 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 11:27:06,960 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:27:20,001 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:27:20,001 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:27:20,081 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: BaseEventLoop.create_connection() got an unexpected keyword argument 'extra_headers'
+2026-01-15 11:27:20,082 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 11:27:23,726 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:28:48,849 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:28:48,849 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:28:48,927 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: server rejected WebSocket connection: HTTP 404
+2026-01-15 11:28:48,928 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 11:28:53,933 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:28:53,942 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: server rejected WebSocket connection: HTTP 404
+2026-01-15 11:28:53,942 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 10 seconds...
+2026-01-15 11:29:03,953 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:29:03,959 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: server rejected WebSocket connection: HTTP 404
+2026-01-15 11:29:03,959 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 15 seconds...
+2026-01-15 11:29:18,970 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:29:18,972 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 11:29:18,972 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 20 seconds...
+2026-01-15 11:29:21,370 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:40:16,310 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:40:16,311 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:40:16,390 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 11:41:15,489 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 50706ca8 [LLAMA]
+2026-01-15 11:41:15,489 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: Titan Network is alive....
+2026-01-15 11:41:15,504 | ERROR | [TITAN_LIMB_ORIN] | MISSION FAILED: Job 50706ca8 (Exit 2)
+2026-01-15 11:41:15,505 | ERROR | [TITAN_LIMB_ORIN] | STDERR: /home/titan/TitanNetwork/limb/scripts/execute_task.sh: line 6: $'\r': command not found
+/home/titan/TitanNetwork/limb/scripts/execute_task.sh: line 12: $'\r': command not found
+/home/titan/TitanNetwork/limb/scripts/execute_task.sh: line 30: syntax error near unexpected token `$'in\r''
+/home/titan/TitanNetwork/limb/scripts/execute_task.sh: line 30: `    case $1 in'
+2026-01-15 11:42:47,899 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:43:35,889 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:43:35,890 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:43:35,981 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 11:44:13,977 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job adb48e61 [LLAMA]
+2026-01-15 11:44:13,977 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 11:44:13,985 | ERROR | [TITAN_LIMB_ORIN] | MISSION FAILED: Job adb48e61 (Exit 99)
+2026-01-15 11:44:13,986 | ERROR | [TITAN_LIMB_ORIN] | STDERR: 2026-01-15 11:44:13 [ERROR] CRITICAL: 'jq' is not installed. Run 'sudo apt install jq -y'
+2026-01-15 11:47:28,452 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:47:47,782 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:47:47,783 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:47:47,885 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 11:47:56,837 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 39df73c2 [LLAMA]
+2026-01-15 11:47:56,837 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 11:47:57,018 | ERROR | [TITAN_LIMB_ORIN] | MISSION FAILED: Job 39df73c2 (Exit 102)
+2026-01-15 11:47:57,019 | ERROR | [TITAN_LIMB_ORIN] | STDERR: 2026-01-15 11:47:57 [ERROR] Cortex Error: HTTP 404
+/home/titan/TitanNetwork/limb/scripts/execute_task.sh: line 93: /mnt/warehouse/39df73c2.json: No such file or directory
+2026-01-15 11:53:56,103 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:56:08,646 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:56:08,649 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:56:08,746 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 11:56:26,687 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job b676ab69 [LLAMA]
+2026-01-15 11:56:26,687 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 11:56:28,707 | ERROR | [TITAN_LIMB_ORIN] | MISSION FAILED: Job b676ab69 (Exit 1)
+2026-01-15 11:56:28,708 | ERROR | [TITAN_LIMB_ORIN] | STDERR: mkdir: cannot create directory ‘/mnt/warehouse’: Permission denied
+/home/titan/TitanNetwork/limb/scripts/execute_task.sh: line 23: /mnt/warehouse/b676ab69.json: No such file or directory
+2026-01-15 11:57:40,694 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 11:58:28,958 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 11:58:28,958 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 11:58:29,057 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 11:58:40,266 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job a93069cd [LLAMA]
+2026-01-15 11:58:40,267 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 11:58:42,295 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job a93069cd finished in 2.03s
+2026-01-15 12:01:44,709 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 12:07:07,967 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 12:07:07,973 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:07:08,039 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 12:07:21,012 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 50d7df9f [LLAMA]
+2026-01-15 12:07:21,013 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 12:07:21,179 | ERROR | [TITAN_LIMB_ORIN] | MISSION FAILED: Job 50d7df9f (Exit 102)
+2026-01-15 12:07:21,180 | ERROR | [TITAN_LIMB_ORIN] | STDERR: 2026-01-15 12:07:21 [ERROR] Cortex Error: HTTP 404
+2026-01-15 12:10:06,371 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 59a49dfd [LLAMA]
+2026-01-15 12:10:06,371 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 12:10:08,386 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 59a49dfd finished in 2.01s
+2026-01-15 12:12:55,798 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: Lost connection with jtop server
+2026-01-15 12:12:55,799 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 12:24:38,858 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 12:24:38,859 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:24:38,919 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 12:24:54,922 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 0ea10d68 [LLAMA]
+2026-01-15 12:24:54,923 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 12:24:55,155 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 0ea10d68 finished in 0.23s
+2026-01-15 12:35:41,969 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 12:38:51,705 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 12:38:51,705 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:38:51,758 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 12:39:05,764 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 32d97852 [LLAMA]
+2026-01-15 12:39:05,764 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-15 12:39:20,754 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 32d97852 finished in 14.99s
+2026-01-15 12:49:45,515 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-15 12:49:45,515 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:49:45,517 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 12:49:45,517 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 12:49:50,523 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:49:50,534 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 12:49:50,535 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 10 seconds...
+2026-01-15 12:50:00,545 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:50:00,569 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 12:52:26,157 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-15 12:52:26,157 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:52:26,159 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 12:52:26,159 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 12:52:31,164 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:52:31,166 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 12:52:31,167 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 10 seconds...
+2026-01-15 12:52:41,175 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:52:41,197 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-15 12:54:37,247 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-15 12:54:37,248 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 12:54:37,250 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 12:54:37,251 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 12:54:38,663 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-15 23:40:47,684 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-15 23:40:47,685 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 23:40:47,719 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 23:40:47,719 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-15 23:40:52,725 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 23:40:52,727 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 23:40:52,727 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 10 seconds...
+2026-01-15 23:41:02,738 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-15 23:41:02,739 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-15 23:41:02,740 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 15 seconds...
+2026-01-15 23:41:05,600 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 01:18:32,564 | WARNING | [TITAN_LIMB_ORIN] | SCRIPTS MISSING at ./scripts. Attempting auto-creation...
+2026-01-16 01:18:32,582 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 01:18:32,582 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 01:18:32,624 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 01:18:43,851 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 14c60a22 [LLAMA]
+2026-01-16 01:18:43,851 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:18:43,851 | ERROR | [TITAN_LIMB_ORIN] | CRITICAL: Executor script missing at ./scripts/execute_task.sh
+2026-01-16 01:19:45,955 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 5bff5871 [LLAMA]
+2026-01-16 01:19:45,955 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:20:02,282 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 5bff5871 finished in 16.33s
+2026-01-16 01:20:27,570 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 01:25:50,629 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 01:25:50,632 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 01:25:50,671 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 01:25:59,646 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job ca1c9696 [LLAMA]
+2026-01-16 01:25:59,647 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:26:16,460 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job ca1c9696 finished in 16.81s
+2026-01-16 01:30:22,955 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 7b4cf1ef [LLAMA]
+2026-01-16 01:30:22,956 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:30:35,201 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 7b4cf1ef finished in 12.25s
+2026-01-16 01:30:40,202 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 01:30:40,202 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 01:30:40,203 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 01:30:40,203 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 01:30:41,329 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 01:32:43,058 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 01:32:43,059 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 01:32:43,103 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 01:32:53,329 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 09daf6a6 [LLAMA]
+2026-01-16 01:32:53,329 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:33:09,741 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 09daf6a6 finished in 16.41s
+2026-01-16 01:37:47,437 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 01:49:04,094 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 01:49:04,095 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 01:49:04,133 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 01:49:14,116 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 8270eee0 [LLAMA]
+2026-01-16 01:49:14,116 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:49:26,244 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 8270eee0 finished in 12.13s
+2026-01-16 01:54:12,899 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 01:54:53,773 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 01:54:53,774 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 01:54:53,815 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 01:55:08,805 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job b186483c [LLAMA]
+2026-01-16 01:55:08,805 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 01:55:25,463 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job b186483c finished in 16.66s
+2026-01-16 02:29:39,103 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 02:30:04,139 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 02:30:04,139 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 02:30:04,193 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 02:30:15,407 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job c9e54e1c [LLAMA]
+2026-01-16 02:30:15,407 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 02:30:27,968 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job c9e54e1c finished in 12.56s
+2026-01-16 02:32:59,764 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 02:33:18,528 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 02:33:18,528 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 02:33:18,569 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 02:33:27,547 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 37a22d73 [LLAMA]
+2026-01-16 02:33:27,547 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 02:33:42,216 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 37a22d73 finished in 14.67s
+2026-01-16 02:45:47,457 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 02:46:30,108 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 02:46:30,108 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 02:46:30,148 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 02:46:40,128 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job d3367882 [LLAMA]
+2026-01-16 02:46:40,128 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 02:46:56,958 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job d3367882 finished in 16.83s
+2026-01-16 02:53:13,593 | INFO | [TITAN_LIMB_ORIN] | MANUAL OVERRIDE: Shutting down Titan Limb.
+2026-01-16 02:56:03,213 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 02:56:03,214 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 02:56:03,244 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 02:56:03,245 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 02:56:08,250 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 02:56:08,264 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:24:28,912 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:24:28,912 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:24:28,913 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:24:28,913 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:24:33,918 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:24:33,931 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:29:14,428 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:29:14,428 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:29:14,429 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:29:14,429 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:29:19,434 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:29:19,447 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:30:37,649 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:30:37,649 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:30:37,650 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:30:37,651 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:30:42,654 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:30:42,666 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:35:55,354 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:35:55,355 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:35:55,356 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:35:55,356 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:36:00,358 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:36:00,370 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:37:02,428 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:37:02,429 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:37:02,430 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:37:02,430 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:37:07,434 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:37:07,446 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:37:14,480 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:37:14,480 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:37:14,481 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:37:14,481 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:37:19,487 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:37:19,499 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 03:50:18,716 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 03:50:18,717 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:50:18,718 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 03:50:18,718 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 03:50:23,723 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 03:50:23,736 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:10:07,448 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 04:10:07,449 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:10:07,450 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:10:07,450 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 04:10:12,454 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:10:12,462 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:23:29,010 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 04:23:29,011 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:23:29,011 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:23:29,012 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 04:23:34,017 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:23:34,029 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:28:15,935 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 92ece6cf [LLAMA]
+2026-01-16 04:28:15,935 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 04:28:37,070 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 92ece6cf finished in 21.14s
+2026-01-16 04:30:49,613 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 04:30:49,613 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:30:49,614 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:30:49,615 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 04:30:54,618 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:30:54,631 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:31:21,734 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 04:31:21,734 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:31:21,765 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:32:05,136 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 04:32:05,137 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:32:05,138 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:32:05,138 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 04:32:08,770 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 04:32:08,771 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:32:08,809 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:36:46,161 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 04:36:46,162 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:36:46,163 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:36:46,163 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 04:36:51,166 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:36:51,181 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:48:49,942 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 04:48:49,943 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:48:49,944 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:48:49,944 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...
+2026-01-16 04:48:54,946 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:48:54,948 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:48:54,948 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 10 seconds...
+2026-01-16 04:49:04,958 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:49:04,960 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:49:04,960 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 15 seconds...
+2026-01-16 04:49:19,974 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:49:19,975 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:49:19,975 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 20 seconds...
+2026-01-16 04:49:39,994 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:49:39,995 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:49:39,995 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 25 seconds...
+2026-01-16 04:50:05,018 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:50:05,019 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:50:05,019 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 30 seconds...
+2026-01-16 04:50:35,046 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:50:35,047 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:50:35,047 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 35 seconds...
+2026-01-16 04:51:10,082 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:51:10,083 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:51:10,084 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 40 seconds...
+2026-01-16 04:51:50,086 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:51:50,088 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:51:50,088 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 45 seconds...
+2026-01-16 04:52:35,130 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:52:35,131 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:52:35,131 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 50 seconds...
+2026-01-16 04:53:25,178 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:53:25,179 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 04:53:25,179 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 55 seconds...
+2026-01-16 04:54:20,182 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:54:20,189 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:54:20,844 | INFO | [TITAN_LIMB_ORIN] | TITAN LIMB ONLINE. ID: titanagx_ORIN | Arch: aarch64 | OS: linux
+2026-01-16 04:54:20,847 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 04:54:20,886 | INFO | [TITAN_LIMB_ORIN] | UPLINK ESTABLISHED. Awaiting Orders.
+2026-01-16 04:54:51,888 | INFO | [TITAN_LIMB_ORIN] | MISSION ACCEPTED: Job 827a3850 [LLAMA]
+2026-01-16 04:54:51,888 | INFO | [TITAN_LIMB_ORIN] | PAYLOAD: First contact....
+2026-01-16 04:55:07,232 | INFO | [TITAN_LIMB_ORIN] | MISSION SUCCESS: Job 827a3850 finished in 15.34s
+2026-01-16 07:33:58,045 | WARNING | [TITAN_LIMB_ORIN] | Uplink severed by Cortex.
+2026-01-16 07:33:58,045 | INFO | [TITAN_LIMB_ORIN] | Establishing Uplink to Cortex: ws://127.0.0.1:8000/connect
+2026-01-16 07:33:58,046 | ERROR | [TITAN_LIMB_ORIN] | Connection Failure: [Errno 111] Connect call failed ('127.0.0.1', 8000)
+2026-01-16 07:33:58,046 | INFO | [TITAN_LIMB_ORIN] | Survival Mode: Retrying in 5 seconds...

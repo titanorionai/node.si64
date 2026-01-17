@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:45:40 AM UTC 2026",
+  "data": {
+    "response": "Let's perform a stress test to gauge your system's performance. I'll be simulating various scenarios, and you can tell me how your system responds.\n\n**Stress Test #1:**\n\nYou have a website with the following characteristics:\n\n* 1000 concurrent users\n* Average page load time of 2 seconds\n* Database queries per second (QPS) at 50\n\nI'll simulate an increase in traffic by adding 500 more users. Your task is to maintain performance without compromising user experience.\n\n**Initial metrics:**\n\n* CPU usage: 20%\n* Memory usage: 30%\n* Response time: 2 seconds\n* QPS: 50\n\nWhat would you like to do?\n\nA) Increase database connection pool size by 10%\nB) Implement caching for static resources\nC) Upgrade server hardware (CPU, RAM, or storage)\nD) Optimize website code for better performance\n\nPlease respond with the letter of your chosen action."
+  }
+}

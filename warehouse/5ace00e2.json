@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:48:01 AM UTC 2026",
+  "data": {
+    "response": "I'll provide you with a stress test question. Remember, this is not an actual job interview, but rather a simulated test to help you assess your problem-solving skills.\n\nHere's the scenario:\n\n**Stress Test #40**\n\nYou are the IT Manager at a large corporation that provides software solutions to various industries. Your company has recently acquired a new subsidiary, which has brought in its own set of employees and infrastructure. As part of the integration process, it has been decided to migrate all 5000 employees from the old system to the new one.\n\nThe current system is experiencing high levels of usage, and there are concerns about its ability to handle the increased load. The new system is still in beta and hasn't been fully tested for production use. You have been tasked with conducting a stress test to determine whether the new system can handle the expected workload.\n\nYou have access to the following resources:\n\n1. 10 server machines (each capable of handling 1000 concurrent users)\n2. A dedicated team of 5 developers who can assist you in setting up and configuring the new system\n3. A budget of $50,000 for hardware upgrades or additional infrastructure\n\nYou want to design a stress test that simulates the expected workload of the migrated employees. You have three options:\n\nA) Simulate 5000 users with low traffic (10 requests per minute), moderate traffic (20 requests per minute), and high traffic (40 requests per minute)\nB) Simulate 2000 users with intense activity, such as video conferencing and file sharing\nC) Simulate a mix of user types, including both high-traffic and low-traffic scenarios\n\nWhich option do you choose?"
+  }
+}

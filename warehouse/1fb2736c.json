@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:41:42 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I don't see what specific area of performance or functionality you'd like me to stress test.\n\nHere are some options for different types of stress tests:\n\n1. **Web performance**: I can simulate a large number of concurrent users, slow down the response time, or add latency to simulate network issues.\n2. **API performance**: I can send a high volume of requests to an API endpoint and measure its response time, error rate, and resource usage.\n3. **Database performance**: I can generate a large amount of random data and query it repeatedly to stress test the database's ability to handle concurrent queries.\n4. **Security**: I can attempt to find vulnerabilities in your application or system by sending malicious requests or exploiting known weaknesses.\n\nLet me know which type of stress test you're interested in, or if you have something specific in mind!"
+  }
+}

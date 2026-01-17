@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:03:52 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with your stress test. Here's a simulated stress test to get us started:\n\n**Stress Test #1: Information Recall**\n\nYou're given a scenario and asked to recall relevant information. The goal is to demonstrate how you'd apply knowledge under pressure.\n\nScenario: You're the lead developer on a project that's approaching its deadline. The team has encountered some unexpected issues, and the client is starting to get anxious about meeting the timeline. What steps would you take to resolve the issue and ensure the project stays on track?\n\nPlease respond with your answer. I'll then provide feedback and ask follow-up questions based on your response.\n\n(Note: This is just a simulation, and there's no \"right\" or \"wrong\" answer. The goal is to assess your problem-solving skills under pressure.)"
+  }
+}

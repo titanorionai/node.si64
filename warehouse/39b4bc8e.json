@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:48:33 AM UTC 2026",
+  "data": {
+    "response": "Let's conduct a stress test to assess your computer's performance. Please note that this is just for fun, and actual stress testing should be done with caution and proper monitoring.\n\n**Stress Test #1: CPU Load**\n\nWe'll start by running a CPU-intensive task to see how well your computer handles it.\n\n**Instructions:**\n\n1. Open multiple browser tabs (at least 10-15) with different websites.\n2. Open a few resource-hungry applications, such as video editing software or 3D modeling tools.\n3. Press the Ctrl+Shift+T keys repeatedly to open and close new instances of Chrome.\n\n**Monitor:**\n\n* CPU usage should increase significantly (above 80%).\n* The system temperature may rise slightly.\n* You might experience a slight lag in response times.\n\n**Duration:**\n Run this test for at least 10-15 minutes, or until you see significant signs of stress.\n\n**Next Steps:**\n\nAfter completing Stress Test #1, we'll move on to the next test. Are you ready?"
+  }
+}

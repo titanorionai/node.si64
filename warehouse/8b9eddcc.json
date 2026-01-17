@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:49:42 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Here are some questions to simulate a real-world scenario:\n\n**Stress Test #9: Problem-Solving Under Time Pressure**\n\nYou are a software engineer working on a critical project that needs to be completed by the end of the day. You have been tasked with implementing a new feature, but you're facing technical difficulties and don't know how to proceed.\n\nAs you sit at your desk, trying to come up with a solution, you realize that you've hit a roadblock. The clock is ticking, and you need to find a way to overcome this obstacle before the deadline.\n\nHere's your scenario:\n\n* You have 2 hours left before the project goes live.\n* You're stuck on implementing a complex algorithm that requires a lot of data processing.\n* Your team lead has just informed you that they won't be available for another hour to discuss potential solutions.\n\nWhat would you do?\n\nA) Try to implement the algorithm yourself, even though it's incomplete\nB) Reach out to your colleagues and ask for their help and input\nC) Start researching alternative approaches online\nD) Take a short break to clear your mind before coming back to the problem\n\nChoose your response:"
+  }
+}

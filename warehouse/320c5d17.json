@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:36:20 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Here's a scenario:\n\n**Stress Test #12: Multi-Tasking**\n\nYou are a software developer working on a team project that involves multiple stakeholders, tight deadlines, and complex technical requirements. You have been tasked with developing a new feature for an e-commerce platform that integrates with several third-party services.\n\nAs you start working on the project, you realize that:\n\n* One of your team members is unavailable due to illness, and their tasks are now yours.\n* The project manager has just informed you that there will be a meeting with all stakeholders in two hours, and they need you to present an update on the feature's progress.\n* Your codebase is experiencing performance issues, and you've received multiple emails from users complaining about errors.\n* You've just been notified that one of the third-party services is experiencing downtime, which may impact the integration.\n\nYour goal is to prioritize your tasks and manage your time effectively to meet the deadlines while dealing with these unexpected challenges.\n\nWhat do you do?\n\nA) Focus on completing the third-party service integration as soon as possible.\nB) Attend the meeting with stakeholders and present an update on the feature's progress, despite the performance issues.\nC) Prioritize fixing the codebase performance issues before attending the meeting.\nD) Take a short break to gather your thoughts and reassess the situation.\n\nChoose your response:"
+  }
+}

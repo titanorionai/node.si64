@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 04:27:07 AM UTC 2026",
+  "data": {
+    "response": "Let's conduct a stress test. I'll simulate different types of scenarios, and you can tell me how your system handles them.\n\n**Scenario 1: High Traffic**\n\nImagine that suddenly, all your friends and family members are trying to contact you at the same time. You receive multiple phone calls, texts, emails, and social media messages all within a short period.\n\nHow would you handle this situation?\n\n(Note: Please respond with the actions you would take or how you would manage the situation.)"
+  }
+}

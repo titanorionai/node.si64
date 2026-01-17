@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:11:56 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help you with a stress test. Here's a scenario-based question:\n\n**Stress Test #2:**\n\nYou are the IT manager of a large corporation. The company has recently switched to a new cloud-based email system, and several employees have reported issues with their accounts being locked out due to password reset attempts.\n\nOne of your team members, John, comes to you in person and reports that his account is locked out, but he's certain he used the correct password. He asks if there's anything you can do to help him regain access to his email.\n\nAs you're assessing the situation, you receive a call from another employee, Jane, who reports similar issues with her account being locked out due to too many failed login attempts.\n\nYou also notice that the company's security logs show that several employees have been attempting to reset their passwords using compromised credentials, which has led to a large number of account lockouts.\n\n**Your goal:**\n\nAs the IT manager, your goal is to resolve the issue with John's account and prevent similar issues from happening in the future. You need to make decisions quickly and effectively to minimize downtime and ensure that employee productivity is not affected.\n\nWhat do you do first?\n\nA) Immediately unlock John's account and provide him with guidance on how to strengthen his password.\nB) Investigate further to determine if there's a security breach or vulnerability in the system.\nC) Implement a temporary password reset policy for all employees to prevent similar issues from happening in the future.\nD) Escalate the issue to the company's security team and wait for their guidance.\n\nPlease choose your response."
+  }
+}

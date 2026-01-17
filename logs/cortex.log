@@ -1,0 +1,4 @@
+  File "/home/titan/TitanNetwork/brain/dispatcher.py", line 1
+    cat << 'EOF' > ~/TitanNetwork/brain/dispatcher.py
+                    ^
+SyntaxError: invalid syntax

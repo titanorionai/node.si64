@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:19:12 PM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test! Please provide me with more details about what you're trying to test or simulate. Is it related to:\n\n1. Software performance?\n2. Network bandwidth or latency?\n3. System stability or reliability?\n4. Something else?\n\nAlso, please let me know what kind of stress test you'd like to run (e.g., load testing, endurance testing, etc.)?"
+  }
+}

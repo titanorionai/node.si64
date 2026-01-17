@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:37:24 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test. What kind of stress test would you like to simulate? Here are some options:\n\n1. **Math stress test**: I'll give you a series of mathematical problems, and you try to solve them as quickly as possible.\n2. **Language-based stress test**: I'll give you a series of linguistic challenges, such as grammar questions or word scrambles.\n3. **Trivia stress test**: I'll ask you a series of trivia questions on a particular topic (e.g., history, science, sports).\n4. **Problem-solving stress test**: I'll give you a scenario and ask you to come up with creative solutions.\n\nWhich option sounds like fun? Or do you have a different idea for a stress test?"
+  }
+}

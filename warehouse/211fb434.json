@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:50:05 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help you with a stress test. What type of stress test are you referring to? Are you looking for a:\n\n1. **Math stress test**: I can generate a series of mathematical problems or puzzles that require quick thinking and problem-solving.\n2. **Logic stress test**: I can provide a scenario or set of rules, and you have to figure out the solution or come up with creative solutions within a certain time limit.\n3. **Language-based stress test**: We can engage in a conversation, and I'll try to stump you with tricky questions or statements that require quick thinking.\n\nLet me know which type of stress test you're interested in, or if you have something else in mind!"
+  }
+}

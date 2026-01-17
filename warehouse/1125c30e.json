@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:19:42 PM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test! However, I'll need more information from you. What type of stress test are you referring to? Is it a:\n\n1. Financial stress test (e.g., evaluating an investment or a financial plan)?\n2. Physical stress test (e.g., assessing fitness or endurance levels)?\n3. Mental stress test (e.g., evaluating cognitive performance under pressure)?\n4. Something else?\n\nPlease provide more context, and I'll do my best to assist you with the stress test."
+  }
+}

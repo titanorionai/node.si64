@@ -1,0 +1,264 @@
+/* ==========================================================================
+   TITAN PROTOCOL | ENTERPRISE UI SYSTEM (v1.0)
+   "Efficiency over Hashrate"
+   ========================================================================== */
+
+/* --- 1. CORE VARIABLES & TYPOGRAPHY --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    /* Color Palette - Cybernetic Slate */
+    --bg-deep: #050505;
+    --bg-panel: #0a0a0a;
+    --bg-card: #0f0f0f;
+    
+    /* Accents - Titan Green */
+    --accent-primary: #00ff41;
+    --accent-glow: rgba(0, 255, 65, 0.15);
+    --accent-border: rgba(0, 255, 65, 0.3);
+    
+    /* Text Hierarchy */
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --text-muted: #444444;
+    
+    /* Typography */
+    --font-ui: 'Inter', -apple-system, system-ui, sans-serif;
+    --font-data: 'JetBrains Mono', 'Courier New', monospace;
+    
+    /* Spacing & Layout */
+    --border-radius: 4px; /* Sharp, not rounded */
+    --nav-height: 80px;
+}
+
+/* --- 2. GLOBAL RESET & BASE --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    
+    /* Tactical Grid Background Pattern */
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* --- 3. NAVIGATION (HEADS UP DISPLAY) --- */
+nav {
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #222;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: var(--font-ui);
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span {
+    color: var(--accent-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+.btn-connect {
+    background: transparent;
+    color: var(--accent-primary);
+    border: 1px solid var(--accent-primary);
+    padding: 10px 24px;
+    border-radius: var(--border-radius);
+    font-family: var(--font-data);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-connect:hover {
+    background: var(--accent-glow);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* --- 4. HERO SECTION (COMMAND CENTER) --- */
+.hero {
+    height: 85vh; /* Take up most of viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: var(--nav-height);
+    
+    /* Subtle Vignette */
+    background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-deep) 90%);
+}
+
+.status-badge {
+    background: #111;
+    border: 1px solid #333;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-family: var(--font-data);
+    font-size: 11px;
+    color: var(--accent-primary);
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.live-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+h1 {
+    font-size: clamp(40px, 5vw, 72px); /* Responsive Font Size */
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0 0 24px 0;
+    line-height: 1.05;
+    background: linear-gradient(180deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 540px;
+    margin-bottom: 48px;
+    font-weight: 400;
+}
+
+/* --- 5. STATS GRID (THE DASHBOARD) --- */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 90%;
+    max-width: 1200px;
+    margin: -80px auto 100px; /* Pull up over hero */
+    position: relative;
+    z-index: 10;
+}
+
+.stat-card {
+    background: var(--bg-panel);
+    border: 1px solid #222;
+    padding: 32px;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Cybernetic Glow */
+.stat-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-border);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* Optional: Decorative corner marker */
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 20px 20px 0;
+    border-color: transparent #222 transparent transparent;
+    transition: border-color 0.3s;
+}
+
+.stat-card:hover::after {
+    border-color: transparent var(--accent-primary) transparent transparent;
+}
+
+.stat-label {
+    font-family: var(--font-data);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.stat-value {
+    font-family: var(--font-data);
+    font-size: 42px;
+    font-weight: 400; /* Let the font weight carry it */
+    color: var(--text-primary);
+    letter-spacing: -1px;
+}
+
+/* Specific Colors for Data Types */
+.stat-value.money { color: #fff; } /* White for cash */
+.stat-value.nodes { color: var(--accent-primary); } /* Green for health */
+.stat-value.queue { color: #facc15; } /* Yellow for pending */
+
+/* --- 6. UTILITIES --- */
+@keyframes pulse {
+    0% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 65, 0.4); }
+    70% { opacity: 0.5; box-shadow: 0 0 0 6px rgba(0, 255, 65, 0); }
+    100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 65, 0); }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero { height: auto; padding: 120px 20px 160px; }
+    .stats-container { margin-top: -60px; }
+    nav { padding: 0 20px; }
+    .nav-links { display: none; /* Hide links on mobile for v1 */ }
+}

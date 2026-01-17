@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:38:24 AM UTC 2026",
+  "data": {
+    "response": "Here's a stress test question for you:\n\n**Question:** You are the IT manager of a company with 500 employees. The company's email server is down, and all employees are unable to send or receive emails. The server was previously backed up daily, but the backup process failed due to a power outage.\n\n**Your task:** Write a report explaining the steps you would take to resolve the issue as quickly as possible and minimize downtime for the employees.\n\n**Constraints:**\n\n* You have 2 hours to resolve the issue\n* You can only access the data center where the server is located\n* You cannot afford to lose any employee productivity\n\nPlease provide your solution in a step-by-step manner, including any necessary technical details."
+  }
+}

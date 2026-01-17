@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:15:11 PM UTC 2026",
+  "data": {
+    "response": "I'll provide a stress test for you. Please note that this is not a medical or financial stress test, but rather a cognitive challenge to assess your ability to focus and perform tasks under pressure.\n\n**Stress Test #35:**\n\nYou are the manager of a small IT company, and you have been tasked with resolving a critical issue with a major client's server. The client is expecting a resolution by the end of the day, and if you fail to meet this deadline, they will cancel their contract.\n\nHere are your tasks:\n\n1. Research the problem and identify the root cause.\n2. Design a solution and implement it within the next 60 minutes.\n3. Test the solution to ensure it is working correctly.\n4. Communicate the resolution to the client and schedule a follow-up meeting.\n\nYou have the following resources available:\n\n* A team of developers who can assist you\n* Access to technical documentation and online resources\n* A budget of $10,000 to allocate for any necessary fixes or solutions\n\nAs you work on this stress test, please respond with the following format:\n\n\"[Task Number]: [Action taken]\"\n\nFor example: \"1: Researched the problem and identified the root cause.\"\n\nYou will have 60 minutes to complete all tasks. Good luck!"
+  }
+}

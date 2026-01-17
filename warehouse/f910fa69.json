@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:33:42 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. Here's one:\n\n**Stress Test #31**\n\nYou are the manager of an online retailer that sells electronics. You have been tasked with increasing sales by 20% in the next quarter.\n\nHere's your current situation:\n\n* Sales revenue for the past quarter: $1,000,000\n* Current inventory levels:\n\t+ Smartphones: 500 units\n\t+ Laptops: 300 units\n\t+ Tablets: 200 units\n\t+ Headphones: 1000 units\n* Marketing budget for the next quarter: $50,000\n\nYour goal is to come up with a plan to increase sales by 20% in the next quarter. You have unlimited access to resources and can make any necessary adjustments to your inventory levels or marketing strategy.\n\nWhat would you do?\n\nPlease respond with one of the following:\n\nA) Increase inventory levels of popular products\nB) Launch a new marketing campaign targeting a specific demographic\nC) Offer discounts on all products\nD) Partner with influencers to promote products\n\nWhat's your decision?"
+  }
+}

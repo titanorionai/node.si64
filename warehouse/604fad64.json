@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:13:53 PM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help you with a stress test. Here's one:\n\n**Stress Test #26: The Island Survival**\n\nYou are stranded on a deserted island after a shipwreck. You have no food, water, or shelter. Your goal is to survive for as long as possible.\n\nYou find yourself standing on a sandy beach, surrounded by dense jungle in front of you. The sun is high overhead, and you can hear the sounds of birds chirping and waves crashing against the shore.\n\nHere are your current stats:\n\n* Hunger: 50% (you're getting hungry)\n* Thirst: 75% (you're getting thirsty)\n* Health: 100%\n* Shelter: None\n* Food: None\n\nYou have the following items in your inventory:\n\n* A water bottle that's half full\n* A pocket knife\n* A piece of cloth that you can use as a makeshift bandage\n* A small first-aid kit (with basic medical supplies)\n\nWhat do you want to do?\n\nA) Search for food and shelter\nB) Find a source of fresh water\nC) Create a shelter using the materials around you\nD) Use your pocket knife to start a fire\n\nChoose your response:"
+  }
+}

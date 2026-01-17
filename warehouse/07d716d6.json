@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:37:52 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help you with a stress test. Here's a 10-minute stress test:\n\n**Instructions:**\n\n1. I'll start asking you questions and giving you instructions.\n2. You must respond with an answer or action within 30 seconds.\n3. The more quickly you respond, the better.\n4. If you need time to think, just say \"thinking\" or \"pause\".\n5. We'll stop the test after 10 minutes.\n\n**Are you ready?**\n\nHere's your first question:\n\nWhat is the capital of France?\n\n(Type your answer)"
+  }
+}

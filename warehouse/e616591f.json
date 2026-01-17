@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:31:38 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test. Here's one:\n\n**Stress Test #179: The Mysterious Island**\n\nYou are a skilled sailor who has been stranded on a mysterious island after a shipwreck. The island is rumored to have ancient ruins, hidden temples, and treasures beyond your wildest dreams. However, the island is also said to be cursed, and many adventurers before you have never returned.\n\nYour goal is to survive on the island for as long as possible and uncover its secrets. You start with basic supplies: a water bottle, a first-aid kit, and a pocketknife. The island is divided into four quadrants:\n\n**Quadrant 1:** Beach (South)\n**Quadrant 2:** Jungle (East)\n**Quadrant 3:** Ruins (North)\n**Quadrant 4:** Mountain (West)\n\nEach quadrant has its unique challenges and opportunities.\n\nHere's your starting situation:\n\n* Water bottle: Half full\n* First-aid kit: Full\n* Pocketknife: Sharp\n\nYou have the following skills:\n\n* Survival: +20% (you know how to start a fire, find food, and build shelter)\n* Navigation: +10% (you can use a compass to navigate, but it's not always accurate)\n\nWhat do you want to do first?\n\nA) Explore the Beach (Quadrant 1)\nB) Venture into the Jungle (Quadrant 2)\nC) Head towards the Ruins (Quadrant 3)\nD) Climb the Mountain (Quadrant 4)\n\nPlease respond with the letter of your chosen action."
+  }
+}

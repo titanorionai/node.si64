@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TITAN PROTOCOL | Sovereign ARM/Silicon Grid</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           TITAN CORTEX | V6.3 [ARM/SILICON REBRAND]
+           ========================================================================== */
+        :root {
+            --bg-deep: #020408;
+            --bg-glass: rgba(10, 20, 30, 0.6);
+            --titan-glow: #0afff0;  /* Bioluminescent Cyan */
+            --titan-dim: rgba(10, 255, 240, 0.08);
+            --loyalty-gold: #ffd700; 
+            --text-primary: #e0f7fa;
+            --text-muted: #94a3b8;
+            --border-color: rgba(10, 255, 240, 0.15);
+            --grid-line: rgba(10, 255, 240, 0.03);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0; min-height: 100vh;
+            display: flex; flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(10, 255, 240, 0.12) 0%, transparent 60%),
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 100% 100%, 60px 60px, 60px 60px;
+            background-attachment: fixed;
+        }
+        
+        /* --- NAVIGATION --- */
+        nav {
+            padding: 20px 5%; border-bottom: 1px solid var(--border-color);
+            background: rgba(2, 4, 8, 0.85); backdrop-filter: blur(12px);
+            display: flex; justify-content: space-between; align-items: center;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo {
+            font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 16px;
+            display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none;
+        }
+        .logo-icon {
+            width: 10px; height: 10px; background: var(--titan-glow);
+            box-shadow: 0 0 15px var(--titan-glow); transform: rotate(45deg);
+        }
+        .nav-actions { display: flex; gap: 12px; align-items: center; }
+
+        .btn-tac {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border-color);
+            color: var(--titan-glow); padding: 10px 20px;
+            font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+            cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 4px; text-decoration: none; display: flex; align-items: center; gap: 8px;
+        }
+        .btn-tac:hover {
+            border-color: var(--titan-glow); background: var(--titan-dim); color: #fff;
+            box-shadow: 0 0 25px rgba(10, 255, 240, 0.15); transform: translateY(-1px);
+        }
+        .btn-primary {
+            background: var(--titan-dim); border: 1px solid var(--titan-glow); color: #fff;
+        }
+
+        /* --- HERO --- */
+        .hero { text-align: center; padding: 120px 20px 80px; position: relative; }
+        h1 {
+            font-size: clamp(48px, 6vw, 72px); font-weight: 300; letter-spacing: -2px;
+            margin: 0; line-height: 1.1; color: #fff;
+            text-shadow: 0 0 80px rgba(10, 255, 240, 0.2);
+        }
+        h1 strong {
+            font-weight: 600;
+            background: linear-gradient(135deg, #fff 40%, var(--titan-glow) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace; color: var(--titan-glow);
+            letter-spacing: 2px; margin-top: 24px; font-size: 13px; text-transform: uppercase;
+            background: rgba(10, 255, 240, 0.05); padding: 8px 16px; border-radius: 20px;
+            border: 1px solid rgba(10, 255, 240, 0.1); display: inline-block;
+        }
+
+        /* --- MARKETPLACE --- */
+        .marketplace-section { max-width: 1200px; margin: 0 auto 100px; padding: 0 20px; }
+        .section-header {
+            font-family: 'JetBrains Mono', monospace; color: var(--titan-glow);
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            margin-bottom: 40px; letter-spacing: 2px; display: flex; align-items: center; gap: 10px;
+        }
+        .section-header::before { content: "///"; color: #fff; opacity: 0.5; }
+
+        .rental-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;
+        }
+        .rental-card {
+            background: var(--bg-glass); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 32px; position: relative;
+            backdrop-filter: blur(20px); transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .rental-card:hover {
+            transform: translateY(-5px); border-color: var(--titan-glow);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 20px rgba(10, 255, 240, 0.05);
+        }
+        .tier-badge {
+            position: absolute; top: 20px; right: 20px;
+            font-family: 'JetBrains Mono', monospace; font-size: 10px;
+            background: rgba(255,255,255,0.05); padding: 4px 8px; border-radius: 4px;
+            color: var(--text-muted); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .tier-badge.pro {
+            color: var(--titan-glow); background: rgba(10, 255, 240, 0.1);
+            border-color: var(--titan-glow); box-shadow: 0 0 10px rgba(10, 255, 240, 0.1);
+        }
+        .hardware-name { font-size: 18px; font-weight: 600; margin-bottom: 12px; color: #fff; }
+        .specs { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; min-height: 42px; }
+        .price { 
+            font-family: 'JetBrains Mono', monospace; font-size: 28px; 
+            color: #fff; margin-bottom: 24px; display: block; font-weight: 500;
+        }
+        .price span { font-size: 12px; color: var(--text-muted); margin-left: 5px; }
+
+        /* --- DASHBOARD STATS --- */
+        .dashboard-container { max-width: 1200px; margin: 0 auto; width: 100%; padding: 0 20px; }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 80px;
+        }
+        .hud-card {
+            background: var(--bg-glass); border: 1px solid var(--border-color);
+            border-radius: 12px; padding: 32px; backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .label {
+            font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+            color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;
+            margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .label::after {
+            content: ""; display: block; width: 6px; height: 6px; 
+            background: var(--titan-glow); border-radius: 50%; box-shadow: 0 0 10px var(--titan-glow);
+        }
+        .value { 
+            font-family: 'JetBrains Mono', monospace; font-size: 36px; color: #fff; 
+            font-weight: 500; letter-spacing: -1.5px; margin-bottom: 8px;
+        }
+        .value.money { color: var(--titan-glow); text-shadow: 0 0 30px rgba(10, 255, 240, 0.3); }
+        .value.points { color: var(--loyalty-gold); text-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+        
+        .sub-value { font-size: 11px; color: #556; font-family: 'JetBrains Mono', monospace; }
+
+        /* --- LEDGER TABLE --- */
+        .ledger-section { 
+            margin-bottom: 120px; border: 1px solid var(--border-color); 
+            background: rgba(10, 20, 30, 0.4); backdrop-filter: blur(10px);
+            border-radius: 12px; overflow: hidden;
+        }
+        .ledger-header {
+            padding: 24px 30px; border-bottom: 1px solid var(--border-color);
+            font-family: 'Inter', sans-serif; font-weight: 600; color: var(--text-primary);
+            font-size: 13px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 255, 240, 0.02);
+        }
+        .live-dot {
+            width: 6px; height: 6px; background: #ff3333; border-radius: 50%;
+            display: inline-block; margin-right: 8px; animation: pulse 2s infinite;
+        }
+        .ledger-table { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 12px; }
+        .ledger-table th {
+            text-align: left; padding: 20px 30px; color: var(--text-muted);
+            border-bottom: 1px solid var(--border-color); font-weight: 500; font-size: 11px;
+        }
+        .ledger-table td { padding: 20px 30px; border-bottom: 1px solid rgba(255,255,255,0.03); color: #ccd; }
+        .ledger-table tr:hover td { background: rgba(10, 255, 240, 0.03); color: #fff; }
+        a.tx-link { color: var(--text-muted); text-decoration: none; border-bottom: 1px dotted #555; transition: all 0.2s; }
+        a.tx-link:hover { color: var(--titan-glow); border-bottom-color: var(--titan-glow); }
+
+        /* --- MODAL & FOOTER --- */
+        #deploy-modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); z-index: 200; justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
+        }
+        .modal-box {
+            background: #050a10; border: 1px solid var(--titan-glow); border-radius: 16px;
+            padding: 40px; max-width: 600px; width: 90%; 
+            box-shadow: 0 0 100px rgba(10, 255, 240, 0.1); position: relative;
+        }
+        .code-block {
+            background: #020202; border: 1px solid #222; border-radius: 8px;
+            padding: 20px; font-family: 'JetBrains Mono', monospace; color: #aaddff; 
+            font-size: 13px; overflow-x: auto; margin: 24px 0; line-height: 1.6;
+        }
+        .close-btn { position: absolute; top: 20px; right: 24px; color: #666; cursor: pointer; font-size: 24px; }
+        .close-btn:hover { color: #fff; }
+
+        footer {
+            margin-top: auto; border-top: 1px solid var(--border-color); padding: 40px 5%;
+            display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace;
+            font-size: 11px; color: #555; background: #010204;
+        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 42px; }
+            .nav-actions { display: none; }
+            .stats-grid, .rental-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">
+            <div class="logo-icon"></div> TITAN PROTOCOL
+        </a>
+        <div class="nav-actions">
+            <button class="btn-tac" onclick="document.getElementById('rental-market').scrollIntoView({behavior: 'smooth'})">RENT GPU</button>
+            <button class="btn-tac" onclick="openDeployModal()">PROVIDE COMPUTE</button>
+            <button class="btn-tac btn-primary" id="wallet-btn" onclick="connectWallet()">CONNECT WALLET</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>TITAN PROTOCOL<br><strong>The Sovereign ARM/Silicon Marketplace</strong></h1>
+        <div class="subtitle">Unified Memory Inference • Settled on Solana</div>
+    </div>
+
+    <div id="rental-market" class="marketplace-section">
+        <div class="section-header">HARDWARE RENTAL MARKETS</div>
+        <div class="rental-grid">
+            <div class="rental-card">
+                <div class="tier-badge">STANDARD</div>
+                <div class="hardware-name">Apple M1/M2 Neural</div>
+                <div class="specs">Ideal for LLM Inference (7B-13B models), lightweight diffusion, and development tasks.</div>
+                <div class="price">0.002 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <button class="btn-tac" style="width:100%; justify-content: center;" onclick="rentHardware('M2')">RENT INSTANCE</button>
+            </div>
+            
+            <div class="rental-card" style="border-color: rgba(10, 255, 240, 0.4);">
+                <div class="tier-badge pro">POPULAR</div>
+                <div class="hardware-name">NVIDIA Jetson Orin</div>
+                <div class="specs">Edge AI Powerhouse. Optimized for CV, Robotics, and mid-range LLMs (Llama 3 70B quantized).</div>
+                <div class="price">0.005 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <button class="btn-tac btn-primary" style="width:100%; justify-content: center;" onclick="rentHardware('ORIN')">RENT INSTANCE</button>
+            </div>
+
+            <div class="rental-card">
+                <div class="tier-badge">ENTERPRISE</div>
+                <div class="hardware-name">Apple M3 Ultra Cluster</div>
+                <div class="specs">Unified Memory architecture for massive context windows (128k+) and complex RAG workflows.</div>
+                <div class="price">0.015 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <button class="btn-tac" style="width:100%; justify-content: center;" onclick="rentHardware('M3_ULTRA')">RENT INSTANCE</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="section-header">LIVE NETWORK TELEMETRY</div>
+        <div class="stats-grid">
+            <div class="hud-card">
+                <div class="label">Active Neural Units</div>
+                <div class="value" id="fleet-size">--</div>
+                <div class="sub-value">TARGET: ARM64 / APPLE M-SERIES</div>
+            </div>
+            <div class="hud-card">
+                <div class="label">Global Task Queue</div>
+                <div class="value" id="queue-depth">--</div>
+                <div class="sub-value">PENDING INFERENCE JOBS</div>
+            </div>
+            <div class="hud-card">
+                <div class="label">Protocol Volume</div>
+                <div class="value money" id="revenue">◎ -.----</div>
+                <div class="sub-value">ON-CHAIN SETTLEMENT (SOL)</div>
+            </div>
+             <div class="hud-card" style="border-color: rgba(255, 215, 0, 0.2);">
+                <div class="label" style="color: var(--loyalty-gold);">My Reputation</div>
+                <div class="value points" id="user-points">CONNECT</div>
+                <div class="sub-value">TITAN LOYALTY POINTS (PTS)</div>
+            </div>
+        </div>
+
+        <div class="ledger-section">
+            <div class="ledger-header">
+                <span>RECENT SETTLEMENTS</span>
+                <span style="display: flex; align-items: center; font-size: 11px; color: var(--titan-glow);">
+                    <div class="live-dot" style="background: var(--titan-glow); box-shadow: 0 0 10px var(--titan-glow);"></div> 
+                    LIVE FEED
+                </span>
+            </div>
+            <table class="ledger-table">
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Worker Node</th>
+                        <th>Bounty (SOL)</th>
+                        <th>Timestamp</th>
+                        <th>Proof (TX)</th>
+                    </tr>
+                </thead>
+                <tbody id="ledger-body">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #556; padding: 60px;">
+                            ESTABLISHING SECURE UPLINK...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="deploy-modal">
+        <div class="modal-box">
+            <div class="close-btn" onclick="closeDeployModal()">×</div>
+            <h3 style="color: #fff; font-family: 'Inter'; margin-top: 0; font-size: 18px; font-weight: 600;">INITIALIZE WORKER NODE</h3>
+            <p style="color: #889; font-size: 14px; margin-bottom: 20px; line-height: 1.5;">
+                Run this sequence on your <strong>NVIDIA Jetson Orin</strong> or <strong>Mac Studio</strong> to join the grid and begin earning SOL.
+            </p>
+            <div class="code-block" id="deploy-cmd">git clone https://github.com/titan-protocol/core.git
+cd core && python3 limb/worker_node.py --connect wss://titan-grid.network</div>
+            <button class="btn-tac" style="width: 100%; justify-content: center;" onclick="navigator.clipboard.writeText(document.getElementById('deploy-cmd').innerText); this.innerText='COPIED TO CLIPBOARD';">COPY SEQUENCE</button>
+        </div>
+    </div>
+
+    <footer>
+        <div>© 2026 TITAN PROTOCOL FOUNDATION</div>
+        <div id="footer-status">SYSTEM STATUS: INITIALIZING...</div>
+    </footer>
+
+    <script>
+        // --- 1. RENTAL LOGIC ---
+        async function rentHardware(tier) {
+            const btn = document.getElementById('wallet-btn');
+            if (btn.innerText === "CONNECT WALLET") {
+                alert("ACCESS DENIED: Please connect your Solana wallet first to sign the rental contract.");
+                connectWallet();
+                return;
+            }
+            if(confirm(`[TITAN SMART CONTRACT]\n\nInitiate rental allocation for ${tier} tier? \n\nThis will open your wallet to approve the transaction.`)) {
+                alert(`CONTRACT DEPLOYED ON SOLANA MAINNET.\n\nAllocation ID: ${Math.random().toString(36).substr(2, 9).toUpperCase()}\n\nYour instance is booting...`);
+            }
+        }
+
+        // --- 2. WALLET LOGIC ---
+        async function connectWallet() {
+            const btn = document.getElementById('wallet-btn');
+            if ('solana' in window) {
+                try {
+                    const resp = await window.solana.connect();
+                    const key = resp.publicKey.toString();
+                    btn.innerText = "LINKED: " + key.slice(0, 4) + "..." + key.slice(-4);
+                    btn.style.borderColor = "var(--titan-glow)";
+                    btn.style.color = "#fff";
+                    btn.style.background = "var(--titan-dim)";
+                    
+                    // SIMULATE FETCHING POINTS
+                    document.getElementById('user-points').innerText = "1,250";
+                } catch (err) { console.error("Wallet Denied"); }
+            } else { window.open("https://phantom.app/", "_blank"); }
+        }
+
+        // --- 3. MODAL LOGIC ---
+        function openDeployModal() { document.getElementById('deploy-modal').style.display = 'flex'; }
+        function closeDeployModal() { document.getElementById('deploy-modal').style.display = 'none'; }
+
+        // --- 4. TELEMETRY LOGIC ---
+        const API_ENDPOINT = '/api/stats';
+        
+        async function updateDashboard() {
+            try {
+                const response = await fetch(API_ENDPOINT);
+                if (!response.ok) throw new Error("API Offline");
+                const data = await response.json();
+
+                const fleet = data.fleet_size || data.fleet || 0;
+                const queue = (data.queue_depth || data.queue || 0).toLocaleString();
+                const revenue = parseFloat(data.total_revenue || data.paid || 0).toFixed(4);
+
+                document.getElementById('fleet-size').innerText = fleet;
+                document.getElementById('queue-depth').innerText = queue;
+                document.getElementById('revenue').innerText = "◎ " + revenue;
+
+                const footerStatus = document.getElementById('footer-status');
+                footerStatus.innerText = "SYSTEM STATUS: NOMINAL";
+                footerStatus.style.color = "var(--titan-glow)";
+
+                const tbody = document.getElementById('ledger-body');
+                if (data.transactions && data.transactions.length > 0) {
+                    tbody.innerHTML = data.transactions.map(tx => `
+                        <tr>
+                            <td style="font-family:'JetBrains Mono'; color: #fff;">${tx.job_id}</td>
+                            <td style="color:#889">${tx.worker}</td>
+                            <td style="color:var(--titan-glow)">◎ ${parseFloat(tx.amount).toFixed(4)}</td>
+                            <td>${tx.time.split(' ')[1] || tx.time}</td>
+                            <td><a href="https://solscan.io/tx/${tx.tx}" target="_blank" class="tx-link">VIEW ↗</a></td>
+                        </tr>
+                    `).join('');
+                } else {
+                    if (!tbody.innerHTML.includes("tr")) {
+                         tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #556; padding: 40px;">WAITING FOR NEXT BLOCK...</td></tr>`;
+                    }
+                }
+
+            } catch (e) {
+                console.error("Telemetry Link Lost", e);
+                const footerStatus = document.getElementById('footer-status');
+                footerStatus.innerText = "SYSTEM STATUS: OFFLINE - CHECK UPLINK";
+                footerStatus.style.color = "#FF3333";
+            }
+        }
+
+        updateDashboard();
+        setInterval(updateDashboard, 2000);
+    </script>
+</body>
+</html>
+EOF

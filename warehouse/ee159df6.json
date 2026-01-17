@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:37:08 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test. Here's a scenario:\n\n**Stress Test #25: \"E-commerce Website Under Attack\"**\n\nYou are the DevOps engineer on a team that manages an e-commerce website used by thousands of customers. The website is experiencing a surge in traffic due to a popular product launch, and the server load has increased significantly.\n\nAs you monitor the system, you notice that:\n\n* The website is taking longer than usual to respond (average response time is 3 seconds vs 1 second)\n* There are multiple errors reported by customers (e.g. \"product not found\", \"cart overflow\")\n* CPU usage has increased to 80% on all servers\n* Memory usage has increased to 90% on all servers\n* Network latency has increased to 500ms\n\nYour goal is to identify and address the root cause of the issues and restore the website's performance within 30 minutes.\n\nWhat would you do first?\n\nA) Increase server resources (add more instances, upgrade hardware)\nB) Optimize database queries to reduce CPU usage\nC) Implement caching to reduce memory usage\nD) Investigate network latency issues\n\nPlease choose a response."
+  }
+}

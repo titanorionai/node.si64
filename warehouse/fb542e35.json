@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:45:34 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. However, I need more information on what kind of stress test you are referring to.\n\nThere are different types of stress tests, such as:\n\n1. Financial stress test: This type of test is used to evaluate the resilience of financial institutions and their ability to withstand economic downturns.\n2. Physical stress test: This type of test is used to evaluate the strength and durability of physical materials or structures under various loads or conditions.\n3. Cognitive stress test: This type of test is used to evaluate an individual's mental performance and reaction under various cognitive demands.\n\nCould you please provide more context or information on what kind of stress test you are referring to?"
+  }
+}

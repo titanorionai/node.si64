@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:42:54 AM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test! However, I need a bit more information from you. Could you please provide more context or clarify what kind of stress test you are referring to?\n\nIs it a:\n\n1. Performance benchmarking test for software or hardware?\n2. A financial stress test for a portfolio or investment strategy?\n3. A medical stress test to evaluate cardiovascular health?\n4. Something else entirely?\n\nPlease let me know, and I'll do my best to assist you with the stress test!"
+  }
+}

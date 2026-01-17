@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:20:50 PM UTC 2026",
+  "data": {
+    "response": "I'm happy to help with a stress test. However, I need to clarify what you mean by \"stress test.\" Are you referring to:\n\n1. A software stress test?\n2. A physical exercise or fitness test?\n3. A financial stress test (e.g., for budgeting or investment planning)?\n4. Something else?\n\nPlease provide more context or information about the type of stress test you have in mind, and I'll do my best to assist you.\n\nIf you're looking for a general stress test for your computer or software, I can suggest some common scenarios:\n\n**Hardware Stress Test:**\n\n1. Run multiple resource-intensive programs simultaneously (e.g., video editors, 3D modeling software).\n2. Open multiple browser tabs with heavy content loading.\n3. Use a stress testing tool like Prime95, OCCT, or AIDA64 to test CPU, GPU, RAM, and storage performance.\n\n**Software Stress Test:**\n\n1. Run a series of benchmarking tests (e.g., Geekbench, Cinebench).\n2. Load a large dataset into a database or spreadsheet program.\n3. Simulate a heavy workload by repeatedly starting and stopping processes or services.\n\nPlease let me know if any of these examples match what you had in mind, or if you need more specific guidance!"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:28:54 AM UTC 2026",
+  "data": {
+    "response": "I'd be happy to help with a stress test. What kind of stress test are you looking for?\n\nWould you like to:\n\n1. Practice a specific language proficiency test (e.g. TOEFL, IELTS)?\n2. Test my understanding of a particular topic or subject?\n3. Engage in a conversation on a specific theme or industry?\n4. Something else?\n\nLet me know, and we can get started!"
+  }
+}

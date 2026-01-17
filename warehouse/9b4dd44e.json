@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Sat Jan 17 02:34:31 AM UTC 2026",
+  "data": {
+    "response": "Let's conduct a stress test to simulate a high-pressure scenario. I'll provide you with a series of questions, and you respond as if you were in a real-life situation.\n\n**Stress Test #1: \"The Emergency Meeting\"**\n\nYou're the CEO of a mid-sized company, and it's 3 PM on a Friday afternoon. Your head of marketing, John, just walked into your office with a frantic look on his face.\n\n\"CEO, we've got a problem,\" he says, out of breath. \"Our competitor just launched a devastating social media campaign that's killing our brand engagement. Our numbers are plummeting, and we're losing clients left and right.\"\n\nYou're now faced with an emergency meeting to discuss the situation with your team, including John, your CFO, Rachel, and your COO, Michael.\n\nHere's the scenario:\n\n* You have 30 minutes before the meeting starts.\n* Your team has been working on a big project deadline, but it's not urgent.\n* The company's annual performance review is scheduled for next week, and you're concerned about how this situation might impact it.\n\nWhat do you do first?\n\nA) Call an emergency meeting with your top team members to discuss the crisis\nB) Ask John to brief you on the social media campaign and its impact before calling the meeting\nC) Send a company-wide email to address the crisis and reassure employees\nD) Go into damage control mode by reaching out to clients and competitors directly\n\nChoose your response:"
+  }
+}

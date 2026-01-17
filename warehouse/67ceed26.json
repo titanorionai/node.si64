@@ -1,0 +1,9 @@
+{
+  "status": "SUCCESS",
+  "message": "Inference Done",
+  "type": "LLAMA",
+  "timestamp": "Fri Jan 16 08:11:13 PM UTC 2026",
+  "data": {
+    "response": "Let's conduct a stress test to assess your system's performance under various loads. We'll start with a series of questions and scenarios to simulate different types of stress.\n\n**Stress Test #1: Cognitive Load**\n\nYou are working on a project that requires your attention for an extended period. The task is complex, and you need to focus to meet the deadline.\n\nHere's how the test will work:\n\n* I'll present you with a scenario or question, and you'll respond accordingly.\n* Your responses will be evaluated based on your ability to process information, make decisions, and manage time effectively under pressure.\n* We'll simulate different levels of stress by increasing the complexity of the questions or scenarios.\n\nAre you ready to begin? Here's your first question:\n\nYou've been working on a project for 2 hours, and you still need to complete 30% of the task. However, your team lead has just informed you that there's an unexpected deadline change, which will require you to deliver the project 2 weeks earlier than planned.\n\nHow do you respond?"
+  }
+}
