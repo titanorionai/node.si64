@@ -244,6 +244,52 @@
     
     @media (max-width: 768px) {
         h1 { font-size: 36px; }
+
+        /* Simplify nav and center logo on small screens */
         .nav-actions { display: none; }
+        nav {
+            padding: 0 16px;
+            justify-content: center;
+        }
+
+        /* Ensure main content is centered with comfortable padding */
+        .dashboard-container,
+        .marketplace-section {
+            max-width: 100%;
+            padding: 0 16px 60px;
+        }
+
+        .hero {
+            padding: 100px 16px 60px;
+        }
+
+        /* Stack cards vertically */
         .stats-grid, .rental-grid { grid-template-columns: 1fr; }
+
+        /* Center section headers and footer text */
+        .section-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        .ledger-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        footer {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+        }
+
+        /* Make ledger rows read better on narrow screens */
+        th, td {
+            padding: 12px 16px;
+            text-align: center;
+        }
     }

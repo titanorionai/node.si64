@@ -165,6 +165,31 @@
             color: #8899aa; border-bottom-left-radius: 8px;
         }
         .tier-badge.pro { background: var(--titan-glow); color: #000; }
+
+        /* TAG PILL (USED FOR SUPERCHIP / VECTOR / SWARM LABELS) */
+        .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid rgba(136, 153, 170, 0.4);
+            color: #8899aa;
+        }
+        .tag.superchip { 
+            background: rgba(255, 215, 0, 0.15); 
+            color: #ffd700; 
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        /* VECTOR TAG (SVE / HPC) */
+        .tag.vector {
+            background: rgba(0, 255, 204, 0.08);
+            color: #00ffd0;
+            border: 1px solid rgba(0, 255, 204, 0.35);
+        }
         
         .hardware-name { font-family: var(--font-hud); font-size: 24px; font-weight: 700; margin-bottom: 12px; color: #fff; text-transform: uppercase; }
         .specs { font-size: 13px; color: #8899aa; margin-bottom: 24px; line-height: 1.6; min-height: 42px; }
@@ -340,60 +365,129 @@
         }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
         
+        /* --- MOBILE LAYOUT TUNING --- */
         @media (max-width: 768px) {
+            /* Scale headline for small screens */
             h1 { font-size: 42px; }
-            .nav-actions { display: none; }
-            .stats-grid, .rental-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
 
-    <nav>
-        <a href="#" class="logo">
-            <div class="logo-icon"></div> SI64.NET
-        </a>
-        <div class="nav-actions">
-            <button class="btn-tac" onclick="document.getElementById('rental-market').scrollIntoView({behavior: 'smooth'})">RENT GPU</button>
-            <button class="btn-tac" onclick="openDeployModal()">PROVIDE COMPUTE</button>
-            <div class="wallet-dropdown">
-                <button class="btn-tac btn-primary" id="wallet-btn" onclick="toggleWalletMenu()">
-                    <span id="wallet-text">CONNECT WALLET</span>
-                </button>
-                <div class="wallet-menu" id="wallet-menu">
-                    <div class="wallet-item">
-                        <div>
-                            <div class="wallet-item-label">Balance</div>
-                            <div class="wallet-item-value" id="wallet-balance">--</div>
+            /* Hide desktop actions, center nav brand */
+            .nav-actions { display: none; }
+            nav {
+                padding: 0 16px;
+                justify-content: center;
+            }
+
+            /* Tighter, centered hero + sections */
+            .hero { padding: 80px 16px 60px; }
+
+            .marketplace-section,
+            .dashboard-container,
+            .strategic-log {
+                max-width: 100%;
+                padding: 0 16px 60px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            /* Center section headers */
+            .section-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+                border-left: none;
+                border-bottom: 1px solid var(--titan-border);
+                padding-left: 0;
+            }
+
+            /* Stack cards vertically with softer padding */
+            .stats-grid,
+            .rental-grid {
+                grid-template-columns: 1fr;
+            }
+            .rental-card,
+            .hud-card {
+                padding: 24px 18px;
+            }
+
+            /* Ledger: center header and rows, reduce padding */
+            .ledger-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 4px;
+            }
+            .ledger-table th,
+            .ledger-table td {
+                padding: 12px 12px;
+                text-align: center;
+            }
+
+            /* Terminal block: full-width but comfortable */
+            .terminal-container {
+                padding: 20px 16px;
+                justify-content: flex-start;
+            }
+            .terminal-text { font-size: 12px; }
+
+            /* Footer centered on mobile */
+            footer {
+                padding: 24px 16px;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+        </style>
+    </head>
+    <body>
+
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon"></div> SI64.NET
+            </a>
+            <div class="nav-actions">
+                <button class="btn-tac" onclick="document.getElementById('rental-market').scrollIntoView({behavior: 'smooth'})">RENT GPU</button>
+                <button class="btn-tac" onclick="openDeployModal()">PROVIDE COMPUTE</button>
+                <div class="wallet-dropdown">
+                    <button class="btn-tac btn-primary" id="wallet-btn" onclick="toggleWalletMenu()">
+                        <span id="wallet-text">CONNECT WALLET</span>
+                    </button>
+                    <div class="wallet-menu" id="wallet-menu">
+                        <div class="wallet-item">
+                            <div>
+                                <div class="wallet-item-label">Balance</div>
+                                <div class="wallet-item-value" id="wallet-balance">--</div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="wallet-item-label">Address</div>
+                                <div class="wallet-item-value" id="wallet-addr" style="font-size: 11px; font-family: 'JetBrains Mono';">Not Connected</div>
+                            </div>
                         </div>
-                        <div style="text-align: right;">
-                            <div class="wallet-item-label">Address</div>
-                            <div class="wallet-item-value" id="wallet-addr" style="font-size: 11px; font-family: 'JetBrains Mono';">Not Connected</div>
+                        <div class="wallet-item" style="flex-direction: column; align-items: flex-start;">
+                            <div class="wallet-item-label">Status</div>
+                            <div class="wallet-item-value" id="wallet-status" style="color: var(--titan-glow); font-size: 12px;">Waiting...</div>
                         </div>
-                    </div>
-                    <div class="wallet-item" style="flex-direction: column; align-items: flex-start;">
-                        <div class="wallet-item-label">Status</div>
-                        <div class="wallet-item-value" id="wallet-status" style="color: var(--titan-glow); font-size: 12px;">Waiting...</div>
-                    </div>
-                    <div class="wallet-item" onclick="disconnectWallet()" style="justify-content: center; background: rgba(255, 50, 50, 0.1);">
-                        <span class="wallet-item-label" style="color: #ff5555;">[ DISCONNECT UPLINK ]</span>
+                        <div class="wallet-item" onclick="disconnectWallet()" style="justify-content: center; background: rgba(255, 50, 50, 0.1); cursor: pointer;">
+                            <span class="wallet-item-label" style="color: #ff5555;">[ DISCONNECT UPLINK ]</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
     <div class="hero">
         
         <div class="hero-badge">
             <div style="width:6px; height:6px; background:var(--titan-glow); border-radius:50%; box-shadow: 0 0 5px var(--titan-glow);"></div>
-            /// SILICON - ARM64 - NETWORK
+            /// COMPUTE - EXPAND - DOMINATE
         </div>
         
         <h1>SI64.NET<br>
-        <strong>COMPUTE  /  EXPANSION  /  DePIN</strong></h1>
+        <strong>ARM64  /  SILICON  /  DePIN</strong></h1>
         
-        <div class="subtitle">CAPITAL EFFICIENT • CRYPTOGRAPHIC PROOFS • SETTLED ON SOLANA</div>
+        <div class="subtitle">WEAPONIZED SILICON • ZERO RENT • SETTLED ON SOLANA</div>
     </div>
 
     <div id="rental-market" class="marketplace-section">
@@ -437,6 +531,64 @@
                 <div class="price">0.035 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
                 <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 <span id="avail-THOR">--</span> units online</div>
                 <button class="btn-tac" style="width:100%; justify-content: center; border-color: var(--loyalty-gold); color: var(--loyalty-gold);" onclick="rentHardware('THOR')">RENT INSTANCE</button>
+            </div>
+
+            <!-- GH200 SUPERCHIP (TOP-TIER ARM64) -->
+            <div class="rental-card" style="border: 1px solid rgba(255, 215, 0, 0.4); position: relative; overflow: hidden;">
+                <div class="tier-badge" style="background: rgba(255,215,0,0.9); color: #000;">SUPERCHIP</div>
+                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div class="hardware-name" style="margin-bottom: 0;">NVIDIA GH200</div>
+                    <span class="tag superchip">ARM64 SUPERCHIP</span>
+                </div>
+                <div class="specs">96GB HBM3 • 72 ARM Neoverse cores. Unified memory architecture for trillion-parameter model inference.</div>
+                <div class="price">0.085 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 ALLOCATING CAPACITY • REQUEST-ONLY ACCESS</div>
+                <button class="btn-tac" style="width:100%; justify-content: center; border-color: rgba(255,215,0,0.6); color: #ffd700;" onclick="alert('GH200 access is currently allocation-only. Contact SI64 ops for priority onboarding.');">REQUEST ACCESS</button>
+            </div>
+
+            <!-- FUJITSU A64FX VECTOR NODE (ARM64 + SVE) -->
+            <div class="rental-card" style="border: 1px solid rgba(0, 255, 204, 0.35); position: relative; overflow: hidden;">
+                <div class="tier-badge" style="background: rgba(0, 255, 204, 0.2); color: #00ffd0;">VECTOR</div>
+                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div class="hardware-name" style="margin-bottom: 0;">FUJITSU A64FX</div>
+                    <span class="tag vector">VECTOR SVE</span>
+                </div>
+                <div class="specs">512-bit SVE • ~1 TB/s bandwidth. Fugaku-class silicon for CFD, quant research, and crypto hashing.</div>
+                <div class="price">0.015 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 2 UNITS ONLINE • HPC VECTOR GRID</div>
+                <button class="btn-tac" style="width:100%; justify-content: center; border-color: rgba(0,255,204,0.6); color: #00ffd0;" onclick="alert('A64FX nodes are currently managed via direct ops allocation. Contact SI64 ops to schedule dedicated vector time.');">RENT NODE</button>
+            </div>
+        </div>
+
+        <!-- SWARM / LOW-POWER TIER -->
+        <div class="section-header" style="margin-top: 60px;">
+            <span>THE SWARM</span>
+            <span style="font-size: 11px; color: #556;">LOW POWER / HIGH AVAILABILITY</span>
+        </div>
+
+        <div class="rental-grid">
+            <div class="rental-card">
+                <div class="tier-badge">EDGE</div>
+                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div class="hardware-name" style="margin-bottom: 0;">Jetson Nano Swarm</div>
+                    <span class="tag" style="border-color:#00ffcc; color:#00ffcc;">EDGE VERIFIER</span>
+                </div>
+                <div class="specs">128 CUDA cores • 4GB RAM. The backbone of the swarm for heartbeat verification and routing.</div>
+                <div class="price">0.0001 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 12 UNITS ONLINE • NANO SWARM</div>
+                <button class="btn-tac" style="width:100%; justify-content: center;" onclick="alert('Nano swarm is currently reserved for internal edge verification. Public deployment queue opening soon.');">DEPLOY SWARM</button>
+            </div>
+
+            <div class="rental-card">
+                <div class="tier-badge">SCOUT</div>
+                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <div class="hardware-name" style="margin-bottom: 0;">Raspberry Pi Cluster</div>
+                    <span class="tag" style="border-color:#e91e63; color:#e91e63;">ARM64 SCOUT</span>
+                </div>
+                <div class="specs">Quad-core ARM • 4-8GB RAM. Low-power sentinels that maintain grid integrity and validate on-chain proofs.</div>
+                <div class="price">0.0001 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
+                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 45 UNITS ONLINE • RPI SCOUT GRID</div>
+                <button class="btn-tac" style="width:100%; justify-content: center;" onclick="alert('Raspberry Pi swarm rentals are coordinated per campaign. Contact SI64 ops for dedicated scout capacity.');">DEPLOY SWARM</button>
             </div>
         </div>
     </div>
@@ -574,13 +726,19 @@
         <div class="modal-box">
             <div class="close-btn" onclick="closeDeployModal()">×</div>
             <h3 style="color: #fff; font-family: 'Rajdhani'; margin-top: 0; font-size: 24px; font-weight: 600;">INIT WORKER NODE</h3>
-            <p style="color: #889; font-size: 13px; margin-bottom: 20px; font-family: 'JetBrains Mono';">
+            <p style="color: #889; font-size: 13px; margin-bottom: 10px; font-family: 'JetBrains Mono';">
                 Execute this sequence on your <strong>Orin / Thor / Mac Studio</strong> to join the grid.
+            </p>
+
+            <p style="color: var(--alert-red); font-size: 11px; margin-bottom: 10px; font-family: 'JetBrains Mono'; font-weight: 700;">
+                # [93mCRITICAL[0m: EDIT <code>~/.si64/config.json</code> WITH YOUR WALLET ADDRESS <strong>BEFORE</strong> STARTING.
             </p>
             
             <div class="code-block" id="deploy-cmd">git clone https://github.com/si64-net/core.git
-cd core && mkdir -p ~/.si64 && cp config.example.json ~/.si64/config.json
-python3 limb/worker_node.py --config ~/.si64/config.json --connect wss://si64.network</div>
+cd core
+pip install -r requirements.txt
+mkdir -p ~/.si64 && cp config.example.json ~/.si64/config.json
+python3 limb/worker_node.py --config ~/.si64/config.json --connect https://si64.net</div>
             
             <button class="btn-tac" style="width: 100%; justify-content: center;" onclick="navigator.clipboard.writeText(document.getElementById('deploy-cmd').innerText); this.innerText='COPIED TO CLIPBOARD';">COPY SEQUENCE</button>
         </div>
@@ -630,3 +788,402 @@ WE DO NOT WANT YOUR CONSUMER LAPTOPS.</span>
     </footer>
 
     <script>
+        // --- WALLET STATE ---
+        let walletConnected = false;
+        let currentWallet = null;
+        let walletBalance = 0;
+
+        const API_ENDPOINT = '/api/stats';
+        const RATES = {
+            'M2': 0.001,
+            'ORIN': 0.004,
+            'M3_ULTRA': 0.025,
+            'THOR': 0.035
+        };
+        const HARDWARE_NAMES = {
+            'M2': 'Apple M1/M2 Neural',
+            'ORIN': 'NVIDIA Jetson Orin',
+            'M3_ULTRA': 'Apple M3 Ultra Cluster',
+            'THOR': 'NVIDIA Jetson Thor'
+        };
+        
+        // Device inventory loaded dynamically from API
+        let DEVICE_INVENTORY = {
+            'M2': [],
+            'ORIN': [],
+            'M3_ULTRA': [],
+            'THOR': []
+        };
+        
+        let selectedDevice = null;
+
+        // --- WALLET MANAGEMENT ---
+        function toggleWalletMenu() {
+            const menu = document.getElementById('wallet-menu');
+            menu.classList.toggle('active');
+            if (menu.classList.contains('active') && !walletConnected) {
+                connectWallet();
+            }
+        }
+
+        async function connectWallet() {
+            try {
+                // Try to fetch TITAN bank wallet first (server-side)
+                const response = await fetch('/api/wallet');
+                const walletData = await response.json();
+                
+                if (walletData.connected) {
+                    currentWallet = walletData.address;
+                    walletBalance = walletData.balance;
+                    walletConnected = true;
+
+                    // Update UI
+                    const btn = document.getElementById('wallet-btn');
+                    const shortAddr = currentWallet.slice(0, 6) + "..." + currentWallet.slice(-4);
+                    document.getElementById('wallet-text').innerText = shortAddr;
+                    document.getElementById('wallet-addr').innerText = shortAddr;
+                    document.getElementById('wallet-status').innerText = "Connected ✓";
+                    document.getElementById('wallet-balance').innerText = walletBalance.toFixed(4) + " SOL";
+                    
+                    btn.style.borderColor = "var(--titan-glow)";
+                    btn.style.color = "#fff";
+                    btn.style.background = "var(--titan-dim)";
+
+                    console.log("TITAN wallet connected:", currentWallet);
+                } else {
+                    // Fallback: Try Phantom wallet
+                    if (!('solana' in window)) {
+                        console.warn("No TITAN wallet and no Phantom wallet found");
+                        alert("No wallet connected. Install Phantom wallet or ensure TITAN bank is configured.");
+                        return;
+                    }
+                    
+                    const resp = await window.solana.connect();
+                    currentWallet = resp.publicKey.toString();
+                    walletConnected = true;
+
+                    // Update UI
+                    const btn = document.getElementById('wallet-btn');
+                    document.getElementById('wallet-text').innerText = currentWallet.slice(0, 6) + "..." + currentWallet.slice(-4);
+                    document.getElementById('wallet-addr').innerText = currentWallet.slice(0, 6) + "..." + currentWallet.slice(-4);
+                    document.getElementById('wallet-status').innerText = "Connected ✓";
+                    
+                    btn.style.borderColor = "var(--titan-glow)";
+                    btn.style.color = "#fff";
+                    btn.style.background = "var(--titan-dim)";
+
+                    // Fetch wallet balance from Solana
+                    await fetchWalletBalance(currentWallet);
+                    console.log("Phantom wallet connected:", currentWallet);
+                }
+            } catch (err) {
+                console.error("Wallet connection failed:", err);
+                alert("Failed to connect wallet: " + err.message);
+            }
+        }
+
+        async function fetchWalletBalance(wallet) {
+            try {
+                const response = await fetch('https://api.mainnet-beta.solana.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        jsonrpc: '2.0',
+                        id: 1,
+                        method: 'getBalance',
+                        params: [wallet]
+                    })
+                });
+                const data = await response.json();
+                walletBalance = (data.result.value || 0) / 1_000_000_000;
+                document.getElementById('wallet-balance').innerText = walletBalance.toFixed(4) + " SOL";
+            } catch (e) {
+                console.log("Could not fetch balance:", e);
+            }
+        }
+
+        function disconnectWallet() {
+            walletConnected = false;
+            currentWallet = null;
+            walletBalance = 0;
+            
+            document.getElementById('wallet-text').innerText = "CONNECT WALLET";
+            document.getElementById('wallet-addr').innerText = "Not Connected";
+            document.getElementById('wallet-status').innerText = "Disconnected";
+            document.getElementById('wallet-balance').innerText = "--";
+            document.getElementById('wallet-menu').classList.remove('active');
+            const pointsEl = document.getElementById('user-points');
+            if (pointsEl) pointsEl.innerText = "CONNECT";
+            
+            const btn = document.getElementById('wallet-btn');
+            btn.style.borderColor = "";
+            btn.style.color = "";
+            btn.style.background = "";
+        }
+
+        // --- DEVICE SELECTION ---
+        async function openDeviceModal(tier) {
+            selectedDevice = null;
+            window.currentRentalTier = tier;
+            const deviceList = document.getElementById('device-list');
+            
+            // Show modal immediately with loading state
+            const modal = document.getElementById('device-modal');
+            if (modal) modal.style.display = 'flex';
+            
+            // Show loading message
+            if (deviceList) {
+                deviceList.innerHTML = `<div style="text-align: center; padding: 40px; color: #556; font-family:'JetBrains Mono';">LOADING AVAILABLE DEVICES...</div>`;
+            }
+            
+            // Try to fetch real-time device data from API
+            try {
+                const response = await fetch(`/api/devices/${tier}`);
+                if (response.ok) {
+                    const devices = await response.json();
+                    renderDeviceList(devices);
+                } else {
+                    renderDeviceList(DEVICE_INVENTORY[tier] || []);
+                }
+            } catch (e) {
+                console.log("Using local inventory for tier:", tier);
+                renderDeviceList(DEVICE_INVENTORY[tier] || []);
+            }
+        }
+        
+        function renderDeviceList(devices) {
+            const deviceList = document.getElementById('device-list');
+            if (!deviceList) return;
+
+            if (!devices || devices.length === 0) {
+                deviceList.innerHTML = `<div style="text-align: center; padding: 40px; color: #556; font-family:'JetBrains Mono';">NO DEVICES ONLINE FOR THIS TIER</div>`;
+                return;
+            }
+
+            deviceList.innerHTML = devices.map(device => `
+                <div class="device-row" style="padding: 12px 16px; border-bottom: 1px solid rgba(10, 255, 240, 0.1); cursor: pointer; font-family:'JetBrains Mono'; font-size: 11px; display:flex; justify-content:space-between; align-items:center;"
+                     onclick="selectDevice('${device.id}', this)">
+                    <span>${device.name} • ${device.region}</span>
+                    <span style="color: var(--titan-glow);">${device.ram}</span>
+                </div>
+            `).join('');
+        }
+        
+        function selectDevice(deviceId, element) {
+            selectedDevice = deviceId;
+            document.querySelectorAll('#device-list .device-row').forEach(el => {
+                el.style.background = '';
+            });
+            if (element) {
+                element.style.background = 'rgba(10, 255, 240, 0.15)';
+            }
+        }
+        
+        function closeDeviceModal() {
+            const modal = document.getElementById('device-modal');
+            if (modal) modal.style.display = 'none';
+            selectedDevice = null;
+        }
+        
+        function confirmDeviceSelection() {
+            if (!selectedDevice) {
+                alert("Please select a device.");
+                return;
+            }
+            closeDeviceModal();
+            proceedToRentalModal();
+        }
+
+        // --- RENTAL FLOW ---
+        async function rentHardware(tier) {
+            if (!walletConnected) {
+                alert("Please connect your wallet first.");
+                toggleWalletMenu();
+                return;
+            }
+            openDeviceModal(tier);
+        }
+        
+        function proceedToRentalModal() {
+            const tier = window.currentRentalTier;
+            if (!tier) return;
+            
+            // Populate rental modal
+            document.getElementById('rental-hardware').innerText = HARDWARE_NAMES[tier];
+            document.getElementById('rental-rate').innerText = RATES[tier].toFixed(4) + " SOL/hr";
+            
+            const hardwareCost = RATES[tier];
+            const fee = hardwareCost * 0.001;
+            const tip = 0.00005;
+            const total = hardwareCost + fee + tip;
+
+            document.getElementById('summary-hardware').innerText = hardwareCost.toFixed(6) + " SOL";
+            const tipEl = document.getElementById('summary-tip');
+            if (tipEl) tipEl.innerText = tip.toFixed(5) + " SOL";
+            document.getElementById('summary-total').innerText = total.toFixed(6) + " SOL";
+            document.getElementById('rental-total').innerText = total.toFixed(6) + " SOL";
+
+            // Store current tier
+            window.currentRentalTier = tier;
+
+            // Show modal
+            document.getElementById('rental-modal').classList.add('active');
+        }
+
+        function closeRentalModal() {
+            document.getElementById('rental-modal').classList.remove('active');
+        }
+
+        async function signRentalContract() {
+            if (!window.currentRentalTier) return;
+
+            const tier = window.currentRentalTier;
+            const hardwareCost = RATES[tier];
+            const fee = hardwareCost * 0.001;
+            const tip = 0.00005;
+            const total = hardwareCost + fee + tip;
+
+            if (walletBalance < total) {
+                alert(`Insufficient balance. Need ${total.toFixed(6)} SOL, have ${walletBalance.toFixed(6)} SOL`);
+                return;
+            }
+
+            try {
+                const btn = event.target;
+                btn.innerText = "SIGNING...";
+                btn.disabled = true;
+
+                // Create pseudo transaction signature for demo
+                const fakeSig = "5s" + Math.random().toString(36).substring(2, 15) + "SI64Rental";
+                
+                // Call backend to record rental
+                const res = await fetch("/api/rent", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", "x-genesis-key": "TITAN_GENESIS_KEY_V1_SECURE" },
+                    body: JSON.stringify({
+                        wallet: currentWallet,
+                        tier: tier,
+                        duration_hours: 1,
+                        tx_signature: fakeSig,
+                        amount: total
+                    })
+                });
+
+                const data = await res.json();
+                if (data.contract_id) {
+                    alert(`✓ Contract Deployed!\n\nContract ID: ${data.contract_id}\nStatus: ACTIVE\nCompute allocation in progress...`);
+                    closeRentalModal();
+                    updateDashboard();
+                } else {
+                    alert("Deployment failed: " + (data.detail || "Unknown error"));
+                }
+            } catch (e) {
+                alert("Transaction failed: " + e.message);
+            } finally {
+                event.target.innerText = "SIGN & DEPLOY";
+                event.target.disabled = false;
+            }
+        }
+
+        // --- MODAL LOGIC ---
+        function openDeployModal() { 
+            if (!walletConnected) {
+                alert("Please connect your wallet first to provide compute.");
+                toggleWalletMenu();
+                return;
+            }
+            document.getElementById('deploy-modal').style.display = 'flex'; 
+        }
+        function closeDeployModal() { document.getElementById('deploy-modal').style.display = 'none'; }
+
+        // --- TELEMETRY ---
+        async function updateDashboard() {
+            try {
+                const response = await fetch(API_ENDPOINT);
+                if (!response.ok) throw new Error('API Offline');
+                const data = await response.json();
+
+                const fleet = data.fleet_size || data.fleet || 0;
+                const queue = (data.queue_depth || data.queue || 0).toLocaleString();
+                const revenue = parseFloat(data.total_revenue || data.paid || 0).toFixed(4);
+                
+                // Fetch real-time device data for all tiers
+                const tiers = ['M2', 'ORIN', 'M3_ULTRA', 'THOR'];
+                for (const tier of tiers) {
+                    try {
+                        const deviceResponse = await fetch(`/api/devices/${tier}`);
+                        if (deviceResponse.ok) {
+                            const devices = await deviceResponse.json();
+                            DEVICE_INVENTORY[tier] = Array.isArray(devices) ? devices : [];
+                        }
+                    } catch (e) {
+                        DEVICE_INVENTORY[tier] = [];
+                    }
+                }
+                
+                const availM2 = document.getElementById('avail-M2');
+                const availORIN = document.getElementById('avail-ORIN');
+                const availM3 = document.getElementById('avail-M3_ULTRA');
+                const availTHOR = document.getElementById('avail-THOR');
+                if (availM2) availM2.innerText = (DEVICE_INVENTORY['M2'] || []).length;
+                if (availORIN) availORIN.innerText = (DEVICE_INVENTORY['ORIN'] || []).length;
+                if (availM3) availM3.innerText = (DEVICE_INVENTORY['M3_ULTRA'] || []).length;
+                if (availTHOR) availTHOR.innerText = (DEVICE_INVENTORY['THOR'] || []).length;
+
+                const fleetEl = document.getElementById('fleet-size');
+                const queueEl = document.getElementById('queue-depth');
+                const revEl = document.getElementById('revenue');
+                if (fleetEl) fleetEl.innerText = fleet;
+                if (queueEl) queueEl.innerText = queue;
+                if (revEl) revEl.innerText = '◎ ' + revenue;
+
+                const tbody = document.getElementById('ledger-body');
+                if (tbody) {
+                    if (data.transactions && data.transactions.length > 0) {
+                        tbody.innerHTML = data.transactions.map(tx => {
+                            const workerFull = (tx.worker || tx.entity || "").toString();
+                            const workerShort = workerFull
+                                ? (workerFull.length > 12
+                                    ? workerFull.slice(0, 6) + "..." + workerFull.slice(-4)
+                                    : workerFull)
+                                : "—";
+                            const kind = tx.type === 'RENTAL' ? 'RENTAL' : 'JOB';
+                            const timeLabel = (tx.time || '').toString();
+                            const timeShort = timeLabel.includes(' ') ? timeLabel.split(' ')[1] : timeLabel;
+                            const amountVal = parseFloat(tx.amount || tx.val || 0).toFixed(4);
+                            return `
+                            <tr>
+                                <td style="font-family:'JetBrains Mono'; color: #fff;">${(tx.job_id || '').toString().slice(0,8)}</td>
+                                <td style="color:#889">
+                                    <span>${workerShort}</span>
+                                    <span style="margin-left:6px; font-size:9px; color:#556;">[${kind}]</span>
+                                </td>
+                                <td style="color:var(--titan-glow)">◎ ${amountVal}</td>
+                                <td>${timeShort}</td>
+                                <td><span style="color: #6f9;">CONFIRMED</span></td>
+                            </tr>`;
+                        }).join('');
+                    } else {
+                        if (!tbody.innerHTML.includes('tr')) {
+                            tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #556; padding: 40px; font-family:'JetBrains Mono'">WAITING FOR NEXT BLOCK...</td></tr>`;
+                        }
+                    }
+                }
+
+            } catch (e) { console.error('Telemetry Link Lost', e); }
+        }
+
+        window.addEventListener('load', async () => { await updateDashboard(); });
+        setInterval(updateDashboard, 2000);
+
+        document.addEventListener('click', (e) => {
+            const dropdown = document.querySelector('.wallet-dropdown');
+            if (dropdown && !dropdown.contains(e.target)) {
+                const menu = document.getElementById('wallet-menu');
+                if (menu) menu.classList.remove('active');
+            }
+        });
+    </script>
+
+</body>
+</html>

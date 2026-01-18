@@ -10,14 +10,16 @@ import json
 import time
 import random
 import statistics
+import os
 from datetime import datetime
 from typing import List, Dict
 from collections import defaultdict
 from urllib.parse import urlencode
 
 class StressTestHarness:
-    def __init__(self, base_url="http://127.0.0.1:8000", api_key=None):
-        self.base_url = base_url
+    def __init__(self, base_url=None, api_key=None):
+        # Allow overriding target via environment for flexibility
+        self.base_url = base_url or os.getenv("TITAN_BASE_URL", "http://127.0.0.1:8000")
         self.api_key = api_key or os.getenv("TITAN_GENESIS_KEY")
         if not self.api_key:
             raise RuntimeError("Missing TITAN_GENESIS_KEY environment variable for authenticated tests.")
@@ -145,7 +147,7 @@ class StressTestHarness:
                     # Properly URL-encode the payload
                     query_params = urlencode({"id": payload})
                     async with session.get(
-                        f"{self.base_url}/api/stats?{query_params}",
+                        f"{self.base_url}/api/admin/stats?{query_params}",
                         headers=self.headers,
                         timeout=aiohttp.ClientTimeout(total=5)
                     ) as resp:
@@ -235,7 +237,7 @@ class StressTestHarness:
                 tasks = []
                 for _ in range(requests_per_second):
                     task = session.get(
-                        f"{self.base_url}/api/stats",
+                        f"{self.base_url}/api/admin/stats",
                         headers=self.headers,
                         timeout=aiohttp.ClientTimeout(total=2)
                     )
@@ -298,7 +300,7 @@ class StressTestHarness:
                 
                 try:
                     async with session.get(
-                        f"{self.base_url}/api/stats",
+                        f"{self.base_url}/api/admin/stats",
                         headers=headers,
                         timeout=aiohttp.ClientTimeout(total=5)
                     ) as resp:

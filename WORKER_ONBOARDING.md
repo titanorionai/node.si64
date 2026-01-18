@@ -54,12 +54,12 @@ mkdir -p ~/.si64
 cp config.example.json ~/.si64/config.json
 ```
 
-Edit `~/.si64/config.json` and set:
+Edit `~/.si64/config.json` and set (for mainnet/production):
 ```json
 {
   "worker_id": "your-device-name",
-  "dispatcher_host": "si64.network",
-  "ws_endpoint": "wss://si64.network/connect",
+  "dispatcher_host": "si64.net",
+  "ws_endpoint": "wss://si64.net/connect",
   "solana_wallet": "YOUR_PUBLIC_KEY_HERE",
   "hardware": {
     "cpu_cores": 8,
@@ -77,17 +77,17 @@ Edit `~/.si64/config.json` and set:
 ```bash
 python3 limb/worker_node.py \
   --config ~/.si64/config.json \
-  --connect wss://si64.network
+  --connect https://si64.net
 ```
 
 ### Step 4: Verify It's Running
 
-Open another terminal and check:
+From any machine with internet access:
 ```bash
-curl http://localhost:8000/api/stats
+curl https://si64.net/api/stats
 ```
 
-You should see your worker listed in the fleet.
+You should see `"fleet_size": 1` (or higher) and your worker reflected in the telemetry.
 
 ---
 
@@ -113,7 +113,7 @@ Your rate is locked in your config. Don't overprice (won't get jobs) or underpri
 {
   "worker_id": "string",              // Unique identifier (auto-generated if missing)
   "genesis_key": "string",            // Security token (set by dispatcher, don't edit)
-  "dispatcher_host": "si64.network",  // Network endpoint
+  "dispatcher_host": "si64.net",      // Network endpoint (Cloudflare tunnel to the dispatcher)
   "dispatcher_port": 443,             // HTTPS port
   "ws_endpoint": "string",            // WebSocket URI
   "solana_wallet": "string",          // Public key for payouts
@@ -256,11 +256,11 @@ If your worker crashes or network drops:
 
 ### Worker Won't Connect
 
-**Error:** `Failed to connect to wss://si64.network`
+**Error:** `Failed to connect to wss://si64.net/connect`
 
 **Causes & Fixes:**
 1. Check internet connection: `ping 8.8.8.8`
-2. Check firewall allows outbound WSS (port 443): `nc -zv si64.network 443`
+2. Check firewall allows outbound WSS (port 443): `nc -zv si64.net 443`
 3. Restart worker: `Ctrl+C` and re-run Python command
 4. Check dispatcher is live: `curl https://si64.net/api/stats`
 

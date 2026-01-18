@@ -94,54 +94,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.vanguard
-    container_name: titan-vanguard-unit
-    
-    # [TACTICAL] Operational Resilience
-    restart: unless-stopped
-    networks:
-      - titan-network
-    
-    # [HARDWARE] Resource Allocation (Prevents runaway processes)
-    deploy:
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 1G
-        reservations:
-          cpus: '0.25'
-          memory: 256M
-
-    # [SECURITY] Credential Injection
-    # Loads API keys from the secure .env vault automatically
+    container_name: titan-vanguard
+    # FORCE FEED THE KEYS FROM THE FILE
     env_file:
       - .env
-
-    # [CONFIGURATION] Mission Parameters
-    environment:
-      # Internal Command & Control Uplinks
-      - TITAN_BRAIN_URL=http://titan-brain:8000/api/stats
-      - TITAN_OLLAMA_URL=http://titan-ollama-engine:11434/api/generate
-      
-      # Personality Matrix (JUGGERNAUT V5.0)
-      - BOT_MODE=${BOT_MODE:-DIGITAL_JUGGERNAUT}
-      - POST_INTERVAL_MIN=${POST_INTERVAL_MIN:-60}
-      - POST_INTERVAL_MAX=${POST_INTERVAL_MAX:-180}
-      
-      # System Telemetry
-      - LOG_LEVEL=INFO
-      - MAX_NET_RETRIES=5
-
-    # [HEALTH] Heartbeat Monitor (Auto-restarts if bot freezes)
-    healthcheck:
-      test: ["CMD-SHELL", "test -f /tmp/vanguard_heartbeat"]
-      interval: 60s
-      timeout: 10s
-      retries: 3
-      start_period: 30s
-
-    depends_on:
-      ollama:
-        condition: service_started
+    volumes:
+      - ./scripts:/app
+      - ./tweets.txt:/app/tweets.txt
+    # RESTART AUTOMATICALLY IF IT CRASHES
+    restart: always
+    network_mode: "host"
 
 volumes:
   ollama-models:

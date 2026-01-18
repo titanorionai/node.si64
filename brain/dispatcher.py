@@ -97,7 +97,10 @@ def preflight_system_check():
     # 1. REDIS CHECK
     try:
         import redis
-        r_check = redis.Redis(host='localhost', port=6379, socket_connect_timeout=1)
+        redis_host = os.getenv('REDIS_HOST', 'localhost')
+        redis_port = int(os.getenv('REDIS_PORT', '6379'))
+        redis_password = os.getenv('REDIS_PASSWORD')
+        r_check = redis.Redis(host=redis_host, port=redis_port, password=redis_password, socket_connect_timeout=1)
         if not r_check.ping(): raise ConnectionError
         print("   [✓] NEURAL LINK (REDIS): ONLINE")
     except:
@@ -117,7 +120,8 @@ preflight_system_check()
 # Redis connection - use environment variables if running in Docker
 REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
 REDIS_PORT = int(os.getenv('REDIS_PORT', '6379'))
-redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0, decode_responses=True)
+REDIS_PASSWORD = os.getenv('REDIS_PASSWORD')
+redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, db=0, decode_responses=True)
 api_key_header = APIKeyHeader(name="x-genesis-key", auto_error=False)
 
 # --- SECURITY: RATE LIMITING MIDDLEWARE ---
@@ -142,14 +146,20 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         self.clients[client_ip].append(now)
         return await call_next(request)
 
-app.add_middleware(RateLimitMiddleware)
+# Global rate limiting: tuned for stronger DoS protection while
+# allowing normal interactive usage from dashboards and tools.
+# At 10-second windows, this allows up to ~4.5 RPS per client IP.
+app.add_middleware(RateLimitMiddleware, calls=45, period=10)
 
 # --- DATA MODELS ---
 class JobRequest(BaseModel):
     type: str = Field(..., description="Job Classification")
     prompt: str = Field(..., description="Intelligence Payload")
-    hardware: str = Field(default="UNIT_ORIN_AGX")
-    
+    # Default to standard GPU pool; legacy tests used ORIN-specific queue
+    hardware: str = Field(default="UNIT_NVIDIA_CUDA")
+    # Optional per-job bounty override (SOL). If omitted, ValuationEngine is used.
+    bounty: Optional[float] = Field(default=None, description="Per-job bounty in SOL")
+
     @validator('prompt')
     def sanitize(cls, v): return html.escape(v)
 
@@ -204,6 +214,10 @@ class TitanVault:
                 event_id TEXT PRIMARY KEY, contract_id TEXT, event_type TEXT,
                 amount_sol REAL, cpu_percent REAL, memory_mb REAL, timestamp DATETIME)''')
             conn.commit()
+        try:
+            os.chmod(self.db_path, 0o600)
+        except Exception:
+            logger.warning("VAULT: Unable to harden ledger file permissions")
 
     def record_job(self, job_id, wallet, amount, tx_sig, status="CONFIRMED"):
         try:
@@ -261,9 +275,14 @@ class TitanVault:
 # --- TITAN BANK (ON-CHAIN SETTLEMENT) ---
 class TitanBank:
     def __init__(self, keypair_path, rpc_url):
+        # Preserve the RPC URL for diagnostics and mode selection
+        self.rpc_url = rpc_url
         self.client = AsyncClient(rpc_url) if AsyncClient else None
         self.keypair = None
         self.enabled = False
+        # Simple Mode: Native SOL transfers only (no custom programs)
+        # Can be toggled via env to avoid program-id issues on different clusters.
+        self.simple_mode = os.getenv("TITAN_BANK_SIMPLE_MODE", "true").lower() == "true"
         
         # Load Treasury Key
         if os.path.exists(keypair_path) and Keypair:
@@ -275,8 +294,11 @@ class TitanBank:
             except: logger.warning("TREASURY: KEY INVALID")
         else: logger.warning("TREASURY: OFFLINE (SIMULATION)")
 
-        # Memo Program ID
-        self.memo_program_id = Pubkey.from_string("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcQb") if Pubkey else None
+        # Memo Program ID (optional; disabled in simple_mode)
+        if not self.simple_mode and Pubkey:
+            self.memo_program_id = Pubkey.from_string("MemoSq4gqABAXKb96qnH8TysNcWxMyWCqXgDLGmfcQb")
+        else:
+            self.memo_program_id = None
 
     async def verify_transaction(self, signature: str, required_amount: float) -> bool:
         """Audits inbound rental payments on-chain."""
@@ -290,34 +312,40 @@ class TitanBank:
 
     async def settle_contract(self, wallet_address: str, amount_sol: float, job_id: str, result_hash: str):
         """
-        Executes DeFi Settlement: Transfer + Proof of Intelligence (Memo).
+        Executes DeFi Settlement.
+        - Simple Mode: Native SOL transfer only (default for robustness).
+        - Full Mode: Adds Memo instruction for on-chain proof.
         """
         if not self.enabled: return "SIMULATION_TX_SIG"
 
         try:
             worker_share = int(amount_sol * WORKER_FEE_PERCENT * 1e9) # Lamports
-            
-            # Instructions
+
+            # Base transfer instruction (native SOL transfer)
             transfer_ix = transfer(
                 TransferParams(
-                    from_pubkey=self.keypair.pubkey(), 
-                    to_pubkey=Pubkey.from_string(wallet_address), 
+                    from_pubkey=self.keypair.pubkey(),
+                    to_pubkey=Pubkey.from_string(wallet_address),
                     lamports=worker_share
                 )
             )
-            
-            # Proof (Memo) -> "TITAN-V1:{JOB_ID}:{HASH}"
-            memo_content = f"TITAN-V1:{job_id}:{result_hash}".encode("utf-8")
-            memo_ix = Instruction(
-                program_id=self.memo_program_id,
-                accounts=[],
-                data=memo_content
-            )
+
+            instructions = [transfer_ix]
+
+            # Optional Memo for full mode
+            if not self.simple_mode and self.memo_program_id is not None:
+                memo_content = f"TITAN-V1:{job_id}:{result_hash}".encode("utf-8")
+                memo_ix = Instruction(
+                    program_id=self.memo_program_id,
+                    accounts=[],
+                    data=memo_content
+                )
+                instructions.insert(0, memo_ix)
 
             # Transaction Assembly
             blockhash = (await self.client.get_latest_blockhash()).value.blockhash
             msg = Message.new_with_blockhash(
-                [memo_ix, transfer_ix], 
+                instructions,
                 self.keypair.pubkey(), 
                 blockhash
             )
@@ -332,7 +360,8 @@ class TitanBank:
         except Exception as e:
             logger.error(f"SETTLEMENT FAILED: {type(e).__name__}: {str(e)}")
             logger.error(f"  Amount: {amount_sol} SOL | Wallet: {wallet_address}")
-            logger.error(f"  RPC: {self.rpc_url} | Client Status: {'OK' if self.client else 'OFFLINE'}")
+            # Self.rpc_url is always defined in __init__
+            logger.error(f"  RPC: {self.rpc_url} | Client Status: {'OK' if self.client else 'OFFLINE'} | SimpleMode: {self.simple_mode}")
             return "FAILED"
     
     async def get_balance(self) -> float:
@@ -376,22 +405,143 @@ async def shutdown():
 async def dashboard(request: Request): return templates.TemplateResponse("index.html", {"request": request})
 
 @app.get("/api/stats")
-async def stats(key: str = Security(api_key_header)):
-    if key and key != GENESIS_KEY: raise HTTPException(401)
-    
+async def stats(request: Request):
+    """Public telemetry endpoint for dashboard.
+
+    Exposes aggregate fleet stats without authentication so the
+    public web UI at https://si64.net can poll it directly.
+    No sensitive per-node data is returned here.
+    """
     # Aggregated Swarm Telemetry
     fleet = await redis_client.scard("pool:UNIT_ORIN_AGX:active") + \
-            await redis_client.scard("pool:UNIT_APPLE_M_SERIES:active") + \
-            await redis_client.scard("pool:UNIT_NVIDIA_CUDA:active")
-            
+        await redis_client.scard("pool:UNIT_APPLE_M_SERIES:active") + \
+        await redis_client.scard("pool:UNIT_NVIDIA_CUDA:active")
+
+    # Primary production queue is STD GPU; legacy ORIN queues may contain
+    # historical test jobs that are no longer routed to active workers.
+    queue_depth = await redis_client.llen("queue:UNIT_NVIDIA_CUDA")
+
     return {
         "status": "OPERATIONAL",
         "treasury_mode": "MAINNET" if bank.enabled else "SIMULATION",
         "fleet_size": fleet,
-        "queue_depth": await redis_client.llen("queue:UNIT_ORIN_AGX"),
+        "queue_depth": queue_depth,
         "total_revenue": vault.get_financials(),
         "transactions": vault.get_recent_activity(10)
     }
+
+@app.get("/api/admin/stats")
+async def admin_stats(request: Request, key: str = Security(api_key_header), id: Optional[str] = None):
+    """Admin-only stats endpoint with stricter validation and auth.
+
+    Used by internal threat/stress harnesses. Requires the genesis API key
+    and rejects obviously malicious query payloads.
+    """
+    if key != GENESIS_KEY:
+        raise HTTPException(401)
+
+    # Simple SQLi/XSS-style payload detection on the optional id parameter
+    if id is not None:
+        suspicious_tokens = ("'", '"', ";", "--", "/*", "*/")
+        if any(tok in id for tok in suspicious_tokens):
+            raise HTTPException(400, "Invalid id parameter")
+
+    fleet = await redis_client.scard("pool:UNIT_ORIN_AGX:active") + \
+            await redis_client.scard("pool:UNIT_APPLE_M_SERIES:active") + \
+            await redis_client.scard("pool:UNIT_NVIDIA_CUDA:active")
+
+    queue_depth = await redis_client.llen("queue:UNIT_NVIDIA_CUDA")
+
+    return {
+        "status": "OPERATIONAL",
+        "treasury_mode": "MAINNET" if bank.enabled else "SIMULATION",
+        "fleet_size": fleet,
+        "queue_depth": queue_depth,
+        "total_revenue": vault.get_financials(),
+        "transactions": vault.get_recent_activity(10)
+    }
+
+@app.get("/api/admin/bounties")
+async def admin_bounties(request: Request, key: str = Security(api_key_header), limit: int = 10):
+    """Admin-only view: recent job payouts with their original bounty.
+
+    Requires the genesis API key. Uses the ledger for settled amounts and Redis
+    metadata (`job:{id}:bounty`) for the requested bounty. Intended for quick
+    verification that random/configured bounties are being respected.
+    """
+    if key != GENESIS_KEY:
+        raise HTTPException(401)
+
+    if limit <= 0 or limit > 100:
+        limit = 10
+
+    # Recent financial activity already ordered by timestamp desc
+    recent = vault.get_recent_activity(limit)
+    jobs_only = [r for r in recent if r.get("type") == "JOB"]
+
+    out = []
+    for rec in jobs_only:
+        jid = rec.get("job_id")
+        bounty_val = None
+        try:
+            stored = await redis_client.get(f"job:{jid}:bounty")
+            if stored is not None:
+                bounty_val = float(stored)
+        except Exception as e:
+            logger.warning(f"Bounty introspection failed for job {jid}: {e}")
+
+        out.append({
+            "job_id": jid,
+            "worker": rec.get("worker"),
+            "settled_amount": rec.get("amount"),
+            "bounty": bounty_val,
+            "time": rec.get("time"),
+            "tx": rec.get("tx")
+        })
+
+    return {"results": out}
+
+@app.post("/api/admin/reap_ghosts")
+async def admin_reap_ghosts(request: Request, key: str = Security(api_key_header)):
+    """Admin-only: remove ghost nodes from Redis active sets.
+
+    A "ghost" is any node ID present in Redis (active_nodes / pools) that does
+    not have a live uplink in SwarmCommander.active_uplinks. This can happen
+    if a worker process is killed ungracefully. Reaping ghosts keeps
+    fleet_size and pool membership aligned with reality.
+    """
+    if key != GENESIS_KEY:
+        raise HTTPException(401)
+
+    try:
+        # Snapshot current registry and live uplinks
+        active = await redis_client.smembers("active_nodes")
+        live = set(commander.active_uplinks.keys())
+
+        ghosts = [nid for nid in active if nid not in live]
+
+        removed = []
+        for nid in ghosts:
+            # Remove from global active set
+            await redis_client.srem("active_nodes", nid)
+            # Attempt to remove from all known hardware pools (cheap, idempotent)
+            for pool in [
+                "pool:UNIT_ORIN_AGX:active",
+                "pool:UNIT_APPLE_M_SERIES:active",
+                "pool:UNIT_NVIDIA_CUDA:active",
+            ]:
+                await redis_client.srem(pool, nid)
+            removed.append(nid)
+
+        # Recompute fleet after cleanup
+        fleet = await redis_client.scard("pool:UNIT_ORIN_AGX:active") + \
+                await redis_client.scard("pool:UNIT_APPLE_M_SERIES:active") + \
+                await redis_client.scard("pool:UNIT_NVIDIA_CUDA:active")
+
+        return {"removed": removed, "fleet_size": fleet}
+    except Exception as e:
+        logger.error(f"Ghost reap failed: {e}")
+        raise HTTPException(500, "Ghost reap failed")
 
 @app.get("/api/wallet")
 async def get_wallet_info():
@@ -804,23 +954,38 @@ async def get_billing_ledger():
 
 @app.post("/submit_job")
 async def submit(job: JobRequest, key: str = Security(api_key_header)):
-    if key != GENESIS_KEY: raise HTTPException(401)
-    
-    # 1. Valuation
-    est_value = ValuationEngine.appraise(job.type)
-    
-    # 2. Hardware Routing
-    try: hw = HardwareClass(job.hardware)
-    except: hw = HardwareClass.JETSON_ORIN
-    
+    if key != GENESIS_KEY:
+        raise HTTPException(401)
+
+    # 1. Valuation: prefer explicit bounty if provided, otherwise use oracle
+    if job.bounty is not None:
+        est_value = float(job.bounty)
+    else:
+        est_value = ValuationEngine.appraise(job.type)
+
+    # 2. Hardware Routing (default to standard GPU pool)
+    try:
+        hw = HardwareClass(job.hardware)
+    except Exception:
+        hw = HardwareClass.STD_GPU
+
     # 3. Dispatch
     payload = job.dict()
     payload["contract_value"] = est_value
-    
+
     directive = JobDirective(tier=MissionTier.BETA, hardware_req=hw, payload=payload)
     jid = await commander.dispatch_mission(directive)
-    
-    if jid: return {"status": "CONTRACT_ISSUED", "job_id": jid, "value_sol": est_value}
+
+    if jid:
+        # Persist bounty so settlement can use the exact agreed value
+        try:
+            await redis_client.set(f"job:{jid}:bounty", est_value)
+            # Safety: expire bounty metadata after 24h to avoid unbounded growth
+            await redis_client.expire(f"job:{jid}:bounty", 86400)
+        except Exception as e:
+            logger.warning(f"Failed to persist bounty for job {jid}: {e}")
+        return {"status": "CONTRACT_ISSUED", "job_id": jid, "value_sol": est_value}
+
     raise HTTPException(500, "Dispatch Failed")
 
 @app.websocket("/connect")
@@ -867,21 +1032,31 @@ async def ws_endpoint(ws: WebSocket):
                 jid = msg.get("job_id")
                 worker_wallet = msg.get("wallet_address")
                 result_content = msg.get("result", "")
-                
+
                 # Proof of Intelligence (Simple Hash)
                 result_hash = hashlib.sha256(str(result_content).encode()).hexdigest()[:16]
-                
-                # Valuation Lookup (Ideally from Redis, using estimate for now)
-                payout_value = 0.001 if "Rust" in str(result_content) else 0.0002
-                
+
+                # Valuation Lookup: prefer the original agreed bounty if available
+                payout_value: float
+                try:
+                    stored = await redis_client.get(f"job:{jid}:bounty")
+                    if stored is not None:
+                        payout_value = float(stored)
+                    else:
+                        # Fallback heuristic: content-based or default oracle value
+                        payout_value = 0.001 if "Rust" in str(result_content) else ValuationEngine.appraise("DEFAULT")
+                except Exception as e:
+                    logger.warning(f"Bounty lookup failed for job {jid}: {e}")
+                    payout_value = ValuationEngine.appraise("DEFAULT")
+
                 # Execute Settlement
                 tx_sig = await bank.settle_contract(worker_wallet, payout_value, jid, result_hash)
                 vault.record_job(jid, worker_wallet, payout_value, tx_sig)
-                
+
                 await loyalty.award(nid, 100, "JOB_DONE")
                 await ws.send_text(json.dumps({
-                    "type": "ACK", 
-                    "status": "SETTLED", 
+                    "type": "ACK",
+                    "status": "SETTLED",
                     "tx_signature": tx_sig,
                     "value": payout_value
                 }))

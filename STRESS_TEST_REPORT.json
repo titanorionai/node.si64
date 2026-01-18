@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-01-17T00:35:00.353692",
+  "timestamp": "2026-01-18T09:23:01.641632",
   "tests": [
     {
       "name": "Job Stress Test",
@@ -9,11 +9,11 @@
         "successful": 50,
         "failed": 0,
         "success_rate": "100.0%",
-        "total_time": 0.15454387664794922,
-        "avg_response_time": 0.01299656867980957,
-        "min_response_time": 0.009215593338012695,
-        "max_response_time": 0.023692607879638672,
-        "throughput_jobs_per_sec": 323.5327150094723
+        "total_time": 0.6021010875701904,
+        "avg_response_time": 0.016237406730651854,
+        "min_response_time": 0.0075833797454833984,
+        "max_response_time": 0.05273866653442383,
+        "throughput_jobs_per_sec": 83.04253394023509
       }
     },
     {
@@ -40,10 +40,10 @@
     {
       "name": "Rate Limiting / DoS Protection",
       "status": "EFFECTIVE",
-      "rate_limited": 150,
-      "successful": 0,
+      "rate_limited": 88,
+      "successful": 62,
       "total_requests": 150,
-      "effectiveness": "100.0%"
+      "effectiveness": "58.7%"
     }
   ],
   "metrics": {}

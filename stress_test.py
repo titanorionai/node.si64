@@ -13,10 +13,12 @@ import httpx
 BASE = Path(__file__).resolve().parent
 VENV_PY = BASE / 'venv' / 'bin' / 'python'
 DISPATCHER_URL = 'http://127.0.0.1:8000'
-# Read genesis key strictly from environment; no hardcoded default
-GENESIS_KEY = os.environ.get('TITAN_GENESIS_KEY')
-if not GENESIS_KEY:
-    print("ERROR: TITAN_GENESIS_KEY env var is not set. Aborting stress test.")
+
+# Load GENESIS_KEY from the same secure config used by the limb/brain
+try:
+    from titan_config import GENESIS_KEY
+except Exception as e:
+    print(f"ERROR: Unable to load GENESIS_KEY from titan_config: {e}")
     sys.exit(1)
 
 async def submit_jobs(total: int, concurrent: int = 50):
@@ -39,7 +41,12 @@ async def submit_jobs(total: int, concurrent: int = 50):
 def spawn_workers(n: int):
     procs = []
     for i in range(n):
-        cmd = [str(VENV_PY), str(BASE / 'limb' / 'worker_node.py'), '--connect', 'ws://127.0.0.1:8000/connect']
+        cmd = [
+            str(VENV_PY),
+            str(BASE / 'core' / 'limb' / 'worker_node.py'),
+            '--connect',
+            'ws://127.0.0.1:8000/connect',
+        ]
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         procs.append(p)
     return procs

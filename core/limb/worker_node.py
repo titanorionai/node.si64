@@ -26,8 +26,12 @@ import aiohttp
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from typing import Dict, Optional
-import docker
 import socket
+
+try:
+    import docker  # Optional; enables container isolation when available
+except ImportError:
+    docker = None
 
 # --- CONFIGURATION LAYER ---
 # Calculate the TitanNetwork root directory
@@ -84,17 +88,26 @@ NODE_ID = f"{platform.node()}_{LOGGER_NAME.split('_')[-1]}_{str(uuid.uuid4())[:4
 CONTAINER_MODE = os.getenv("TITAN_CONTAINER_MODE", "false").lower() == "true"
 DOCKER_CLIENT = None
 
-try:
-    DOCKER_CLIENT = docker.from_env()
-    logger.info("[SECURITY] Docker client initialized - container isolation ENABLED")
-except Exception as e:
-    logger.warning(f"[SECURITY] Docker unavailable: {e}. Fallback to safe mode.")
-    DOCKER_CLIENT = None
+if docker is not None:
+    try:
+        DOCKER_CLIENT = docker.from_env()
+        logger.info("[SECURITY] Docker client initialized - container isolation ENABLED")
+    except Exception as e:
+        logger.warning(f"[SECURITY] Docker unavailable: {e}. Fallback to safe mode.")
+        DOCKER_CLIENT = None
+else:
+    logger.warning("[SECURITY] Docker library not installed. Running without container isolation.")
 
 class TitanLimb:
     def __init__(self, connect_url=None, wallet=None, container_mode=False):
         self.uri = connect_url if connect_url else WEBSOCKET_URL
-        self.wallet = wallet if wallet else DEFAULT_WALLET
+
+        # Wallet selection precedence:
+        # 1) Explicit argument
+        # 2) Environment override (TITAN_WORKER_WALLET / OVERRIDE_WALLET_ADDRESS)
+        # 3) Global DEFAULT_WALLET from titan_config
+        env_wallet = os.getenv("TITAN_WORKER_WALLET") or os.getenv("OVERRIDE_WALLET_ADDRESS")
+        self.wallet = wallet if wallet else (env_wallet if env_wallet else DEFAULT_WALLET)
         self.headers = {"x-genesis-key": GENESIS_KEY}
         self.is_busy = False
         self.reconnect_attempts = 0

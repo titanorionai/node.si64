@@ -14,15 +14,25 @@ from pathlib import Path
 import threading
 from typing import Optional, List
 
+from dotenv import load_dotenv
+
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
 
+# Load .env from project root so credentials can be managed there
+BASE_DIR = Path(__file__).resolve().parent
+ENV_PATH = BASE_DIR / ".env"
+if ENV_PATH.exists():
+    load_dotenv(ENV_PATH)
+
 # Twitter API Credentials (from environment variables)
-TWITTER_API_KEY = os.environ.get("SI64_TWITTER_API_KEY", "")
-TWITTER_API_SECRET = os.environ.get("SI64_TWITTER_API_SECRET", "")
-TWITTER_ACCESS_TOKEN = os.environ.get("SI64_TWITTER_ACCESS_TOKEN", "")
-TWITTER_ACCESS_SECRET = os.environ.get("SI64_TWITTER_ACCESS_SECRET", "")
+# Primary: SI64_* variables for this dedicated bot
+# Fallback: X_* variables used by the Vanguard/Juggernaut bot
+TWITTER_API_KEY = os.environ.get("2aALDMA6AZ7Z81PVscM0hA80M") or os.environ.get("X_API_KEY", "")
+TWITTER_API_SECRET = os.environ.get("xF6fRl8r0SBXczIvDUkzSV2J2TJGkD9Qf0nGIsFEbMWvrCnjdu") or os.environ.get("X_API_SECRET", "")
+TWITTER_ACCESS_TOKEN = os.environ.get("2012611893857271808-WkIhwbPj8mNx2WZzvUjfKpd5kw3tCW") or os.environ.get("X_ACCESS_TOKEN", "")
+TWITTER_ACCESS_SECRET = os.environ.get("lb4kDmeXBGH0PdYfugmiXlG055FKitr0vQp3SkCwMuhhz") or os.environ.get("X_ACCESS_SECRET", "")
 
 # SI64 API
 SI64_API_URL = "http://127.0.0.1:8000"
