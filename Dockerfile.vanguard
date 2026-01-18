@@ -1,0 +1,38 @@
+# --- SI64.NET TWITTER BOT (VANGUARD UNIT) ---
+# Containerized social media management and PR system
+# Handles autonomous posting, engagement, and community growth
+
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    git \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy bot code
+COPY si64_twitter_bot.py .
+COPY vanguard_bot.py .
+COPY vanguard_entrypoint.py .
+
+# Create non-root user for security
+RUN useradd -m -u 1000 vanguard && chown -R vanguard:vanguard /app
+USER vanguard
+
+# Health check
+HEALTHCHECK --interval=60s --timeout=10s --retries=3 --start-period=30s \
+    CMD python -c "import si64_twitter_bot; print('✅ Bot healthy')" || exit 1
+
+# Default command
+CMD ["python", "vanguard_entrypoint.py"]

@@ -11,3 +11,4 @@ aiohttp
 redis
 pydantic
 jinja2
+tweepy

@@ -94,7 +94,12 @@
         }
 
         /* --- HERO SECTION (THE "POP") --- */
-        .hero { text-align: center; padding: 120px 20px 100px; }
+        .hero { text-align: center; padding: 120px 20px 100px;  }
+        
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 60px rgba(10, 255, 240, 0.8));
+        }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 10px;
             background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
@@ -246,6 +251,87 @@
         .wallet-item-label { font-size: 10px; color: #8899aa; text-transform: uppercase; font-family: var(--font-mono); }
         .wallet-item-value { font-size: 14px; color: #fff; font-family: var(--font-hud); font-weight: 600; }
 
+        /* --- STRATEGIC LOG TERMINAL --- */
+        .strategic-log {
+            background: #000000;
+            border-top: 2px solid var(--titan-glow);
+            border-bottom: 2px solid var(--titan-glow);
+            padding: 0;
+            margin: 60px auto 0 auto;
+            max-width: 1200px;
+            font-family: var(--font-mono);
+            position: relative;
+            overflow: hidden;
+        }
+        .terminal-container {
+            height: 500px;
+            overflow-y: auto;
+            background: #000;
+            padding: 30px 40px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--titan-glow) #000;
+            display: flex;
+            justify-content: center;
+        }
+        .terminal-text {
+            max-width: 900px;
+            width: 100%;
+        }
+        .terminal-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        .terminal-container::-webkit-scrollbar-track {
+            background: #000;
+        }
+        .terminal-container::-webkit-scrollbar-thumb {
+            background: var(--titan-glow);
+            border-radius: 0;
+        }
+        .terminal-text {
+            color: var(--titan-glow);
+            font-size: 13px;
+            line-height: 1.8;
+            white-space: pre-wrap;
+            text-shadow: 0 0 8px rgba(10, 255, 240, 0.5);
+            animation: terminal-flicker 0.15s infinite;
+        }
+        .terminal-header {
+            color: var(--titan-glow);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .terminal-separator {
+            color: var(--titan-glow);
+            opacity: 0.5;
+        }
+        .terminal-phase {
+            color: var(--titan-glow);
+            font-weight: 700;
+        }
+        .terminal-progress-full {
+            color: var(--loyalty-gold);
+        }
+        .terminal-progress-partial {
+            color: var(--titan-glow);
+        }
+        .terminal-locked {
+            color: #666;
+        }
+        .terminal-warning {
+            color: var(--alert-red);
+            font-weight: 700;
+            animation: terminal-pulse 2s infinite;
+        }
+        @keyframes terminal-flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.97; }
+        }
+        @keyframes terminal-pulse {
+            0%, 100% { opacity: 1; text-shadow: 0 0 8px var(--alert-red); }
+            50% { opacity: 0.7; text-shadow: 0 0 15px var(--alert-red); }
+        }
+
         /* --- FOOTER --- */
         footer {
             margin-top: auto; border-top: 1px solid var(--titan-border); padding: 40px;
@@ -298,13 +384,14 @@
     </nav>
 
     <div class="hero">
+        
         <div class="hero-badge">
             <div style="width:6px; height:6px; background:var(--titan-glow); border-radius:50%; box-shadow: 0 0 5px var(--titan-glow);"></div>
-            /// SOVEREIGN SILICON GRID
+            /// SILICON - ARM64 - NETWORK
         </div>
         
         <h1>SI64.NET<br>
-        <strong>COMPUTE / DECENTRALIZED</strong></h1>
+        <strong>COMPUTE  /  EXPANSION  /  DePIN</strong></h1>
         
         <div class="subtitle">CAPITAL EFFICIENT • CRYPTOGRAPHIC PROOFS • SETTLED ON SOLANA</div>
     </div>
@@ -499,318 +586,47 @@ python3 limb/worker_node.py --config ~/.si64/config.json --connect wss://si64.ne
         </div>
     </div>
 
+    <!-- STRATEGIC LOG TERMINAL -->
+    <div class="strategic-log">
+        <div class="terminal-container">
+            <div class="terminal-text">
+<span class="terminal-header">&gt;&gt;&gt; GLOBAL STRATEGIC LOG</span>
+<span class="terminal-separator">--------------------------------------------------</span>
+CURRENT ERA: GENESIS // PHASE I
+STATUS: VISIBLE
+
+<span class="terminal-phase">&gt; TARGET 1: THE AWAKENING (WE ARE HERE)</span>
+  <span class="terminal-progress-full">[██████████]</span> 100% DEPLOYED
+  The Neural Link is established. 
+  We are onboarding the first wave of silicon. 
+  Early adopters secure the highest possible APY.
+  STATUS: ACTIVE RECRUITMENT.
+
+<span class="terminal-phase">&gt; TARGET 2: THE FEDERATION (NEXT)</span>
+  <span class="terminal-progress-partial">[▒▒▒.......]</span> INITIALIZING
+  Grid Partitioning via Regional Supernodes.
+  We are commissioning the Elite.
+  Unlock "Sector Commander" status. Capture fees from entire regions.
+  ONLY THE STRONGEST SILICON APPLIES.
+
+<span class="terminal-phase">&gt; TARGET 3: THE SINGULARITY (FINAL)</span>
+  <span class="terminal-locked">[🔒LOCKED..]</span> AWAITING PROTOCOL
+  Complete Autonomous Operation.
+  No central authority. No downtime.
+  The Titan Network absorbs legacy cloud infrastructure.
+  THE CLOUD IS DEAD. LONG LIVE THE GRID.
+
+<span class="terminal-separator">--------------------------------------------------</span>
+<span class="terminal-warning">&gt;&gt;&gt; WARNING: TITAN IS AN ELITE COMPUTE CLUB.
+IF YOU CANNOT MAINTAIN 99% UPTIME, DO NOT APPLY.
+WE DO NOT WANT YOUR CONSUMER LAPTOPS.</span>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div>SI64.NET FOUNDATION [EST 2026]</div>
         <div id="footer-status" style="color: var(--titan-glow);">SYSTEM STATUS: NOMINAL</div>
     </footer>
 
     <script>
-        // --- WALLET STATE ---
-        let walletConnected = false;
-        let currentWallet = null;
-        let walletBalance = 0;
-
-        const API_ENDPOINT = '/api/stats';
-        const RATES = {
-            'M2': 0.001,
-            'ORIN': 0.004,
-            'M3_ULTRA': 0.025,
-            'THOR': 0.035
-        };
-        const HARDWARE_NAMES = {
-            'M2': 'Apple M1/M2 Neural',
-            'ORIN': 'NVIDIA Jetson Orin',
-            'M3_ULTRA': 'Apple M3 Ultra Cluster',
-            'THOR': 'NVIDIA Jetson Thor'
-        };
-        
-        let DEVICE_INVENTORY = {
-            'M2': [], 'ORIN': [], 'M3_ULTRA': [], 'THOR': []
-        };
-        
-        let selectedDevice = null;
-
-        // --- WALLET MANAGEMENT ---
-        function toggleWalletMenu() {
-            const menu = document.getElementById('wallet-menu');
-            menu.classList.toggle('active');
-            if (menu.classList.contains('active') && !walletConnected) {
-                connectWallet();
-            }
-        }
-
-        async function connectWallet() {
-            try {
-                const response = await fetch('/api/wallet');
-                const walletData = await response.json();
-                
-                if (walletData.connected) {
-                    currentWallet = walletData.address;
-                    walletBalance = walletData.balance;
-                    walletConnected = true;
-                    updateWalletUI();
-                } else {
-                    if (!('solana' in window)) {
-                        alert("No wallet found. Install Phantom.");
-                        return;
-                    }
-                    const resp = await window.solana.connect();
-                    currentWallet = resp.publicKey.toString();
-                    walletConnected = true;
-                    updateWalletUI();
-                    await fetchWalletBalance(currentWallet);
-                }
-            } catch (err) {
-                console.error("Wallet connection failed:", err);
-            }
-        }
-
-        function updateWalletUI() {
-            const btn = document.getElementById('wallet-btn');
-            const shortAddr = currentWallet.slice(0, 4) + ".." + currentWallet.slice(-4);
-            document.getElementById('wallet-text').innerText = shortAddr;
-            document.getElementById('wallet-addr').innerText = shortAddr;
-            document.getElementById('wallet-status').innerText = "LINKED";
-            document.getElementById('wallet-balance').innerText = walletBalance.toFixed(4) + " SOL";
-            
-            btn.style.borderColor = "var(--titan-glow)";
-            btn.style.color = "#000";
-            btn.style.background = "var(--titan-glow)";
-        }
-
-        async function fetchWalletBalance(wallet) {
-            try {
-                const response = await fetch('https://api.mainnet-beta.solana.com', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        jsonrpc: '2.0', id: 1, method: 'getBalance', params: [wallet]
-                    })
-                });
-                const data = await response.json();
-                walletBalance = (data.result.value || 0) / 1_000_000_000;
-                document.getElementById('wallet-balance').innerText = walletBalance.toFixed(4) + " SOL";
-            } catch (e) { console.log(e); }
-        }
-
-        function disconnectWallet() {
-            walletConnected = false; currentWallet = null; walletBalance = 0;
-            document.getElementById('wallet-text').innerText = "CONNECT WALLET";
-            document.getElementById('wallet-addr').innerText = "Not Connected";
-            document.getElementById('wallet-status').innerText = "Waiting...";
-            document.getElementById('wallet-balance').innerText = "--";
-            document.getElementById('wallet-menu').classList.remove('active');
-            
-            const btn = document.getElementById('wallet-btn');
-            btn.style.background = ""; btn.style.borderColor = ""; btn.style.color = "";
-        }
-
-        // --- DEVICE SELECTION ---
-        async function openDeviceModal(tier) {
-            selectedDevice = null;
-            window.currentRentalTier = tier;
-            const deviceList = document.getElementById('device-list');
-            document.getElementById('device-modal').style.display = 'flex';
-            deviceList.innerHTML = `<div style="text-align: center; padding: 40px; color: #556; font-family:'JetBrains Mono'">SCANNING GRID...</div>`;
-            
-            try {
-                const response = await fetch(`/api/devices/${tier}`);
-                if (response.ok) {
-                    const devices = await response.json();
-                    renderDeviceList(devices);
-                } else {
-                    renderDeviceList(DEVICE_INVENTORY[tier] || []);
-                }
-            } catch (e) {
-                renderDeviceList(DEVICE_INVENTORY[tier] || []);
-            }
-        }
-        
-        function renderDeviceList(devices) {
-            const deviceList = document.getElementById('device-list');
-            if(devices.length === 0) {
-                 deviceList.innerHTML = `<div style="text-align: center; padding: 40px; color: #556; font-family:'JetBrains Mono'">NO UNITS AVAILABLE IN THIS SECTOR.</div>`;
-                 return;
-            }
-            deviceList.innerHTML = devices.map(device => `
-                <div style="padding: 16px; border-bottom: 1px solid rgba(255,255,255,0.05); cursor: pointer; transition: all 0.2s;" 
-                     onmouseover="this.style.background='rgba(10, 255, 240, 0.05)'" 
-                     onmouseout="this.style.background=''" 
-                     onclick="selectDevice('${device.id}', this)">
-                    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
-                        <div style="flex: 1;">
-                            <div style="color: #fff; font-weight: 600; font-family: 'Rajdhani'; font-size: 16px; text-transform:uppercase;">${device.name}</div>
-                            <div style="color: #889; font-size: 11px; margin-top: 4px; font-family: 'JetBrains Mono';">ID: ${device.id.substring(0,8)}...</div>
-                        </div>
-                        <div style="text-align: right;">
-                             <div style="color: var(--titan-glow); font-weight: 600; font-family:'JetBrains Mono'; font-size: 12px;">${device.ram} RAM</div>
-                             <div style="color: #6f9; font-size: 10px; font-family:'JetBrains Mono'; margin-top:4px;">${device.uptime} UPTIME</div>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-        
-        function selectDevice(deviceId, element) {
-            selectedDevice = deviceId;
-            document.querySelectorAll('#device-list > div').forEach(el => {
-                el.style.background = '';
-                el.style.borderColor = 'rgba(255,255,255,0.05)';
-            });
-            element.style.background = 'rgba(10, 255, 240, 0.1)';
-            element.style.borderColor = 'var(--titan-glow)';
-        }
-        
-        function closeDeviceModal() { document.getElementById('device-modal').style.display = 'none'; selectedDevice = null; }
-        
-        function confirmDeviceSelection() {
-            if (!selectedDevice) { alert("SELECT A UNIT TO PROCEED."); return; }
-            closeDeviceModal();
-            proceedToRentalModal();
-        }
-
-        // --- RENTAL FLOW ---
-        async function rentHardware(tier) {
-            if (!walletConnected) {
-                alert("SECURE UPLINK REQUIRED. CONNECT WALLET.");
-                toggleWalletMenu();
-                return;
-            }
-            openDeviceModal(tier);
-        }
-        
-        function proceedToRentalModal() {
-            const tier = window.currentRentalTier;
-            document.getElementById('rental-hardware').innerText = HARDWARE_NAMES[tier];
-            document.getElementById('rental-rate').innerText = RATES[tier].toFixed(4) + " SOL/hr";
-            
-            const hardwareCost = RATES[tier];
-            const fee = hardwareCost * 0.001;
-            const tip = 0.00005;
-            const total = hardwareCost + fee + tip;
-
-            document.getElementById('summary-hardware').innerText = fee.toFixed(6) + " SOL";
-            document.getElementById('summary-tip').innerText = tip.toFixed(5) + " SOL";
-            document.getElementById('summary-total').innerText = total.toFixed(6) + " SOL";
-            document.getElementById('rental-total').innerText = total.toFixed(6) + " SOL";
-
-            window.currentRentalTier = tier;
-            document.getElementById('rental-modal').classList.add('active');
-        }
-
-        function closeRentalModal() { document.getElementById('rental-modal').classList.remove('active'); }
-
-        async function signRentalContract() {
-            if (!window.currentRentalTier) return;
-            const tier = window.currentRentalTier;
-            const total = RATES[tier] + (RATES[tier] * 0.001) + 0.00005;
-
-            if (walletBalance < total) {
-                alert(`INSUFFICIENT FUNDS. REQ: ${total.toFixed(6)} SOL`);
-                return;
-            }
-
-            try {
-                const btn = event.target;
-                btn.innerText = "DEPLOYING...";
-                btn.disabled = true;
-
-                const fakeSig = "5s" + Math.random().toString(36).substring(2, 15) + "SI64Rental";
-                const res = await fetch("/api/rent", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        wallet: currentWallet,
-                        tier: tier,
-                        duration_hours: 1,
-                        tx_signature: fakeSig,
-                        amount: total
-                    })
-                });
-
-                const data = await res.json();
-                if (data.contract_id) {
-                    alert(`CONTRACT DEPLOYED.\nID: ${data.contract_id}\nSTATUS: INITIALIZING COMPUTE...`);
-                    closeRentalModal();
-                    updateDashboard();
-                } else {
-                    alert("DEPLOYMENT ERROR: " + (data.detail || "Unknown"));
-                }
-            } catch (e) {
-                alert("TX FAILED: " + e.message);
-            } finally {
-                event.target.innerText = "SIGN & DEPLOY";
-                event.target.disabled = false;
-            }
-        }
-
-        function openDeployModal() { 
-            if (!walletConnected) { alert("CONNECT WALLET TO PROVISION COMPUTE."); toggleWalletMenu(); return; }
-            document.getElementById('deploy-modal').style.display = 'flex'; 
-        }
-        function closeDeployModal() { document.getElementById('deploy-modal').style.display = 'none'; }
-
-        // --- TELEMETRY ---
-        async function updateDashboard() {
-            try {
-                const response = await fetch(API_ENDPOINT);
-                if (!response.ok) throw new Error("API Offline");
-                const data = await response.json();
-
-                const fleet = data.fleet_size || data.fleet || 0;
-                const queue = (data.queue_depth || data.queue || 0).toLocaleString();
-                const revenue = parseFloat(data.total_revenue || data.paid || 0).toFixed(4);
-                
-                // Fetch real-time device data for all tiers
-                const tiers = ['M2', 'ORIN', 'M3_ULTRA', 'THOR'];
-                for (const tier of tiers) {
-                    try {
-                        const deviceResponse = await fetch(`/api/devices/${tier}`);
-                        if (deviceResponse.ok) {
-                            const devices = await deviceResponse.json();
-                            DEVICE_INVENTORY[tier] = Array.isArray(devices) ? devices : [];
-                        }
-                    } catch (e) { DEVICE_INVENTORY[tier] = []; }
-                }
-                
-                document.getElementById('avail-M2').innerText = (DEVICE_INVENTORY['M2'] || []).length;
-                document.getElementById('avail-ORIN').innerText = (DEVICE_INVENTORY['ORIN'] || []).length;
-                document.getElementById('avail-M3_ULTRA').innerText = (DEVICE_INVENTORY['M3_ULTRA'] || []).length;
-                document.getElementById('avail-THOR').innerText = (DEVICE_INVENTORY['THOR'] || []).length;
-
-                document.getElementById('fleet-size').innerText = fleet;
-                document.getElementById('queue-depth').innerText = queue;
-                document.getElementById('revenue').innerText = "◎ " + revenue;
-
-                const tbody = document.getElementById('ledger-body');
-                if (data.transactions && data.transactions.length > 0) {
-                    tbody.innerHTML = data.transactions.map(tx => `
-                        <tr>
-                            <td style="font-family:'JetBrains Mono'; color: #fff;">${tx.job_id.slice(0,8)}</td>
-                            <td style="color:#889">${tx.worker || tx.entity}</td>
-                            <td style="color:var(--titan-glow)">◎ ${parseFloat(tx.amount || tx.val).toFixed(4)}</td>
-                            <td>${tx.time.split(' ')[1] || tx.time}</td>
-                            <td><span style="color: #6f9;">CONFIRMED</span></td>
-                        </tr>
-                    `).join('');
-                } else {
-                    if (!tbody.innerHTML.includes("tr")) {
-                         tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #556; padding: 40px; font-family:'JetBrains Mono'">WAITING FOR NEXT BLOCK...</td></tr>`;
-                    }
-                }
-
-            } catch (e) { console.error("Telemetry Link Lost", e); }
-        }
-
-        window.addEventListener('load', async () => { await updateDashboard(); });
-        setInterval(updateDashboard, 2000);
-
-        document.addEventListener('click', (e) => {
-            const dropdown = document.querySelector('.wallet-dropdown');
-            if (!dropdown.contains(e.target)) {
-                document.getElementById('wallet-menu').classList.remove('active');
-            }
-        });
-    </script>
-</body>
-</html>
