@@ -165,31 +165,6 @@
             color: #8899aa; border-bottom-left-radius: 8px;
         }
         .tier-badge.pro { background: var(--titan-glow); color: #000; }
-
-        /* TAG PILL (USED FOR SUPERCHIP / VECTOR / SWARM LABELS) */
-        .tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 999px;
-            font-family: var(--font-mono);
-            font-size: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: 1px solid rgba(136, 153, 170, 0.4);
-            color: #8899aa;
-        }
-        .tag.superchip { 
-            background: rgba(255, 215, 0, 0.15); 
-            color: #ffd700; 
-            border: 1px solid rgba(255, 215, 0, 0.3);
-        }
-
-        /* VECTOR TAG (SVE / HPC) */
-        .tag.vector {
-            background: rgba(0, 255, 204, 0.08);
-            color: #00ffd0;
-            border: 1px solid rgba(0, 255, 204, 0.35);
-        }
         
         .hardware-name { font-family: var(--font-hud); font-size: 24px; font-weight: 700; margin-bottom: 12px; color: #fff; text-transform: uppercase; }
         .specs { font-size: 13px; color: #8899aa; margin-bottom: 24px; line-height: 1.6; min-height: 42px; }
@@ -365,79 +340,10 @@
         }
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
         
-        /* --- MOBILE LAYOUT TUNING --- */
         @media (max-width: 768px) {
-            /* Scale headline for small screens */
             h1 { font-size: 42px; }
-
-            /* Hide desktop actions, center nav brand */
             .nav-actions { display: none; }
-            nav {
-                padding: 0 16px;
-                justify-content: center;
-            }
-
-            /* Tighter, centered hero + sections */
-            .hero { padding: 80px 16px 60px; }
-
-            .marketplace-section,
-            .dashboard-container,
-            .strategic-log {
-                max-width: 100%;
-                padding: 0 16px 60px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            /* Center section headers */
-            .section-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 8px;
-                border-left: none;
-                border-bottom: 1px solid var(--titan-border);
-                padding-left: 0;
-            }
-
-            /* Stack cards vertically with softer padding */
-            .stats-grid,
-            .rental-grid {
-                grid-template-columns: 1fr;
-            }
-            .rental-card,
-            .hud-card {
-                padding: 24px 18px;
-            }
-
-            /* Ledger: center header and rows, reduce padding */
-            .ledger-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 4px;
-            }
-            .ledger-table th,
-            .ledger-table td {
-                padding: 12px 12px;
-                text-align: center;
-            }
-
-            /* Terminal block: full-width but comfortable */
-            .terminal-container {
-                padding: 20px 16px;
-                justify-content: flex-start;
-            }
-            .terminal-text { font-size: 12px; }
-
-            /* Footer centered on mobile */
-            footer {
-                padding: 24px 16px;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 8px;
-            }
+            .stats-grid, .rental-grid { grid-template-columns: 1fr; }
         }
         </style>
     </head>
@@ -532,64 +438,6 @@
                 <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 <span id="avail-THOR">--</span> units online</div>
                 <button class="btn-tac" style="width:100%; justify-content: center; border-color: var(--loyalty-gold); color: var(--loyalty-gold);" onclick="rentHardware('THOR')">RENT INSTANCE</button>
             </div>
-
-            <!-- GH200 SUPERCHIP (TOP-TIER ARM64) -->
-            <div class="rental-card" style="border: 1px solid rgba(255, 215, 0, 0.4); position: relative; overflow: hidden;">
-                <div class="tier-badge" style="background: rgba(255,215,0,0.9); color: #000;">SUPERCHIP</div>
-                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
-                    <div class="hardware-name" style="margin-bottom: 0;">NVIDIA GH200</div>
-                    <span class="tag superchip">ARM64 SUPERCHIP</span>
-                </div>
-                <div class="specs">96GB HBM3 • 72 ARM Neoverse cores. Unified memory architecture for trillion-parameter model inference.</div>
-                <div class="price">0.085 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
-                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 ALLOCATING CAPACITY • REQUEST-ONLY ACCESS</div>
-                <button class="btn-tac" style="width:100%; justify-content: center; border-color: rgba(255,215,0,0.6); color: #ffd700;" onclick="alert('GH200 access is currently allocation-only. Contact SI64 ops for priority onboarding.');">REQUEST ACCESS</button>
-            </div>
-
-            <!-- FUJITSU A64FX VECTOR NODE (ARM64 + SVE) -->
-            <div class="rental-card" style="border: 1px solid rgba(0, 255, 204, 0.35); position: relative; overflow: hidden;">
-                <div class="tier-badge" style="background: rgba(0, 255, 204, 0.2); color: #00ffd0;">VECTOR</div>
-                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
-                    <div class="hardware-name" style="margin-bottom: 0;">FUJITSU A64FX</div>
-                    <span class="tag vector">VECTOR SVE</span>
-                </div>
-                <div class="specs">512-bit SVE • ~1 TB/s bandwidth. Fugaku-class silicon for CFD, quant research, and crypto hashing.</div>
-                <div class="price">0.015 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
-                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 2 UNITS ONLINE • HPC VECTOR GRID</div>
-                <button class="btn-tac" style="width:100%; justify-content: center; border-color: rgba(0,255,204,0.6); color: #00ffd0;" onclick="alert('A64FX nodes are currently managed via direct ops allocation. Contact SI64 ops to schedule dedicated vector time.');">RENT NODE</button>
-            </div>
-        </div>
-
-        <!-- SWARM / LOW-POWER TIER -->
-        <div class="section-header" style="margin-top: 60px;">
-            <span>THE SWARM</span>
-            <span style="font-size: 11px; color: #556;">LOW POWER / HIGH AVAILABILITY</span>
-        </div>
-
-        <div class="rental-grid">
-            <div class="rental-card">
-                <div class="tier-badge">EDGE</div>
-                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
-                    <div class="hardware-name" style="margin-bottom: 0;">Jetson Nano Swarm</div>
-                    <span class="tag" style="border-color:#00ffcc; color:#00ffcc;">EDGE VERIFIER</span>
-                </div>
-                <div class="specs">128 CUDA cores • 4GB RAM. The backbone of the swarm for heartbeat verification and routing.</div>
-                <div class="price">0.0001 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
-                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 12 UNITS ONLINE • NANO SWARM</div>
-                <button class="btn-tac" style="width:100%; justify-content: center;" onclick="alert('Nano swarm is currently reserved for internal edge verification. Public deployment queue opening soon.');">DEPLOY SWARM</button>
-            </div>
-
-            <div class="rental-card">
-                <div class="tier-badge">SCOUT</div>
-                <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 8px;">
-                    <div class="hardware-name" style="margin-bottom: 0;">Raspberry Pi Cluster</div>
-                    <span class="tag" style="border-color:#e91e63; color:#e91e63;">ARM64 SCOUT</span>
-                </div>
-                <div class="specs">Quad-core ARM • 4-8GB RAM. Low-power sentinels that maintain grid integrity and validate on-chain proofs.</div>
-                <div class="price">0.0001 <span style="color:var(--titan-glow)">SOL</span><span>/hour</span></div>
-                <div style="font-size: 11px; color: #889; margin-bottom: 20px; font-family:'JetBrains Mono'">📡 45 UNITS ONLINE • RPI SCOUT GRID</div>
-                <button class="btn-tac" style="width:100%; justify-content: center;" onclick="alert('Raspberry Pi swarm rentals are coordinated per campaign. Contact SI64 ops for dedicated scout capacity.');">DEPLOY SWARM</button>
-            </div>
         </div>
     </div>
 
@@ -600,9 +448,6 @@
                 <div class="label">Active Nodes</div>
                 <div class="value" id="fleet-size">--</div>
                 <div class="sub-value">TARGET: ARM64 / APPLE M-SERIES</div>
-                <div class="sub-value" id="fleet-detail" style="margin-top: 6px; font-size: 10px; color: #667;">
-                    DISCOVERING SWARM TOPOLOGY…
-                </div>
             </div>
             <div class="hud-card">
                 <div class="label">Task Queue</div>
@@ -734,18 +579,54 @@
             </p>
 
             <p style="color: var(--alert-red); font-size: 11px; margin-bottom: 10px; font-family: 'JetBrains Mono'; font-weight: 700;">
-                Always verify scripts before piping to <code>bash</code>. For production nodes, prefer the manual method.
+                # [93mCRITICAL[0m: EDIT <code>~/.si64/config.json</code> WITH YOUR WALLET ADDRESS <strong>BEFORE</strong> STARTING.
             </p>
             
-            <div class="code-block" id="deploy-cmd"># STANDARD (RECOMMENDED)
-curl -sL https://si64.net/install | bash
-
-## MANUAL METHOD
-# Clone & Install
-git clone https://github.com/si64-net/core.git ~/.si64-core
-cd ~/.si64-core && ./install.sh</div>
+            <div class="code-block" id="deploy-cmd">git clone https://github.com/si64-net/core.git
+cd core
+pip install -r requirements.txt
+mkdir -p ~/.si64 && cp config.example.json ~/.si64/config.json
+python3 limb/worker_node.py --config ~/.si64/config.json --connect https://si64.net</div>
             
             <button class="btn-tac" style="width: 100%; justify-content: center;" onclick="navigator.clipboard.writeText(document.getElementById('deploy-cmd').innerText); this.innerText='COPIED TO CLIPBOARD';">COPY SEQUENCE</button>
+        </div>
+    </div>
+
+    <!-- STRATEGIC LOG TERMINAL -->
+    <div class="strategic-log">
+        <div class="terminal-container">
+            <div class="terminal-text">
+<span class="terminal-header">&gt;&gt;&gt; GLOBAL STRATEGIC LOG</span>
+<span class="terminal-separator">--------------------------------------------------</span>
+CURRENT ERA: GENESIS // PHASE I
+STATUS: VISIBLE
+
+<span class="terminal-phase">&gt; TARGET 1: THE AWAKENING (WE ARE HERE)</span>
+  <span class="terminal-progress-full">[██████████]</span> 100% DEPLOYED
+  The Neural Link is established. 
+  We are onboarding the first wave of silicon. 
+  Early adopters secure the highest possible APY.
+  STATUS: ACTIVE RECRUITMENT.
+
+<span class="terminal-phase">&gt; TARGET 2: THE FEDERATION (NEXT)</span>
+  <span class="terminal-progress-partial">[▒▒▒.......]</span> INITIALIZING
+  Grid Partitioning via Regional Supernodes.
+  We are commissioning the Elite.
+  Unlock "Sector Commander" status. Capture fees from entire regions.
+  ONLY THE STRONGEST SILICON APPLIES.
+
+<span class="terminal-phase">&gt; TARGET 3: THE SINGULARITY (FINAL)</span>
+  <span class="terminal-locked">[🔒LOCKED..]</span> AWAITING PROTOCOL
+  Complete Autonomous Operation.
+  No central authority. No downtime.
+  The Titan Network absorbs legacy cloud infrastructure.
+  THE CLOUD IS DEAD. LONG LIVE THE GRID.
+
+<span class="terminal-separator">--------------------------------------------------</span>
+<span class="terminal-warning">&gt;&gt;&gt; WARNING: TITAN IS AN ELITE COMPUTE CLUB.
+IF YOU CANNOT MAINTAIN 99% UPTIME, DO NOT APPLY.
+WE DO NOT WANT YOUR CONSUMER LAPTOPS.</span>
+            </div>
         </div>
     </div>
 
@@ -1074,17 +955,6 @@ cd ~/.si64-core && ./install.sh</div>
                 const queue = (data.queue_depth || data.queue || 0).toLocaleString();
                 const revenue = parseFloat(data.total_revenue || data.paid || 0).toFixed(4);
                 
-                // Fetch live fleet topology (per-hardware pools)
-                let fleetTopology = null;
-                try {
-                    const fleetRes = await fetch('/api/fleet');
-                    if (fleetRes.ok) {
-                        fleetTopology = await fleetRes.json();
-                    }
-                } catch (e) {
-                    fleetTopology = null;
-                }
-                
                 // Fetch real-time device data for all tiers
                 const tiers = ['M2', 'ORIN', 'M3_ULTRA', 'THOR'];
                 for (const tier of tiers) {
@@ -1115,43 +985,18 @@ cd ~/.si64-core && ./install.sh</div>
                 if (queueEl) queueEl.innerText = queue;
                 if (revEl) revEl.innerText = '◎ ' + revenue;
 
-                // Optional: render live pool breakdown if topology is available
-                const fleetDetailEl = document.getElementById('fleet-detail');
-                if (fleetDetailEl && fleetTopology && fleetTopology.pools) {
-                    const parts = [];
-                    for (const [hardware, info] of Object.entries(fleetTopology.pools)) {
-                        const count = (info && typeof info.count === 'number') ? info.count : 0;
-                        parts.push(`${hardware}:${count}`);
-                    }
-                    fleetDetailEl.innerText = parts.length ? parts.join('  •  ') : 'No live pools reported';
-                }
-
                 const tbody = document.getElementById('ledger-body');
                 if (tbody) {
                     if (data.transactions && data.transactions.length > 0) {
-                        tbody.innerHTML = data.transactions.map(tx => {
-                            const workerFull = (tx.worker || tx.entity || "").toString();
-                            const workerShort = workerFull
-                                ? (workerFull.length > 12
-                                    ? workerFull.slice(0, 6) + "..." + workerFull.slice(-4)
-                                    : workerFull)
-                                : "—";
-                            const kind = tx.type === 'RENTAL' ? 'RENTAL' : 'JOB';
-                            const timeLabel = (tx.time || '').toString();
-                            const timeShort = timeLabel.includes(' ') ? timeLabel.split(' ')[1] : timeLabel;
-                            const amountVal = parseFloat(tx.amount || tx.val || 0).toFixed(4);
-                            return `
+                        tbody.innerHTML = data.transactions.map(tx => `
                             <tr>
-                                <td style="font-family:'JetBrains Mono'; color: #fff;">${(tx.job_id || '').toString().slice(0,8)}</td>
-                                <td style="color:#889">
-                                    <span>${workerShort}</span>
-                                    <span style="margin-left:6px; font-size:9px; color:#556;">[${kind}]</span>
-                                </td>
-                                <td style="color:var(--titan-glow)">◎ ${amountVal}</td>
-                                <td>${timeShort}</td>
+                                <td style="font-family:'JetBrains Mono'; color: #fff;">${tx.job_id.slice(0,8)}</td>
+                                <td style="color:#889">${tx.worker || tx.entity}</td>
+                                <td style="color:var(--titan-glow)">◎ ${parseFloat(tx.amount || tx.val).toFixed(4)}</td>
+                                <td>${tx.time.split(' ')[1] || tx.time}</td>
                                 <td><span style="color: #6f9;">CONFIRMED</span></td>
-                            </tr>`;
-                        }).join('');
+                            </tr>
+                        `).join('');
                     } else {
                         if (!tbody.innerHTML.includes('tr')) {
                             tbody.innerHTML = `<tr><td colspan="5" style="text-align: center; color: #556; padding: 40px; font-family:'JetBrains Mono'">WAITING FOR NEXT BLOCK...</td></tr>`;

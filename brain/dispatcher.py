@@ -17,7 +17,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 # --- ENTERPRISE HTTP STACK ---
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, Security, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security.api_key import APIKeyHeader
@@ -65,6 +65,19 @@ except ImportError:
 # --- GAMIFICATION ---
 POINTS_CONNECT = 10
 POINTS_JOB = 100
+
+# --- ECONOMIC FIREWALL / SENTINEL CONFIG ---
+# Minimum external worker stake required to receive payouts (in SOL).
+STAKE_MIN_SOL = float(os.getenv("TITAN_MIN_STAKE_SOL", "0.1"))
+
+# IPs considered "sovereign" / internal and exempt from stake + TTS bans.
+INTERNAL_IP_WHITELIST = {
+    ip.strip()
+    for ip in os.getenv(
+        "TITAN_INTERNAL_IPS",
+        "127.0.0.1,localhost,::1",
+    ).split(",")
+}
 
 # --- LOGGING ---
 logging.basicConfig(
@@ -150,6 +163,17 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
 # allowing normal interactive usage from dashboards and tools.
 # At 10-second windows, this allows up to ~4.5 RPS per client IP.
 app.add_middleware(RateLimitMiddleware, calls=45, period=10)
+
+@app.get("/install")
+async def installer_script():
+    """Serve the SI64 node installer shell script at /install.
+
+    This allows curl/bash style installs: curl -sSL https://si64.net/install | bash
+    """
+    script_path = os.path.join(BASE_DIR, "scripts", "si64_node_installer.sh")
+    if not os.path.exists(script_path):
+        raise HTTPException(status_code=404, detail="Installer not available")
+    return FileResponse(script_path, media_type="text/x-shellscript", filename="si64_node_installer.sh")
 
 # --- DATA MODELS ---
 class JobRequest(BaseModel):
@@ -394,6 +418,48 @@ bank = TitanBank(BANK_WALLET_PATH, SOLANA_RPC_URL)
 loyalty = TitanLoyalty(redis_client)
 commander = SwarmCommander(redis_client)
 
+# --- HARDWARE TTS BUDGETS (SECONDS) ---
+HARDWARE_TTS_BUDGET = {
+    HardwareClass.STD_GPU: float(os.getenv("TITAN_TTS_STD_GPU", "10.0")),
+    HardwareClass.JETSON_ORIN: float(os.getenv("TITAN_TTS_ORIN", "20.0")),
+    HardwareClass.APPLE_SILICON: float(os.getenv("TITAN_TTS_APPLE", "15.0")),
+}
+
+
+async def has_sufficient_stake(wallet_address: str, is_internal: bool) -> bool:
+    """Stake-to-Work guard.
+
+    Internal (sovereign) nodes bypass this check. External nodes must hold at
+    least STAKE_MIN_SOL on Solana to be eligible for payouts.
+    """
+
+    if is_internal:
+        return True
+
+    if not wallet_address:
+        logger.warning("STAKE FIREWALL: missing wallet address on settlement")
+        return False
+
+    # If Solana client or bank is unavailable, treat as a hard deny for
+    # external workers to avoid draining the treasury in degraded mode.
+    if AsyncClient is None or bank is None or getattr(bank, "client", None) is None:
+        logger.warning("STAKE FIREWALL: Solana client unavailable; denying external payout")
+        return False
+
+    try:
+        resp = await bank.client.get_balance(Pubkey.from_string(wallet_address))
+        balance_lamports = resp.value
+        balance_sol = balance_lamports / 1_000_000_000
+        logger.info(
+            f"STAKE CHECK: {wallet_address[:6]}… balance={balance_sol:.6f} SOL (threshold={STAKE_MIN_SOL:.3f})"
+        )
+        return balance_sol >= STAKE_MIN_SOL
+    except Exception as e:  # noqa: BLE001
+        logger.warning(
+            f"STAKE FIREWALL: error checking stake for {wallet_address[:6]}…: {e}"
+        )
+        return False
+
 # --- API ENDPOINTS ---
 
 @app.on_event("shutdown")
@@ -460,6 +526,56 @@ async def admin_stats(request: Request, key: str = Security(api_key_header), id:
         "total_revenue": vault.get_financials(),
         "transactions": vault.get_recent_activity(10)
     }
+
+@app.get("/api/fleet")
+async def fleet_overview():
+    """Public view of live fleet topology.
+
+    Returns a breakdown of active nodes per hardware pool along with
+    lightweight, non-sensitive per-node metadata (node id + reputation).
+    This powers the "live swarm" view on the public dashboard.
+    """
+
+    # Known hardware pools managed by SwarmCommander
+    pools = {
+        "UNIT_ORIN_AGX": "pool:UNIT_ORIN_AGX:active",
+        "UNIT_APPLE_M_SERIES": "pool:UNIT_APPLE_M_SERIES:active",
+        "UNIT_NVIDIA_CUDA": "pool:UNIT_NVIDIA_CUDA:active",
+    }
+
+    topology = {"pools": {}, "fleet_size": 0}
+    seen_nodes = set()
+
+    for hardware, pool_key in pools.items():
+        try:
+            members = await redis_client.smembers(pool_key)
+        except Exception:
+            members = []
+
+        nodes = []
+        for nid in members:
+            seen_nodes.add(nid)
+            # Reputation is optional gamification metadata; absence is treated as 0.
+            rep = 0
+            try:
+                rep_str = await redis_client.get(f"reputation:{nid}")
+                if rep_str is not None:
+                    rep = int(rep_str)
+            except Exception:
+                rep = 0
+
+            nodes.append({
+                "id": nid,
+                "reputation": rep,
+            })
+
+        topology["pools"][hardware] = {
+            "count": len(members),
+            "nodes": nodes,
+        }
+
+    topology["fleet_size"] = len(seen_nodes)
+    return topology
 
 @app.get("/api/admin/bounties")
 async def admin_bounties(request: Request, key: str = Security(api_key_header), limit: int = 10):
@@ -589,86 +705,105 @@ async def health():
 
 @app.get("/api/devices/{tier}")
 async def get_devices(tier: str):
-    """
-    Returns live device inventory for specified tier.
-    Queries Redis for real-time metrics and availability.
-    Falls back to static inventory if Redis unavailable.
+    """Return device inventory for a tier based on live pools.
+
+    Primary source of truth is Redis pool membership. Each active node in the
+    relevant pool becomes a device record, enriched with optional metrics if
+    available. If Redis is unavailable or a pool is empty, falls back to the
+    legacy static templates so that marketing data still renders.
     """
     tier_upper = tier.upper()
-    
+
     # Validate tier
     valid_tiers = ["M2", "ORIN", "M3_ULTRA", "THOR"]
     if tier_upper not in valid_tiers:
         raise HTTPException(status_code=400, detail=f"Invalid tier: {tier}")
-    
-    # Map tier to device count
-    device_counts = {
-        "M2": 3,
-        "ORIN": 4,
-        "M3_ULTRA": 2,
-        "THOR": 3
+
+    # Map UI tiers to internal hardware pools
+    tier_to_pool = {
+        "M2": "UNIT_APPLE_M_SERIES",
+        "ORIN": "UNIT_ORIN_AGX",
+        "M3_ULTRA": "UNIT_NVIDIA_CUDA",
+        "THOR": "UNIT_NVIDIA_CUDA",
     }
-    
-    # Static device definitions
+
+    pool_key = f"pool:{tier_to_pool[tier_upper]}:active"
+
+    live_devices = []
+    try:
+        node_ids = await redis_client.smembers(pool_key)
+    except Exception:
+        node_ids = []
+
+    for nid in node_ids:
+        # Optional per-node metrics (if ever populated elsewhere)
+        try:
+            leases_str = await redis_client.get(f"node:{nid}:active_jobs") or "0"
+            leases = int(leases_str)
+        except Exception:
+            leases = 0
+
+        try:
+            uptime_str = await redis_client.get(f"node:{nid}:uptime") or "99.9"
+            uptime = uptime_str
+        except Exception:
+            uptime = "99.9"
+
+        try:
+            audited_str = await redis_client.get(f"node:{nid}:audited") or "true"
+            audited = audited_str.lower() == "true"
+        except Exception:
+            audited = True
+
+        live_devices.append({
+            "id": nid,
+            "name": nid,
+            "uri": None,
+            "address": None,
+            "region": "GLOBAL GRID",
+            "ram": "N/A",
+            "leases": leases,
+            "uptime": f"{uptime}%" if not uptime.endswith("%") else uptime,
+            "audited": audited,
+        })
+
+    # If we have live devices, return them; otherwise fall back to static set
+    if live_devices:
+        return live_devices
+
     device_templates = {
         "M2": [
             {"id": "device-m2-001", "name": "M2-DEV-01", "uri": "node001.si64.network", "address": "192.168.1.101", "region": "West Coast", "ram": "8GB"},
             {"id": "device-m2-002", "name": "M2-DEV-02", "uri": "node002.si64.network", "address": "192.168.1.102", "region": "Central", "ram": "8GB"},
-            {"id": "device-m2-003", "name": "M2-DEV-03", "uri": "node003.si64.network", "address": "192.168.1.103", "region": "East Coast", "ram": "16GB"}
+            {"id": "device-m2-003", "name": "M2-DEV-03", "uri": "node003.si64.network", "address": "192.168.1.103", "region": "East Coast", "ram": "16GB"},
         ],
         "ORIN": [
             {"id": "device-orin-001", "name": "ORIN-CV-01", "uri": "node004.si64.network", "address": "192.168.1.201", "region": "Pacific NW", "ram": "12GB"},
             {"id": "device-orin-002", "name": "ORIN-CV-02", "uri": "node005.si64.network", "address": "192.168.1.202", "region": "Northeast", "ram": "12GB"},
             {"id": "device-orin-003", "name": "ORIN-CV-03", "uri": "node006.si64.network", "address": "192.168.1.203", "region": "Mountain", "ram": "12GB"},
-            {"id": "device-orin-004", "name": "ORIN-CV-04", "uri": "node007.si64.network", "address": "192.168.1.204", "region": "Pacific NW", "ram": "12GB"}
+            {"id": "device-orin-004", "name": "ORIN-CV-04", "uri": "node007.si64.network", "address": "192.168.1.204", "region": "Pacific NW", "ram": "12GB"},
         ],
         "M3_ULTRA": [
             {"id": "device-m3u-001", "name": "M3U-ULTRA-01", "uri": "node008.si64.network", "address": "192.168.1.301", "region": "West Coast", "ram": "128GB"},
-            {"id": "device-m3u-002", "name": "M3U-ULTRA-02", "uri": "node009.si64.network", "address": "192.168.1.302", "region": "Southeast", "ram": "128GB"}
+            {"id": "device-m3u-002", "name": "M3U-ULTRA-02", "uri": "node009.si64.network", "address": "192.168.1.302", "region": "Southeast", "ram": "128GB"},
         ],
         "THOR": [
             {"id": "device-thor-001", "name": "THOR-HPC-01", "uri": "node010.si64.network", "address": "192.168.1.401", "region": "Southwest", "ram": "144GB"},
             {"id": "device-thor-002", "name": "THOR-HPC-02", "uri": "node011.si64.network", "address": "192.168.1.402", "region": "Midwest", "ram": "144GB"},
-            {"id": "device-thor-003", "name": "THOR-HPC-03", "uri": "node012.si64.network", "address": "192.168.1.403", "region": "Southeast", "ram": "144GB"}
-        ]
+            {"id": "device-thor-003", "name": "THOR-HPC-03", "uri": "node012.si64.network", "address": "192.168.1.403", "region": "Southeast", "ram": "144GB"},
+        ],
     }
-    
-    devices = device_templates.get(tier_upper, [])
-    
-    # Enrich with real-time metrics from Redis
-    enriched_devices = []
-    for device in devices:
-        device_id = device["id"]
-        
-        # Query Redis for live metrics
-        try:
-            leases_str = await redis_client.get(f"device:{device_id}:active_leases") or "0"
-            leases = int(leases_str)
-        except:
-            leases = 0
-        
-        try:
-            uptime_str = await redis_client.get(f"device:{device_id}:uptime") or "99.8"
-            uptime = uptime_str
-        except:
-            uptime = "99.8"
-        
-        try:
-            audited_str = await redis_client.get(f"device:{device_id}:audited") or "true"
-            audited = audited_str.lower() == "true"
-        except:
-            audited = True
-        
-        # Build enriched device record
-        enriched = {
+
+    fallback = []
+    for device in device_templates.get(tier_upper, []):
+        fallback.append({
             **device,
-            "leases": leases,
-            "uptime": f"{uptime}%" if not uptime.endswith("%") else uptime,
-            "audited": audited
-        }
-        enriched_devices.append(enriched)
-    
-    return enriched_devices
+            "leases": 0,
+            "uptime": "99.8%",
+            "audited": True,
+        })
+
+    return fallback
 
 @app.post("/api/rent")
 async def rent(req: RentalRequest):
@@ -994,6 +1129,11 @@ async def ws_endpoint(ws: WebSocket):
     # Debug: Log all headers
     logger.info(f"WebSocket connection attempt from {ws.client.host}")
     logger.info(f"Headers received: {dict(ws.headers)}")
+
+    client_ip = ws.client.host or ""
+    is_internal = client_ip in INTERNAL_IP_WHITELIST or client_ip.startswith("127.")
+    if is_internal:
+        logger.info(f"SOVEREIGN BYPASS: {client_ip} marked as internal node")
     
     # Check for GENESIS_KEY in headers (case-insensitive)
     provided_key = None
@@ -1010,7 +1150,7 @@ async def ws_endpoint(ws: WebSocket):
         return
     
     await ws.accept()
-    
+
     nid = "UNKNOWN"
     hw = HardwareClass.STD_GPU
     
@@ -1018,9 +1158,20 @@ async def ws_endpoint(ws: WebSocket):
         # Handshake
         data = json.loads(await ws.receive_text())
         nid = data.get("node_id", str(uuid4())[:8])
-        try: hw = HardwareClass(data.get("hardware", "UNIT_NVIDIA_CUDA"))
-        except: hw = HardwareClass.STD_GPU
-        
+        try:
+            hw = HardwareClass(data.get("hardware", "UNIT_NVIDIA_CUDA"))
+        except Exception:  # noqa: BLE001
+            hw = HardwareClass.STD_GPU
+
+        # Sentinel banlist check: block previously banned nodes
+        try:
+            if await redis_client.sismember("banned_nodes", nid):
+                logger.warning(f"SENTINEL: Rejected banned node {nid} from {client_ip}")
+                await ws.close(code=1008, reason="Node banned by Sentinel")
+                return
+        except Exception as e:  # noqa: BLE001
+            logger.warning(f"SENTINEL: Banlist check failed for {nid}: {e}")
+
         await commander.commission_unit(ws, nid, hw)
         await loyalty.award(nid, 10, "INIT")
         
@@ -1032,6 +1183,46 @@ async def ws_endpoint(ws: WebSocket):
                 jid = msg.get("job_id")
                 worker_wallet = msg.get("wallet_address")
                 result_content = msg.get("result", "")
+
+                # Time-to-Solution Sentinel: measure wall-clock from dispatch
+                tts = None
+                over_tts = False
+                try:
+                    start_ts = await redis_client.get(f"job:{jid}:start_ts")
+                    if start_ts is not None:
+                        tts = time() - float(start_ts)
+                        budget = HARDWARE_TTS_BUDGET.get(
+                            hw, HARDWARE_TTS_BUDGET.get(HardwareClass.STD_GPU)
+                        )
+                        if tts > budget:
+                            over_tts = True
+                            logger.warning(
+                                f"SENTINEL: Node {nid} exceeded TTS budget "
+                                f"({tts:.2f}s > {budget:.2f}s) [{hw.value}]"
+                            )
+                            try:
+                                await redis_client.sadd("banned_nodes", nid)
+                            except Exception as e:  # noqa: BLE001
+                                logger.warning(
+                                    f"SENTINEL: Failed to persist ban for {nid}: {e}"
+                                )
+                    else:
+                        logger.debug(f"SENTINEL: No start_ts for job {jid}; skipping TTS check")
+                except Exception as e:  # noqa: BLE001
+                    logger.warning(f"SENTINEL: TTS evaluation failed for job {jid}: {e}")
+
+                # If an EXTERNAL node blows the TTS budget, ban and stop.
+                if over_tts and not is_internal:
+                    vault.record_job(jid, worker_wallet, 0.0, "SENTINEL_BAN", status="SENTINEL_BAN")
+                    await loyalty.award(nid, -250, "SENTINEL_BAN")
+                    await ws.send_text(json.dumps({
+                        "type": "ACK",
+                        "status": "BANNED_SENTINEL",
+                        "tx_signature": None,
+                        "value": 0.0,
+                    }))
+                    await ws.close(code=1013, reason="Hardware mismatch; banned by Sentinel")
+                    return
 
                 # Proof of Intelligence (Simple Hash)
                 result_hash = hashlib.sha256(str(result_content).encode()).hexdigest()[:16]
@@ -1048,6 +1239,22 @@ async def ws_endpoint(ws: WebSocket):
                 except Exception as e:
                     logger.warning(f"Bounty lookup failed for job {jid}: {e}")
                     payout_value = ValuationEngine.appraise("DEFAULT")
+
+                # Stake-to-Work Economic Firewall: external nodes must hold stake
+                if not await has_sufficient_stake(worker_wallet, is_internal):
+                    logger.warning(
+                        f"STAKE FIREWALL: denying payout for job {jid} from "
+                        f"wallet {worker_wallet[:6]}…"
+                    )
+                    vault.record_job(jid, worker_wallet, 0.0, "DENIED_STAKE", status="DENIED_STAKE")
+                    await loyalty.award(nid, -50, "INSUFFICIENT_STAKE")
+                    await ws.send_text(json.dumps({
+                        "type": "ACK",
+                        "status": "DENIED_STAKE",
+                        "tx_signature": None,
+                        "value": 0.0,
+                    }))
+                    continue
 
                 # Execute Settlement
                 tx_sig = await bank.settle_contract(worker_wallet, payout_value, jid, result_hash)
@@ -1068,6 +1275,18 @@ async def ws_endpoint(ws: WebSocket):
                 if raw:
                     job = json.loads(raw)
                     logger.info(f"DISPATCH {job['job_id']} -> {nid}")
+                    # Record dispatch metadata for Sentinel (Time-to-Solution)
+                    dispatch_ts = time()
+                    try:
+                        async with redis_client.pipeline() as pipe:
+                            pipe.set(f"job:{job['job_id']}:start_ts", dispatch_ts, ex=3600)
+                            pipe.set(f"job:{job['job_id']}:hardware", hw.value, ex=3600)
+                            pipe.set(f"job:{job['job_id']}:node", nid, ex=3600)
+                            await pipe.execute()
+                    except Exception as e:  # noqa: BLE001
+                        logger.warning(
+                            f"SENTINEL: Failed to record dispatch metadata for job {job['job_id']}: {e}"
+                        )
                     # Merge ID into payload for worker
                     final_payload = job['payload']
                     final_payload['job_id'] = job['job_id']

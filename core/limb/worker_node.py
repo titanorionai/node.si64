@@ -377,8 +377,22 @@ class TitanLimb:
 if __name__ == "__main__":
     if IS_MAC and os.geteuid() != 0:
         print("WARNING: Run with 'sudo' for hardware telemetry.")
-    
-    node = TitanLimb()
+
+    # --- CLI ARGUMENTS (UPLINK + CONFIG OVERRIDES) ---
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--connect", help="Brain Uplink URL", default=os.getenv("BRAIN_URL", WEBSOCKET_URL))
+    parser.add_argument("--config", help="Path to config file", default=os.path.expanduser("~/.si64/config.json"))
+    args = parser.parse_args()
+
+    # Update Configuration Variables
+    BRAIN_URL = args.connect
+    CONFIG_FILE = args.config
+    WEBSOCKET_URL = BRAIN_URL
+
+    logger.info(f"[CLI] UPLINK: {BRAIN_URL}")
+    logger.info(f"[CLI] CONFIG: {CONFIG_FILE}")
+
+    node = TitanLimb(connect_url=BRAIN_URL)
     try:
         asyncio.run(node.run())
     except KeyboardInterrupt:

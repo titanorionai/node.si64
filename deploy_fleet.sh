@@ -7,8 +7,18 @@
 set -e
 
 # --- [ TACTICAL CONFIGURATION ] ---
-# CHANGE 1: Use ws:// protocol and explicit /connect path
-BRAIN_UPLINK="ws://127.0.0.1:8000/connect"
+# TARGET_MODE controls whether the fleet connects to the local Brain
+# on this node ("local") or the public SI64.NET Brain ("remote").
+# Default is remote so that public dashboards reflect this fleet.
+TARGET_MODE="${TARGET_MODE:-remote}"
+
+if [ "$TARGET_MODE" = "local" ]; then
+  BRAIN_UPLINK="ws://127.0.0.1:8000/connect"
+  DISPATCHER_IP="127.0.0.1"
+else
+  BRAIN_UPLINK="wss://si64.net/connect"
+  DISPATCHER_IP="si64.net"
+fi
 
 # Docker image that contains the worker container runtime
 IMAGE_NAME="titan-worker:latest"
@@ -97,6 +107,7 @@ for i in $(seq 1 "$FLEET_SIZE"); do
     --network host \
     --runtime nvidia \
     --restart unless-stopped \
+    -e TITAN_DISPATCHER_IP="$DISPATCHER_IP" \
     -e BRAIN_URL="$BRAIN_UPLINK" \
     -e WORKER_NAME="$CONTAINER_NAME" \
     -e TITAN_CONTAINER_MODE="true" \
