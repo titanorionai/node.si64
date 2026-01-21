@@ -21,6 +21,7 @@ from concurrent.futures import ThreadPoolExecutor
 # --- ENTERPRISE HTTP STACK ---
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, Security, Request, Query
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.security.api_key import APIKeyHeader
@@ -1218,6 +1219,12 @@ async def get_billing_ledger(worker: Optional[str] = Query(None, description="Fi
         "total_used": sum(c["used"] for c in ledger),
         "total_pending_refunds": sum(c["refund"] for c in ledger)
     }
+
+
+@app.get("/billing")
+async def billing_redirect():
+    """User-friendly redirect for legacy /billing URL to the dashboard home page."""
+    return RedirectResponse(url="/")
 
 
 @app.get("/api/billing/transactions")
