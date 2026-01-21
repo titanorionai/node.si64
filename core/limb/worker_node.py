@@ -15,6 +15,8 @@ import asyncio
 import websockets
 import json
 import logging
+import hmac
+import hashlib
 import os
 import sys
 import platform
@@ -27,6 +29,33 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime
 from typing import Dict, Optional
 import socket
+
+
+def print_critical_warning():
+    # ANSI Colors
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    RESET = "\033[0m"
+    BOLD = "\033[1m"
+    
+    # Send to Standard Error (sys.stderr) so it bypasses pipes
+    sys.stderr.write(f"\n{YELLOW}" + "="*60 + "\n")
+    sys.stderr.write(f" {RED}🛑 CRITICAL FAILURE: MISSING WALLET CONFIGURATION{YELLOW}\n")
+    sys.stderr.write("="*60 + f"{RESET}\n")
+    
+    sys.stderr.write(f"\n {BOLD}The node cannot operate without a payout target.{RESET}\n")
+    sys.stderr.write(f" Rewards will be lost. Mission Aborted.\n")
+    
+    sys.stderr.write("\n [RECOVERY PROTOCOLS]\n")
+    sys.stderr.write(f" 1. Edit Configuration:\n")
+    sys.stderr.write(f"    {BOLD}nano ~/.si64/config.json{RESET}\n")
+    sys.stderr.write("\n 2. Input Solana Wallet Address.\n")
+    sys.stderr.write("\n 3. Restart Node.\n")
+    
+    sys.stderr.write(f"\n{YELLOW}" + "="*60 + f"{RESET}\n\n")
+    
+    # KILL SWITCH
+    sys.exit(1)
 
 try:
     import docker  # Optional; enables container isolation when available
@@ -109,6 +138,21 @@ class TitanLimb:
         env_wallet = os.getenv("TITAN_WORKER_WALLET") or os.getenv("OVERRIDE_WALLET_ADDRESS")
         self.wallet = wallet if wallet else (env_wallet if env_wallet else DEFAULT_WALLET)
         self.headers = {"x-genesis-key": GENESIS_KEY}
+        # Enforce explicit wallet configuration: if the node is launched
+        # without an explicit `--wallet` argument and no `TITAN_WORKER_WALLET`
+        # environment variable is set, refuse to run to avoid reward loss.
+        try:
+            if wallet is None and not env_wallet:
+                print_critical_warning()
+        except Exception:
+            pass
+        # Advertise node identity in handshake headers so the dispatcher
+        # can whitelist internal nodes prior to the challenge-response.
+        try:
+            self.headers["node_id"] = NODE_ID
+            self.headers["wallet_address"] = self.wallet
+        except Exception:
+            pass
         self.is_busy = False
         self.reconnect_attempts = 0
         self.ollama_url = TITAN_OLLAMA_HOST
@@ -336,10 +380,34 @@ class TitanLimb:
                     logger.info("UPLINK SECURE. AWAITING DIRECTIVES.")
                     self.reconnect_attempts = 0
                     
-                    # Handshake
-                    init = await self.get_telemetry(jetson)
-                    init["last_event"] = "HANDSHAKE"
-                    await ws.send(json.dumps(init))
+                    # Handshake / Challenge-Response
+                    try:
+                        # Wait for server challenge (or initial prompt). The
+                        # dispatcher will send a JSON payload like {"challenge": "..."}
+                        raw = await ws.recv()
+                        try:
+                            incoming = json.loads(raw)
+                        except Exception:
+                            incoming = {}
+
+                        if incoming.get("challenge"):
+                            nonce = incoming.get("challenge")
+                            resp = hmac.new(GENESIS_KEY.encode(), nonce.encode(), hashlib.sha256).hexdigest()
+                            handshake = {
+                                "challenge_resp": resp,
+                                "node_id": NODE_ID,
+                                "hardware": ("UNIT_ORIN_AGX" if IS_JETSON else ("UNIT_APPLE_M_SERIES" if IS_MAC else "UNIT_NVIDIA_CUDA")),
+                                "wallet_address": self.wallet,
+                                "last_event": "HANDSHAKE"
+                            }
+                            await ws.send(json.dumps(handshake))
+                        else:
+                            # Fallback: send telemetry as handshake if server didn't issue a challenge
+                            init = await self.get_telemetry(jetson)
+                            init["last_event"] = "HANDSHAKE"
+                            await ws.send(json.dumps(init))
+                    except Exception as e:
+                        logger.warning(f"HANDSHAKE ERROR: {e}")
 
                     while True:
                         # 1. Heartbeat Report

@@ -2,3 +2,5 @@ websockets
 aiohttp
 requests
 docker
+
+python-dotenv

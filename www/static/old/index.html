@@ -579,14 +579,15 @@
             </p>
 
             <p style="color: var(--alert-red); font-size: 11px; margin-bottom: 10px; font-family: 'JetBrains Mono'; font-weight: 700;">
-                # [93mCRITICAL[0m: EDIT <code>~/.si64/config.json</code> WITH YOUR WALLET ADDRESS <strong>BEFORE</strong> STARTING.
+                # The \033[... codes are standard ANSI colors — shown here for terminal-based setup.
             </p>
-            
-            <div class="code-block" id="deploy-cmd">git clone https://github.com/si64-net/core.git
-cd core
-pip install -r requirements.txt
-mkdir -p ~/.si64 && cp config.example.json ~/.si64/config.json
-python3 limb/worker_node.py --config ~/.si64/config.json --connect https://si64.net</div>
+            <div class="code-block" style="font-family: 'JetBrains Mono'; font-size:12px;">
+<pre># The \033[... codes are standard ANSI colors
+# 93m = Yellow, 1m = Bold, 0m = Reset
+print(f"\n\033[93m\033[1m[!] CRITICAL:\033[0m Edit \033[1m~/.si64/config.json\033[0m with your SOL address to start.\n")</pre>
+            </div>
+
+            <div class="code-block" id="deploy-cmd">git clone https://github.com/si64-net/core.git && cd core && pip3 install -r requirements.txt && mkdir -p ~/.si64 && cp config.example.json ~/.si64/config.json && python3 limb/worker_node.py --config ~/.si64/config.json --connect wss://si64.net</div>
             
             <button class="btn-tac" style="width: 100%; justify-content: center;" onclick="navigator.clipboard.writeText(document.getElementById('deploy-cmd').innerText); this.innerText='COPIED TO CLIPBOARD';">COPY SEQUENCE</button>
         </div>

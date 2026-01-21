@@ -118,3 +118,17 @@ docker inspect titan-vanguard-unit | grep -A 10 "Health"
 ---
 
 **VANGUARD UNIT DEPLOYMENT - STATUS: 🟢 OPERATIONAL**
+
+---
+
+## ARM64 Worker RC1 (Optional)
+
+For remote ARM64 operators, we publish an RC image built to be standalone. See `DEPLOY_RC1.md` for full commands.
+
+Quick pull & run (no mounts):
+
+```bash
+docker pull titanorionai/worker-node:v1.0.1-rc1
+docker run -d --name titan-node-rc1 --restart unless-stopped --network host -e TITAN_WORKER_WALLET="YOUR_WALLET" -e TITAN_GENESIS_KEY="<GENESIS_KEY>" titanorionai/worker-node:v1.0.1-rc1
+docker logs -f titan-node-rc1
+```

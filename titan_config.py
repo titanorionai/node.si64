@@ -61,6 +61,12 @@ else:
 SOLANA_RPC_URL = os.getenv("SOLANA_RPC_URL", "https://api.mainnet-beta.solana.com")
 # Optional Auth Token for Premium RPCs
 SOLANA_RPC_TOKEN = os.getenv("SOLANA_RPC_TOKEN", "")
+# gRPC endpoint (for Chainstack / Yellowstone providers) and token
+# Example provided by user (Chainstack):
+# https://solana-mainnet.core.chainstack.com/b8dc50df2c1abbbae3faab2bcf308faa
+# https://yellowstone-solana-mainnet.core.chainstack.com:443
+SOLANA_GRPC_URL = os.getenv("SOLANA_GRPC_URL", "https://yellowstone-solana-mainnet.core.chainstack.com:443")
+SOLANA_GRPC_TOKEN = os.getenv("SOLANA_GRPC_TOKEN", os.getenv("SOLANA_GRPC_TOKEN", "b8dc50df2c1abbbae3faab2bcf308faa"))
 
 # Economic Policy (Immutable Constants)
 BOUNTY_PER_JOB = float(os.getenv("BOUNTY_PER_JOB", "0.0001"))
@@ -115,6 +121,7 @@ def run_diagnostics():
     print(f"   [IDENTITY]   {NODE_ID}")
     print(f"   [UPLINK]     {WEBSOCKET_URL}")
     print(f"   [RPC]        {SOLANA_RPC_URL[:40]}...")
+    print(f"   [GRPC]       {SOLANA_GRPC_URL[:40]}...")
     print(f"   [BANKING]    {'ACTIVE' if os.path.exists(BANK_WALLET_PATH) else 'MISSING (SIMULATION)'}")
     print(f"   [ECONOMY]    {BOUNTY_PER_JOB} SOL/OP | SPLIT: {int(WORKER_FEE_PERCENT*100)}/{int(PROTOCOL_TAX*100)}")
     print(f"   -------------------------------------------\n")

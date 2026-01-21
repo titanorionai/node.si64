@@ -82,3 +82,30 @@ pip3 install -r requirements.txt
 
 # 3. Connect to the Grid
 python3 limb/worker_node.py --connect wss://titan-grid.network
+
+## ARM64 Release Candidate (RC1)
+
+We've published a release candidate image built for ARM64 silicon that is self-contained (no volume mounts required).
+
+Pull and validate the RC1 image:
+
+```bash
+# Replace with your Hub username if different
+docker pull titanorionai/worker-node:v1.0.1-rc1
+
+# Run as a hardened, fire-and-forget worker (replace YOUR_WALLET and optional GENESIS_KEY)
+docker run -d \
+  --name titan-node-rc1 \
+  --restart unless-stopped \
+  --network host \
+  --cpus="2.0" \
+  --memory="4g" \
+  -e TITAN_WORKER_WALLET="YOUR_WALLET" \
+  -e TITAN_GENESIS_KEY="<GENESIS_KEY>" \
+  titanorionai/worker-node:v1.0.1-rc1
+
+# Tail logs
+docker logs -f titan-node-rc1
+```
+
+If the container stays `Up` and logs `TITAN LIMB ONLINE. ... UPLINK SECURE. AWAITING DIRECTIVES.`, the image is valid for remote ARM64 deployment.
