@@ -289,12 +289,11 @@
             overflow: hidden;
         }
         .terminal-container {
-            height: 500px;
-            overflow-y: auto;
+            /* fixed-height scrolling removed: now static block */
+            height: auto;
+            overflow: hidden;
             background: #000;
             padding: 30px 40px;
-            scrollbar-width: thin;
-            scrollbar-color: var(--titan-glow) #000;
             display: flex;
             justify-content: center;
         }
@@ -819,35 +818,25 @@ python3 limb/worker_node.py --config ~/.si64/config.json --connect https://si64.
     </div>
 
     <!-- STRATEGIC LOG TERMINAL -->
-    <div class="strategic-log">
-        <div class="terminal-container">
-            <div class="terminal-text">
+        <div class="strategic-log">
+                <div class="terminal-container" style="height:auto; overflow:hidden;">
+                        <div class="terminal-text">
 <span class="terminal-header">&gt;&gt;&gt; GLOBAL STRATEGIC LOG</span>
 <span class="terminal-separator">--------------------------------------------------</span>
 CURRENT ERA: GENESIS // PHASE I
-STATUS: LIVE
+STATUS: si64.net is Live
 
-<span class="terminal-phase">&gt; PHASE 1: THE AWAKENING</span>
-  <span class="terminal-progress-full"></span>si64.net 100% DEPLOYED
-  We are onboarding the first wave of silicon. 
-  STATUS: ACTIVE RECRUITMENT.
+&gt; PHASE 1: ONBOARDING
 
-<span class="terminal-phase">&gt; PHASE 2: THE FEDERATION (NEXT)</span>
-  <span class="terminal-progress-partial"></span>Grid Partitioning via Regional Supernodes.
-  We are commissioning the Elite.
-  ONLY THE STRONGEST SILICON APPLIES.
+&gt; PHASE 2: EXPANSION
 
-<span class="terminal-phase">&gt; PHASE 3: THE SINGULARITY (FINAL)</span>
-  <span class="terminal-locked"></span>AWAITING PROTOCOL
-  Complete Autonomous Operation.
-  No central authority. No downtime.
+&gt; PHASE 3: DOMINATION
 
 <span class="terminal-separator">--------------------------------------------------</span>
-<span class="terminal-warning">&gt;&gt;&gt; WARNING: si64.net IS AN ELITE COMPUTE CLUB.
-</span>
-            </div>
+<span class="terminal-warning">&gt;&gt;&gt; WARNING: si64.net IS AN ELITE COMPUTE CLUB.</span>
+                        </div>
+                </div>
         </div>
-    </div>
 
     <footer>
         <div>SI64.NET FOUNDATION [EST 2026]</div>
