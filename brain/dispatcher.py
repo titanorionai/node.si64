@@ -1287,6 +1287,33 @@ async def billing_transactions(
         logger.warning(f"LEDGER API: failed to read transactions: {e}")
         raise HTTPException(status_code=500, detail="Failed to read transactions from ledger")
 
+
+@app.get("/api/billing/total")
+async def billing_total(
+    worker: Optional[str] = Query(None, description="Worker wallet address to aggregate")
+):
+    """Return aggregate totals (count + sum SOL) for a worker or for all workers.
+
+    This allows the frontend to request a single value rather than paging
+    through the entire history.
+    """
+    try:
+        import sqlite3
+        with sqlite3.connect(DB_PATH) as conn:
+            cur = conn.cursor()
+            if worker:
+                cur.execute("SELECT COUNT(*), COALESCE(SUM(amount_sol), 0) FROM transactions WHERE worker_wallet = ?", (worker,))
+            else:
+                cur.execute("SELECT COUNT(*), COALESCE(SUM(amount_sol), 0) FROM transactions")
+            row = cur.fetchone() or (0, 0.0)
+            count = int(row[0] or 0)
+            total = float(row[1] or 0.0)
+
+        return {"worker": worker or "ALL", "count": count, "total_sol": total}
+    except Exception as e:
+        logger.warning(f"LEDGER API: failed to compute totals: {e}")
+        raise HTTPException(status_code=500, detail="Failed to compute totals from ledger")
+
 @app.post("/submit_job")
 async def submit(job: JobRequest, key: str = Security(api_key_header)):
     if key != GENESIS_KEY:
