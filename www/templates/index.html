@@ -1268,6 +1268,8 @@ STATUS: LIVE
                 try { localStorage.setItem(cacheKey, JSON.stringify({ ts: now, data })); } catch (e) { /* ignore */ }
 
                 renderLedgerFromCache(data);
+                // Update aggregate total for the selected worker (if any)
+                if (worker) fetchTotalForWorker(worker);
             } catch (err) {
                 console.error('Ledger load failed', err);
                 tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#f66;padding:40px;font-family:'JetBrains Mono'">ERROR LOADING LEDGER</td></tr>`;
@@ -1306,40 +1308,22 @@ STATUS: LIVE
             }).join('');
         }
 
-        // --- Compute total SOL for a worker by paging the transactions API ---
+        // --- Compute total SOL for a worker via backend aggregate endpoint ---
         async function fetchTotalForWorker(worker) {
             const outEl = document.getElementById('orin-total-sol');
-            if (!worker || !outEl) return;
-            const pageLimit = 500; // backend supports up to 500
-            let offset = 0;
-            let total = 0;
+            if (!outEl) return;
+            if (!worker) {
+                outEl.innerText = '0.000000';
+                return;
+            }
             try {
-                // First request to get total count
-                const firstRes = await fetch(`/api/billing/transactions?worker=${encodeURIComponent(worker)}&limit=${pageLimit}&offset=${offset}`);
-                if (!firstRes.ok) throw new Error('Failed fetching transactions');
-                const firstData = await firstRes.json();
-                const totalCount = firstData.total || 0;
-                const pages = Math.ceil(totalCount / pageLimit) || 1;
-
-                // Sum first page
-                if (firstData.transactions && firstData.transactions.length) {
-                    for (const tx of firstData.transactions) total += parseFloat(tx.amount_sol || 0) || 0;
-                }
-
-                // Fetch remaining pages if necessary
-                for (let p = 1; p < pages; p++) {
-                    offset = p * pageLimit;
-                    const res = await fetch(`/api/billing/transactions?worker=${encodeURIComponent(worker)}&limit=${pageLimit}&offset=${offset}`);
-                    if (!res.ok) break;
-                    const data = await res.json();
-                    if (data.transactions && data.transactions.length) {
-                        for (const tx of data.transactions) total += parseFloat(tx.amount_sol || 0) || 0;
-                    }
-                }
-
-                outEl.innerText = (total).toFixed(6);
+                const res = await fetch(`/api/billing/total?worker=${encodeURIComponent(worker)}`);
+                if (!res.ok) throw new Error('Failed to fetch total');
+                const data = await res.json();
+                const total = parseFloat(data.total_sol || 0) || 0;
+                outEl.innerText = total.toFixed(6);
             } catch (e) {
-                console.error('Failed to compute worker total', e);
+                console.error('Failed to fetch worker total', e);
                 outEl.innerText = '0.000000';
             }
         }
