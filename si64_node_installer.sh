@@ -46,7 +46,7 @@ done
 
 # --- [ 2. DEPLOYMENT ] ---
 INSTALL_DIR="$HOME/.si64-core"
-# Canonical Titan Network core repository
+# Canonical Titan Network core repository (private dev repo)
 REPO_URL="https://github.com/titanorionai/AGX-ORIN.git"
 
 if [ -d "$INSTALL_DIR" ]; then

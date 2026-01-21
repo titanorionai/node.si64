@@ -1,14 +1,4 @@
-fastapi
-uvicorn
 websockets
-requests
-python-dotenv
-docker
-solders
-solana
-jetson-stats
 aiohttp
-redis
-pydantic
-jinja2
-tweepy
+requests
+docker
