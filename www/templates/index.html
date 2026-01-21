@@ -630,6 +630,9 @@
                     <label style="display:flex;align-items:center;gap:8px;color:#8899aa;font-family:var(--font-mono);font-size:12px;">
                         <input id="ledger-toggle-orin" type="checkbox" checked style="transform:scale(1.1)"> Orin Only
                     </label>
+                    <div id="orin-total" style="font-family:var(--font-mono);color:var(--titan-glow);font-size:12px;margin-left:12px;">
+                        Orin Total: ◎ <span id="orin-total-sol">0.000000</span>
+                    </div>
                     <input id="ledger-filter-worker" value="5mEvgLUE2MvNTSr9mGRo6zvL2M2Jng132sDCP4411FHZ" placeholder="Filter by worker wallet (optional)" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:#fff;padding:8px 10px;font-family:var(--font-mono);width:360px;" />
                     <button class="btn-tac" id="ledger-refresh" onclick="loadLedger()">REFRESH</button>
                     <button class="btn-tac" id="ledger-clear" onclick="clearFilter()">CLEAR</button>
@@ -1301,6 +1304,44 @@ STATUS: LIVE
                         <td>${proof}</td>
                     </tr>`;
             }).join('');
+        }
+
+        // --- Compute total SOL for a worker by paging the transactions API ---
+        async function fetchTotalForWorker(worker) {
+            const outEl = document.getElementById('orin-total-sol');
+            if (!worker || !outEl) return;
+            const pageLimit = 500; // backend supports up to 500
+            let offset = 0;
+            let total = 0;
+            try {
+                // First request to get total count
+                const firstRes = await fetch(`/api/billing/transactions?worker=${encodeURIComponent(worker)}&limit=${pageLimit}&offset=${offset}`);
+                if (!firstRes.ok) throw new Error('Failed fetching transactions');
+                const firstData = await firstRes.json();
+                const totalCount = firstData.total || 0;
+                const pages = Math.ceil(totalCount / pageLimit) || 1;
+
+                // Sum first page
+                if (firstData.transactions && firstData.transactions.length) {
+                    for (const tx of firstData.transactions) total += parseFloat(tx.amount_sol || 0) || 0;
+                }
+
+                // Fetch remaining pages if necessary
+                for (let p = 1; p < pages; p++) {
+                    offset = p * pageLimit;
+                    const res = await fetch(`/api/billing/transactions?worker=${encodeURIComponent(worker)}&limit=${pageLimit}&offset=${offset}`);
+                    if (!res.ok) break;
+                    const data = await res.json();
+                    if (data.transactions && data.transactions.length) {
+                        for (const tx of data.transactions) total += parseFloat(tx.amount_sol || 0) || 0;
+                    }
+                }
+
+                outEl.innerText = (total).toFixed(6);
+            } catch (e) {
+                console.error('Failed to compute worker total', e);
+                outEl.innerText = '0.000000';
+            }
         }
 
         function prevPage() {
