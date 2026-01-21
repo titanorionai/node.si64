@@ -627,6 +627,9 @@
                     </span>
                 </div>
                 <div style="display:flex;gap:8px;align-items:center;">
+                    <label style="display:flex;align-items:center;gap:8px;color:#8899aa;font-family:var(--font-mono);font-size:12px;">
+                        <input id="ledger-toggle-orin" type="checkbox" checked style="transform:scale(1.1)"> Orin Only
+                    </label>
                     <input id="ledger-filter-worker" value="5mEvgLUE2MvNTSr9mGRo6zvL2M2Jng132sDCP4411FHZ" placeholder="Filter by worker wallet (optional)" style="background:transparent;border:1px solid rgba(255,255,255,0.04);color:#fff;padding:8px 10px;font-family:var(--font-mono);width:360px;" />
                     <button class="btn-tac" id="ledger-refresh" onclick="loadLedger()">REFRESH</button>
                     <button class="btn-tac" id="ledger-clear" onclick="clearFilter()">CLEAR</button>
@@ -1181,56 +1184,123 @@ STATUS: LIVE
         });
 
         // --- Ledger client integration ---
+        const ORIN_WALLET = '5mEvgLUE2MvNTSr9mGRo6zvL2M2Jng132sDCP4411FHZ';
         let ledgerLimit = 50;
         let ledgerOffset = 0;
+        const ledgerCacheTTL = 10; // seconds
+        const ledgerMinRefresh = 5; // seconds (throttle)
+        let ledgerLastFetch = 0;
 
-        async function loadLedger() {
+        function _cacheKey(worker, limit, offset) {
+            const w = worker || 'ALL';
+            return `ledger_cache:${w}:${limit}:${offset}`;
+        }
+
+        async function loadLedger(useCache=true) {
             const workerInput = document.getElementById('ledger-filter-worker');
+            const orinToggle = document.getElementById('ledger-toggle-orin');
             const tbody = document.getElementById('ledger-body');
             const countEl = document.getElementById('ledger-count');
             const totalEl = document.getElementById('ledger-total');
 
-            const worker = workerInput ? workerInput.value.trim() : '';
+            // If the Orin toggle is checked, force the worker filter
+            if (orinToggle && orinToggle.checked) {
+                if (workerInput) {
+                    workerInput.value = ORIN_WALLET;
+                    workerInput.disabled = true;
+                }
+            } else {
+                if (workerInput) workerInput.disabled = false;
+            }
+
+            const worker = (workerInput && workerInput.value) ? workerInput.value.trim() : '';
             const qs = new URLSearchParams({ limit: ledgerLimit.toString(), offset: ledgerOffset.toString() });
             if (worker) qs.set('worker', worker);
 
+            const now = Math.floor(Date.now()/1000);
+            // Throttle rapid calls
+            if (now - ledgerLastFetch < ledgerMinRefresh) {
+                // serve from cache if available
+                if (useCache) {
+                    const ck = _cacheKey(worker, ledgerLimit, ledgerOffset);
+                    try {
+                        const raw = localStorage.getItem(ck);
+                        if (raw) {
+                            const obj = JSON.parse(raw);
+                            if (now - obj.ts < ledgerCacheTTL) {
+                                renderLedgerFromCache(obj.data);
+                                return;
+                            }
+                        }
+                    } catch (e) { /* ignore cache errors */ }
+                }
+                // otherwise wait and schedule a refresh
+                setTimeout(() => loadLedger(), (ledgerMinRefresh - (now - ledgerLastFetch)) * 1000 + 50);
+                return;
+            }
+
+            const cacheKey = _cacheKey(worker, ledgerLimit, ledgerOffset);
+            // Attempt to use recent cache first
+            if (useCache) {
+                try {
+                    const raw = localStorage.getItem(cacheKey);
+                    if (raw) {
+                        const obj = JSON.parse(raw);
+                        if (now - obj.ts < ledgerCacheTTL) {
+                            renderLedgerFromCache(obj.data);
+                            return;
+                        }
+                    }
+                } catch (e) { /* ignore cache errors */ }
+            }
+
             try {
+                ledgerLastFetch = now;
                 tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#556;padding:40px;font-family:'JetBrains Mono'">LOADING...</td></tr>`;
                 const res = await fetch(`/api/billing/transactions?${qs.toString()}`);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const data = await res.json();
 
-                const txs = data.transactions || [];
-                countEl.textContent = data.count || txs.length || 0;
-                totalEl.textContent = data.total || 0;
+                // Cache response
+                try { localStorage.setItem(cacheKey, JSON.stringify({ ts: now, data })); } catch (e) { /* ignore */ }
 
-                if (txs.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#556;padding:40px;font-family:'JetBrains Mono'">NO TRANSACTIONS</td></tr>`;
-                    return;
-                }
-
-                tbody.innerHTML = txs.map(tx => {
-                    const jid = (tx.job_id || '').toString();
-                    const worker = (tx.worker_wallet || '—').toString();
-                    const workerShort = worker.length>12 ? (worker.slice(0,6)+'…'+worker.slice(-6)) : worker;
-                    const amount = (parseFloat(tx.amount_sol || 0) || 0).toFixed(6);
-                    const ts = (tx.timestamp || '').toString();
-                    const txsig = tx.tx_signature || tx.tx || '';
-                    const proof = (txsig && txsig.length>8) ? `<a href="https://solscan.io/tx/${txsig}" target="_blank" style="color:var(--titan-glow);text-decoration:underline;font-family:'JetBrains Mono'">${txsig.slice(0,8)}…</a>` : '<span style="color:#888">—</span>';
-                    return `
-                        <tr>
-                            <td style="font-family:'JetBrains Mono'; color: #fff;">${jid}</td>
-                            <td style="color:#889">${workerShort}</td>
-                            <td style="color:var(--titan-glow)">◎ ${amount}</td>
-                            <td>${ts}</td>
-                            <td>${proof}</td>
-                        </tr>`;
-                }).join('');
-
+                renderLedgerFromCache(data);
             } catch (err) {
                 console.error('Ledger load failed', err);
                 tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#f66;padding:40px;font-family:'JetBrains Mono'">ERROR LOADING LEDGER</td></tr>`;
             }
+        }
+
+        function renderLedgerFromCache(data) {
+            const tbody = document.getElementById('ledger-body');
+            const countEl = document.getElementById('ledger-count');
+            const totalEl = document.getElementById('ledger-total');
+            const txs = (data && data.transactions) ? data.transactions : [];
+            countEl.textContent = (data && data.count) || txs.length || 0;
+            totalEl.textContent = (data && data.total) || 0;
+
+            if (txs.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#556;padding:40px;font-family:'JetBrains Mono'">NO TRANSACTIONS</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = txs.map(tx => {
+                const jid = (tx.job_id || '').toString();
+                const worker = (tx.worker_wallet || '—').toString();
+                const workerShort = worker.length>12 ? (worker.slice(0,6)+'…'+worker.slice(-6)) : worker;
+                const amount = (parseFloat(tx.amount_sol || 0) || 0).toFixed(6);
+                const ts = (tx.timestamp || '').toString();
+                const txsig = tx.tx_signature || tx.tx || '';
+                const proof = (txsig && txsig.length>8) ? `<a href="https://solscan.io/tx/${txsig}" target="_blank" style="color:var(--titan-glow);text-decoration:underline;font-family:'JetBrains Mono'">${txsig.slice(0,8)}…</a>` : '<span style="color:#888">—</span>';
+                return `
+                    <tr>
+                        <td style="font-family:'JetBrains Mono'; color: #fff;">${jid}</td>
+                        <td style="color:#889">${workerShort}</td>
+                        <td style="color:var(--titan-glow)">◎ ${amount}</td>
+                        <td>${ts}</td>
+                        <td>${proof}</td>
+                    </tr>`;
+            }).join('');
         }
 
         function prevPage() {
@@ -1263,9 +1333,26 @@ STATUS: LIVE
             }
         });
 
-        // Initial load
+        // Initial load and periodic refresh
         window.addEventListener('load', async () => { await updateDashboard(); await loadLedger(); });
         setInterval(updateDashboard, 2000);
+        // Ledger auto-refresh throttled and cached (every 10s)
+        setInterval(() => loadLedger(), 10000);
+
+        // Wire Orin toggle behavior
+        const orinToggleEl = document.getElementById('ledger-toggle-orin');
+        if (orinToggleEl) {
+            orinToggleEl.addEventListener('change', () => {
+                if (orinToggleEl.checked) {
+                    const w = document.getElementById('ledger-filter-worker');
+                    if (w) { w.value = ORIN_WALLET; w.disabled = true; }
+                } else {
+                    const w = document.getElementById('ledger-filter-worker');
+                    if (w) { w.disabled = false; }
+                }
+                ledgerOffset = 0; loadLedger();
+            });
+        }
 
     </script>
 
