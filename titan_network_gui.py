@@ -1,450 +1,427 @@
-#!/home/titan/TitanNetwork/venv/bin/python3
+#!/usr/bin/env python3
 """
-TITAN NETWORK | SI64.NET CONTROL DECK
-Standalone cyberpunk GUI for monitoring the TITAN backend and driving the
-SI64.NET Twitter bot.
-
-Left pane  : TITAN backend status & key telemetry
-Right pane : SI64.NET Twitter bot console
-Header     : SI64.NET logo strip with neon cyan cyberpunk styling
+TITAN NETWORK // COMMAND DECK v2.0
+CLASSIFICATION: COMMANDER EYES ONLY
+MISSION: DRIVING CORE SI64.NET OPERATIONS
 """
 
 import os
 import sys
-from pathlib import Path
+import time
 import threading
+import subprocess
+import webbrowser
+from pathlib import Path
+from datetime import datetime
 
 import tkinter as tk
 from tkinter import ttk, scrolledtext, messagebox
 
-# Local imports
+# --- [ EXTERNAL DEPENDENCIES ] ---
 try:
-    import titan_config as tcfg
-except SystemExit:
-    # titan_config can hard-exit if GENESIS_KEY is missing. For the GUI we
-    # degrade gracefully so at least the shell opens.
-    tcfg = None
+    import requests
+except ImportError:
+    print("[CRITICAL] 'requests' library missing. Install via pip.")
+    sys.exit(1)
 
 try:
-    from si64_twitter_bot import SI64TwitterBot
-except Exception:  # noqa: BLE001
-    SI64TwitterBot = None
+    import psutil
+except ImportError:
+    psutil = None  # Graceful degradation if monitoring isn't installed
 
+# --- [ CONFIGURATION ] ---
+API_BASE = os.getenv("TITAN_GUI_API_BASE", "http://127.0.0.1:8000")
+GENESIS_KEY = os.getenv("GENESIS_KEY", "TITAN_GENESIS_KEY_V1_SECURE")
 
-class TitanNetworkGUI(tk.Tk):
+# --- [ VISUAL THEME ] ---
+COLOR_BG_MAIN = "#050505"      # Void Black
+COLOR_BG_PANEL = "#111111"     # Carbon Fiber
+COLOR_ACCENT = "#00ffcc"       # Cyan Neon (Primary)
+COLOR_ALERT = "#ff3333"        # Red Alert (Critical)
+COLOR_SUCCESS = "#33ff33"      # Terminal Green (Good)
+COLOR_TEXT = "#e0e0e0"         # Off-White
+FONT_MAIN = ("Segoe UI", 10)
+FONT_MONO = ("Consolas", 10)
+FONT_HEADER = ("Segoe UI", 12, "bold")
+
+class TitanCommandDeck(tk.Tk):
     def __init__(self) -> None:
         super().__init__()
-        self.title("TITAN NETWORK | SI64.NET CONTROL DECK")
-        self.geometry("1180x720")
-        self.configure(bg="#040712")
+        self.title("TITAN NETWORK // COMMAND DECK")
+        self.geometry("1600x950")
+        self.configure(bg=COLOR_BG_MAIN)
+        
+        # Project Root
+        self.project_root = Path(__file__).resolve().parent
 
+        # Initialize
         self._init_styles()
-
-        self.bot = None
-        self.bot_stats = {}
-
         self._build_layout()
-        self._init_bot_async()
-        self._refresh_backend_panel()
+        
+        # Start Background Processes
+        self._start_clock()
+        if psutil:
+            self._start_hardware_monitor()
+        self._poll_api_stats()
+        self.log_tactical("SYSTEM INITIALIZED. WELCOME, COMMANDER.", "INFO")
 
     # ------------------------------------------------------------------
-    # Styling
+    # VISUAL CORE
     # ------------------------------------------------------------------
     def _init_styles(self) -> None:
         style = ttk.Style(self)
         style.theme_use("clam")
 
-        base_bg = "#02040b"
-        panel_bg = "#050816"
-        accent_cyan = "#00e5ff"
-        accent_magenta = "#ff2fd8"
+        # Global Config
+        style.configure("TFrame", background=COLOR_BG_MAIN)
+        style.configure("TLabel", background=COLOR_BG_MAIN, foreground=COLOR_TEXT, font=FONT_MAIN)
+        
+        # Panels
+        style.configure("Panel.TFrame", background=COLOR_BG_PANEL, relief="flat")
+        style.configure("PanelHeader.TLabel", background=COLOR_BG_PANEL, foreground=COLOR_ACCENT, font=FONT_HEADER)
+        
+        # Buttons
+        style.configure("Command.TButton", 
+                        background="#222", 
+                        foreground=COLOR_ACCENT, 
+                        borderwidth=1, 
+                        font=("Segoe UI", 9, "bold"))
+        style.map("Command.TButton", 
+                  background=[("active", COLOR_ACCENT)], 
+                  foreground=[("active", "#000")])
 
-        style.configure("TFrame", background=base_bg)
-        style.configure("Panel.TFrame", background=panel_bg, relief="solid", borderwidth=1)
-        style.configure("HeaderStrip.TFrame", background="#030612")
-        style.configure(
-            "Header.TLabel",
-            background="#030612",
-            foreground=accent_cyan,
-            font=("Courier", 24, "bold"),
-        )
-        style.configure(
-            "SubHeader.TLabel",
-            background="#030612",
-            foreground=accent_magenta,
-            font=("Courier", 12),
-        )
-        style.configure(
-            "Section.TLabel",
-            background=panel_bg,
-            foreground=accent_cyan,
-            font=("Courier", 14, "bold"),
-        )
-        style.configure(
-            "Data.TLabel",
-            background=panel_bg,
-            foreground="#d0faff",
-            font=("Courier", 11),
-        )
-        style.configure(
-            "StatusOk.TLabel",
-            background=panel_bg,
-            foreground="#5dff9e",
-            font=("Courier", 11),
-        )
-        style.configure(
-            "StatusWarn.TLabel",
-            background=panel_bg,
-            foreground="#ff6b81",
-            font=("Courier", 11),
-        )
-        style.configure(
-            "Neon.TButton",
-            font=("Courier", 11, "bold"),
-            padding=8,
-            foreground=accent_cyan,
-        )
-        style.map(
-            "Neon.TButton",
-            foreground=[("active", "#ffffff")],
-            background=[("active", panel_bg)],
-        )
+        style.configure("Alert.TButton", 
+                        background="#330000", 
+                        foreground=COLOR_ALERT, 
+                        borderwidth=1,
+                        font=("Segoe UI", 9, "bold"))
+        style.map("Alert.TButton", 
+                  background=[("active", COLOR_ALERT)], 
+                  foreground=[("active", "#fff")])
 
-    # ------------------------------------------------------------------
-    # Layout
-    # ------------------------------------------------------------------
+        # Progress Bars (Hardware Monitors)
+        style.configure("Cyan.Horizontal.TProgressbar", background=COLOR_ACCENT, troughcolor="#222", borderwidth=0)
+        style.configure("Red.Horizontal.TProgressbar", background=COLOR_ALERT, troughcolor="#222", borderwidth=0)
+
     def _build_layout(self) -> None:
-        root = ttk.Frame(self, style="TFrame")
-        root.pack(fill="both", expand=True, padx=14, pady=14)
+        # --- TOP HEADER ---
+        header = ttk.Frame(self, style="TFrame")
+        header.pack(fill="x", padx=15, pady=10)
+        
+        # Logo / Title
+        ttk.Label(header, text="SI64 // SOVEREIGN COMPUTE PROTOCOL", font=("Impact", 24), foreground=COLOR_TEXT).pack(side="left")
+        
+        # Live Clock
+        self.clock_label = ttk.Label(header, text="00:00:00 UTC", font=("Consolas", 14), foreground=COLOR_ACCENT)
+        self.clock_label.pack(side="right")
+        
+        # Divider
+        tk.Frame(self, bg=COLOR_ACCENT, height=2).pack(fill="x", padx=15, pady=(0, 15))
 
-        # Header strip
-        header = ttk.Frame(root, style="HeaderStrip.TFrame")
-        header.pack(fill="x", pady=(0, 10))
+        # --- MAIN CONTAINER ---
+        main_container = ttk.Frame(self, style="TFrame")
+        main_container.pack(fill="both", expand=True, padx=15, pady=(0, 15))
 
-        left_header = ttk.Frame(header, style="TFrame")
-        left_header.pack(side="left", anchor="w")
+        # --- LEFT COLUMN (TELEMETRY) ---
+        left_col = ttk.Frame(main_container, style="TFrame", width=400)
+        left_col.pack(side="left", fill="y", padx=(0, 10))
+        left_col.pack_propagate(False) # Force width
 
-        ttk.Label(
-            left_header,
-            text="SI64.NET // TITAN NETWORK",
-            style="Header.TLabel",
-        ).pack(anchor="w")
-        ttk.Label(
-            left_header,
-            text="NEON CONTROL DECK  •  BACKEND TELEMETRY  •  TWITTER OPERATIONS",
-            style="SubHeader.TLabel",
-        ).pack(anchor="w")
+        self._build_telemetry_panel(left_col)
+        self._build_hardware_panel(left_col)
+        self._build_quick_actions(left_col)
 
-        # Thin cyan underline for a sharper, more professional look
-        underline = tk.Frame(header, bg="#00e5ff", height=1)
-        underline.pack(fill="x", pady=(8, 0))
+        # --- RIGHT COLUMN (TABS & TERMINAL) ---
+        right_col = ttk.Frame(main_container, style="TFrame")
+        right_col.pack(side="left", fill="both", expand=True)
 
-        # Main two-panel layout
-        main = ttk.Frame(root, style="TFrame")
-        main.pack(fill="both", expand=True)
-        main.columnconfigure(0, weight=1)
-        main.columnconfigure(1, weight=1)
-        main.rowconfigure(0, weight=1)
-
-        # Left: Backend telemetry
-        self.backend_panel = ttk.Frame(main, style="Panel.TFrame")
-        self.backend_panel.grid(row=0, column=0, sticky="nsew", padx=(0, 8))
-        self._build_backend_panel(self.backend_panel)
-
-        # Right: Twitter bot console
-        self.twitter_panel = ttk.Frame(main, style="Panel.TFrame")
-        self.twitter_panel.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
-        self._build_twitter_panel(self.twitter_panel)
+        self._build_mission_tabs(right_col)
 
     # ------------------------------------------------------------------
-    # Backend pane
+    # PANELS
     # ------------------------------------------------------------------
-    def _build_backend_panel(self, parent: ttk.Frame) -> None:
-        ttk.Label(parent, text="TITAN BACKEND STATUS", style="Section.TLabel").pack(
-            anchor="w", padx=12, pady=(10, 6)
-        )
+    def _build_telemetry_panel(self, parent):
+        frame = ttk.LabelFrame(parent, text=" NETWORK TELEMETRY ", style="Panel.TFrame", padding=10)
+        frame.pack(fill="x", pady=(0, 10))
 
-        self.backend_status_label = ttk.Label(parent, text="● Initializing…", style="StatusWarn.TLabel")
-        self.backend_status_label.pack(anchor="w", padx=12, pady=(0, 8))
+        # Grid layout for stats
+        self.stat_labels = {}
+        stats = [("FLEET SIZE", "0"), ("JOB QUEUE", "0"), ("REVENUE (SOL)", "0.0000"), ("BRAIN STATUS", "OFFLINE")]
+        
+        for i, (label, default) in enumerate(stats):
+            ttk.Label(frame, text=label, font=("Segoe UI", 8), background=COLOR_BG_PANEL, foreground="#888").grid(row=i, column=0, sticky="w", pady=2)
+            lbl = ttk.Label(frame, text=default, font=("Consolas", 12, "bold"), background=COLOR_BG_PANEL, foreground=COLOR_ACCENT)
+            lbl.grid(row=i, column=1, sticky="e", pady=2)
+            self.stat_labels[label] = lbl
+            
+        # Specific styling for status
+        self.stat_labels["BRAIN STATUS"].configure(foreground=COLOR_ALERT)
 
-        self.backend_info_frame = ttk.Frame(parent, style="Panel.TFrame")
-        self.backend_info_frame.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+    def _build_hardware_panel(self, parent):
+        frame = ttk.LabelFrame(parent, text=" LOCAL HARDWARE ", style="Panel.TFrame", padding=10)
+        frame.pack(fill="x", pady=(0, 10))
 
-        self.backend_text = scrolledtext.ScrolledText(
-            self.backend_info_frame,
-            bg="#050816",
-            fg="#d0faff",
-            insertbackground="#00f5ff",
-            font=("Courier", 10),
-            relief="flat",
-            wrap="word",
-        )
-        self.backend_text.pack(fill="both", expand=True, padx=4, pady=4)
-        self.backend_text.configure(state="disabled")
-
-    def _refresh_backend_panel(self) -> None:
-        if tcfg is None:
-            self.backend_status_label.configure(text="● titan_config not available", style="StatusWarn.TLabel")
+        if not psutil:
+            ttk.Label(frame, text="PSUTIL LIB MISSING", background=COLOR_BG_PANEL, foreground=COLOR_ALERT).pack()
             return
 
+        ttk.Label(frame, text="CPU LOAD", background=COLOR_BG_PANEL, font=("Segoe UI", 8)).pack(anchor="w")
+        self.cpu_bar = ttk.Progressbar(frame, style="Cyan.Horizontal.TProgressbar", length=100, mode='determinate')
+        self.cpu_bar.pack(fill="x", pady=(0, 8))
+
+        ttk.Label(frame, text="RAM USAGE", background=COLOR_BG_PANEL, font=("Segoe UI", 8)).pack(anchor="w")
+        self.ram_bar = ttk.Progressbar(frame, style="Cyan.Horizontal.TProgressbar", length=100, mode='determinate')
+        self.ram_bar.pack(fill="x", pady=(0, 5))
+        
+        self.hw_label = ttk.Label(frame, text="Scanning...", background=COLOR_BG_PANEL, font=("Consolas", 8))
+        self.hw_label.pack(anchor="e")
+
+    def _build_quick_actions(self, parent):
+        frame = ttk.LabelFrame(parent, text=" RAPID DEPLOYMENT ", style="Panel.TFrame", padding=10)
+        frame.pack(fill="x", pady=(0, 10))
+
+        ttk.Button(frame, text="LAUNCH DASHBOARD (WEB)", style="Command.TButton", command=self._open_web).pack(fill="x", pady=2)
+        tk.Frame(frame, bg="#333", height=1).pack(fill="x", pady=5)
+        ttk.Button(frame, text="FIRE STRESS TEST (LOCAL)", style="Alert.TButton", command=self._stress_local).pack(fill="x", pady=2)
+        ttk.Button(frame, text="FIRE STRESS TEST (REMOTE)", style="Alert.TButton", command=self._stress_remote).pack(fill="x", pady=2)
+
+    def _build_mission_tabs(self, parent):
+        # Custom Notebook styling
+        style = ttk.Style()
+        style.configure("TNotebook", background=COLOR_BG_MAIN, borderwidth=0)
+        style.configure("TNotebook.Tab", background="#222", foreground="#888", padding=[15, 5], font=("Segoe UI", 10, "bold"))
+        style.map("TNotebook.Tab", background=[("selected", COLOR_ACCENT)], foreground=[("selected", "#000")])
+
+        self.notebook = ttk.Notebook(parent)
+        self.notebook.pack(fill="both", expand=True)
+
+        # Tabs
+        self.tab_sitrep = self._create_tab("SITREP")
+        self.tab_battle_group = self._create_tab("BATTLE GROUP")
+        self.tab_ledger = self._create_tab("LEDGER")
+        self.tab_contracts = self._create_tab("CONTRACTS")
+        self.tab_black_box = self._create_tab("BLACK BOX")
+
+        # Build Tab Content
+        self._build_sitrep_tab(self.tab_sitrep)
+        self._build_fleet_tab(self.tab_battle_group)
+        self._build_log_tab(self.tab_black_box)
+        
+        # Build Ledger/Contracts (Reusing generic text viewers for now, can expand later)
+        self._build_generic_viewer(self.tab_ledger, "Ledger Data")
+        self._build_generic_viewer(self.tab_contracts, "Active Contracts")
+
+    def _create_tab(self, title):
+        frame = ttk.Frame(self.notebook, style="Panel.TFrame")
+        self.notebook.add(frame, text=title)
+        return frame
+
+    # ------------------------------------------------------------------
+    # TAB CONTENTS
+    # ------------------------------------------------------------------
+    def _build_sitrep_tab(self, parent):
+        # A large tactical terminal for general output
+        self.sitrep_term = self._create_terminal(parent)
+        self.sitrep_term.insert("1.0", "WAITING FOR INTELLIGENCE REPORT...\n")
+
+    def _build_fleet_tab(self, parent):
+        # Controls
+        ctrl = ttk.Frame(parent, style="Panel.TFrame")
+        ctrl.pack(fill="x", padx=10, pady=10)
+        ttk.Button(ctrl, text="SCAN NETWORK TOPOLOGY", style="Command.TButton", command=self._refresh_fleet).pack(side="right")
+
+        # Deploy Fleet Buttons
+        ttk.Button(ctrl, text="DEPLOY FLEET [LOCAL]", style="Command.TButton", command=self._deploy_fleet_local).pack(side="left", padx=5)
+        ttk.Button(ctrl, text="DEPLOY FLEET [REMOTE]", style="Command.TButton", command=self._deploy_fleet_remote).pack(side="left", padx=5)
+
+        # ORIN Worker Controls
+        ttk.Button(ctrl, text="START ORIN (SYSTEMD)", style="Command.TButton", command=self._start_orin).pack(side="left", padx=5)
+        ttk.Button(ctrl, text="RESTART ORIN (SYSTEMD)", style="Command.TButton", command=self._restart_orin).pack(side="left", padx=5)
+        ttk.Button(ctrl, text="KILL ORIN (SYSTEMD)", style="Alert.TButton", command=self._stop_orin).pack(side="left", padx=5)
+        ttk.Button(ctrl, text="START ORIN (PYTHON)", style="Command.TButton", command=self._start_orin_python).pack(side="left", padx=5)
+        ttk.Button(ctrl, text="RESTART ORIN (PYTHON)", style="Command.TButton", command=self._restart_orin_python).pack(side="left", padx=5)
+        ttk.Button(ctrl, text="KILL ORIN (PYTHON)", style="Alert.TButton", command=self._stop_orin_python).pack(side="left", padx=5)
+
+        # Kill Bots Feature
+        ttk.Button(ctrl, text="KILL ALL BOTS", style="Alert.TButton", command=self._kill_all_bots).pack(side="left", padx=5)
+
+        self.fleet_term = self._create_terminal(parent)
+    def _start_orin(self):
+        self._run_shell_cmd("START ORIN (SYSTEMD)", ["systemctl", "start", "si64-genesis.service"])
+
+    def _restart_orin(self):
+        self._run_shell_cmd("RESTART ORIN (SYSTEMD)", ["systemctl", "restart", "si64-genesis.service"])
+
+    def _stop_orin(self):
+        self._run_shell_cmd("STOP ORIN (SYSTEMD)", ["systemctl", "stop", "si64-genesis.service"])
+
+    def _start_orin_python(self):
+        self._run_shell_cmd("START ORIN (PYTHON)", [sys.executable, "core/limb/worker_node.py"])
+
+    def _restart_orin_python(self):
+        self._run_shell_cmd("RESTART ORIN (PYTHON)", ["bash", "-c", "pkill -f core/limb/worker_node.py && sleep 2 && nohup python3 core/limb/worker_node.py > logs/worker_node.log 2>&1 &"])
+
+    def _stop_orin_python(self):
+        self._run_shell_cmd("KILL ORIN (PYTHON)", ["pkill", "-f", "core/limb/worker_node.py"])
+
+    def _kill_all_bots(self):
+        self._run_shell_cmd("KILL ALL BOTS", ["pkill", "-f", "vanguard_bot.py"])
+
+    def _build_log_tab(self, parent):
+        ctrl = ttk.Frame(parent, style="Panel.TFrame")
+        ctrl.pack(fill="x", padx=10, pady=10)
+        ttk.Button(ctrl, text="FETCH SYSTEM LOGS", style="Command.TButton", command=self._fetch_logs).pack(side="right")
+        
+        self.log_term = self._create_terminal(parent)
+
+    def _build_generic_viewer(self, parent, placeholder):
+        self._create_terminal(parent).insert("1.0", f"AWAITING DATA STREAM: {placeholder}...\n")
+
+    def _create_terminal(self, parent):
+        """Creates a Matrix-style scrolling text box."""
+        term = scrolledtext.ScrolledText(parent, bg="#080808", fg=COLOR_TEXT, insertbackground=COLOR_ACCENT, 
+                                         font=FONT_MONO, relief="flat", padx=10, pady=10)
+        term.pack(fill="both", expand=True, padx=5, pady=5)
+        
+        # Color Tags
+        term.tag_config("INFO", foreground=COLOR_ACCENT)
+        term.tag_config("WARN", foreground="#ffaa00")
+        term.tag_config("CRIT", foreground=COLOR_ALERT, font=("Consolas", 10, "bold"))
+        term.tag_config("HEADER", foreground="#fff", font=("Consolas", 11, "bold", "underline"))
+        
+        return term
+
+    # ------------------------------------------------------------------
+    # LOGIC & ACTIONS
+    # ------------------------------------------------------------------
+    def log_tactical(self, message, level="INFO"):
+        """Logs to the SITREP terminal with timestamps."""
+        ts = datetime.utcnow().strftime("%H:%M:%S")
+        full_msg = f"[{ts}] [{level}] {message}\n"
+        
+        self.sitrep_term.configure(state="normal")
+        self.sitrep_term.insert(tk.END, full_msg, level)
+        self.sitrep_term.see(tk.END)
+        self.sitrep_term.configure(state="disabled")
+
+    def _start_clock(self):
+        now = datetime.utcnow().strftime("%H:%M:%S UTC")
+        self.clock_label.configure(text=now)
+        self.after(1000, self._start_clock)
+
+    def _start_hardware_monitor(self):
+        """Updates CPU/RAM bars."""
+        cpu = psutil.cpu_percent()
+        ram = psutil.virtual_memory().percent
+        
+        self.cpu_bar['value'] = cpu
+        self.ram_bar['value'] = ram
+        
+        # Change color if critical
+        style_cpu = "Red.Horizontal.TProgressbar" if cpu > 85 else "Cyan.Horizontal.TProgressbar"
+        style_ram = "Red.Horizontal.TProgressbar" if ram > 85 else "Cyan.Horizontal.TProgressbar"
+        
+        self.cpu_bar.configure(style=style_cpu)
+        self.ram_bar.configure(style=style_ram)
+        
+        self.hw_label.configure(text=f"CPU: {cpu}% | RAM: {ram}%")
+        
+        self.after(2000, self._start_hardware_monitor)
+
+    def _poll_api_stats(self):
+        """Fetches live data from the Brain."""
         try:
-            # Build a tactical summary similar to run_diagnostics(), but structured.
-            bank_exists = os.path.exists(tcfg.BANK_WALLET_PATH)
+            resp = requests.get(f"{API_BASE}/api/stats", timeout=1)
+            if resp.ok:
+                data = resp.json()
+                self.stat_labels["FLEET SIZE"].configure(text=str(data.get("fleet_size", 0)))
+                self.stat_labels["JOB QUEUE"].configure(text=str(data.get("queue_depth", 0)))
+                rev = data.get("total_revenue", 0.0)
+                self.stat_labels["REVENUE (SOL)"].configure(text=f"{rev:.4f}")
+                
+                self.stat_labels["BRAIN STATUS"].configure(text="ONLINE", foreground=COLOR_SUCCESS)
+            else:
+                self.stat_labels["BRAIN STATUS"].configure(text=f"ERR {resp.status_code}", foreground=COLOR_ALERT)
+        except:
+            self.stat_labels["BRAIN STATUS"].configure(text="UNREACHABLE", foreground=COLOR_ALERT)
+        
+        self.after(3000, self._poll_api_stats)
 
-            lines = [
-                "[TITAN PROTOCOL MANIFEST]",
-                f"MODE       : {tcfg.DEPLOYMENT_ENV}",
-                f"IDENTITY   : {tcfg.NODE_ID}",
-                f"UPLINK     : {getattr(tcfg, 'WEBSOCKET_URL', 'n/a')}",
-                f"RPC        : {tcfg.SOLANA_RPC_URL}",
-                "",
-                "[FINANCIAL ECONOMY]",
-                f"BOUNTY/OP  : {tcfg.BOUNTY_PER_JOB} SOL",
-                f"SPLIT      : {int(tcfg.WORKER_FEE_PERCENT * 100)}/{int(tcfg.PROTOCOL_TAX * 100)} (Worker/DAO)",
-                "",
-                "[HARDWARE SAFETY]",
-                f"MAX TEMP   : {tcfg.MAX_SAFE_TEMP_C}°C",
-                f"HEARTBEAT  : {tcfg.HEARTBEAT_INTERVAL}s",
-                "",
-                "[NEURAL INTERFACES]",
-                f"OLLAMA     : {tcfg.TITAN_OLLAMA_HOST}",
-                f"COMFY      : {tcfg.TITAN_COMFY_HOST}",
-                "",
-                "[FILESYSTEM]",
-                f"BANK WALLET: {'ACTIVE' if bank_exists else 'MISSING (SIM)'}",
-                f"WAREHOUSE  : {tcfg.WAREHOUSE_PATH}",
-                f"LOGS       : {tcfg.LOGS_DIR}",
-            ]
+    # --- COMMANDS ---
 
-            self.backend_text.configure(state="normal")
-            self.backend_text.delete("1.0", tk.END)
-            self.backend_text.insert("1.0", "\n".join(lines))
-            self.backend_text.configure(state="disabled")
-
-            self.backend_status_label.configure(text="● Backend manifest loaded", style="StatusOk.TLabel")
-        except Exception as exc:  # noqa: BLE001
-            self.backend_text.configure(state="normal")
-            self.backend_text.delete("1.0", tk.END)
-            self.backend_text.insert("1.0", f"Error loading backend config: {exc}")
-            self.backend_text.configure(state="disabled")
-            self.backend_status_label.configure(text="● Error reading titan_config", style="StatusWarn.TLabel")
-
-    # ------------------------------------------------------------------
-    # Twitter pane
-    # ------------------------------------------------------------------
-    def _build_twitter_panel(self, parent: ttk.Frame) -> None:
-        ttk.Label(parent, text="SI64.NET TWITTER BOT", style="Section.TLabel").pack(
-            anchor="w", padx=12, pady=(10, 4)
-        )
-
-        self.twitter_status_label = ttk.Label(parent, text="● Initializing bot…", style="StatusWarn.TLabel")
-        self.twitter_status_label.pack(anchor="w", padx=12, pady=(0, 8))
-
-        controls = ttk.Frame(parent, style="Panel.TFrame")
-        controls.pack(fill="x", padx=10, pady=(0, 8))
-
-        # Buttons row 1
-        row1 = ttk.Frame(controls, style="Panel.TFrame")
-        row1.pack(fill="x", pady=4)
-        ttk.Button(
-            row1,
-            text="STATUS UPDATE",
-            style="Neon.TButton",
-            command=self._post_status_update,
-        ).pack(side="left", padx=(0, 6))
-        ttk.Button(
-            row1,
-            text="DAILY DIGEST",
-            style="Neon.TButton",
-            command=self._post_daily_digest,
-        ).pack(side="left", padx=6)
-
-        # Buttons row 2
-        row2 = ttk.Frame(controls, style="Panel.TFrame")
-        row2.pack(fill="x", pady=4)
-        ttk.Button(
-            row2,
-            text="TOGGLE AUTO-POST",
-            style="Neon.TButton",
-            command=self._toggle_autopost,
-        ).pack(side="left", padx=(0, 6))
-        ttk.Button(
-            row2,
-            text="REFRESH STATS",
-            style="Neon.TButton",
-            command=self._refresh_bot_stats,
-        ).pack(side="left", padx=6)
-
-        # Promotion input
-        promo_frame = ttk.Frame(parent, style="Panel.TFrame")
-        promo_frame.pack(fill="x", padx=10, pady=(0, 8))
-        ttk.Label(promo_frame, text="PROMOTION BLAST:", style="Data.TLabel").pack(
-            anchor="w", padx=6, pady=(4, 2)
-        )
-        self.promo_entry = tk.Entry(
-            promo_frame,
-            bg="#050816",
-            fg="#d0faff",
-            insertbackground="#00f5ff",
-            relief="flat",
-            font=("Courier", 10),
-        )
-        self.promo_entry.pack(fill="x", padx=6, pady=(0, 4))
-        ttk.Button(
-            promo_frame,
-            text="SEND PROMO TWEET",
-            style="Neon.TButton",
-            command=self._post_promotion,
-        ).pack(anchor="e", padx=6, pady=(0, 4))
-
-        # Bot stats / log output
-        self.twitter_log = scrolledtext.ScrolledText(
-            parent,
-            bg="#050816",
-            fg="#d0faff",
-            insertbackground="#00f5ff",
-            font=("Courier", 10),
-            relief="flat",
-            wrap="word",
-        )
-        self.twitter_log.pack(fill="both", expand=True, padx=10, pady=(0, 10))
-        self.twitter_log.insert("1.0", "SI64.NET Twitter console ready.\n")
-        self.twitter_log.configure(state="disabled")
-
-    # ------------------------------------------------------------------
-    # Bot wiring
-    # ------------------------------------------------------------------
-    def _init_bot_async(self) -> None:
-        if SI64TwitterBot is None:
-            self.twitter_status_label.configure(
-                text="● si64_twitter_bot not available (import error)",
-                style="StatusWarn.TLabel",
-            )
-            return
-
-        def _worker() -> None:
+    def _run_shell_cmd(self, title, cmd, env=None):
+        self.log_tactical(f"EXECUTING: {title}...", "WARN")
+        
+        def worker():
+            full_env = os.environ.copy()
+            if env: full_env.update(env)
+            
             try:
-                bot = SI64TwitterBot()
-            except Exception as exc:  # noqa: BLE001
-                self.after(0, lambda: self._append_log(f"Error initializing bot: {exc}\n"))
-                self.after(
-                    0,
-                    lambda: self.twitter_status_label.configure(
-                        text="● Bot initialization failed", style="StatusWarn.TLabel"
-                    ),
-                )
-                return
+                proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, 
+                                        text=True, cwd=str(self.project_root), env=full_env)
+                for line in proc.stdout:
+                    self.sitrep_term.configure(state="normal")
+                    self.sitrep_term.insert(tk.END, f"   > {line}")
+                    self.sitrep_term.see(tk.END)
+                    self.sitrep_term.configure(state="disabled")
+                
+                self.log_tactical(f"{title} COMPLETE.", "SUCCESS")
+            except Exception as e:
+                self.log_tactical(f"{title} FAILED: {str(e)}", "CRIT")
 
-            self.bot = bot
-            self.after(0, self._refresh_bot_stats)
+        threading.Thread(target=worker, daemon=True).start()
 
-        threading.Thread(target=_worker, daemon=True).start()
+    def _deploy_fleet_local(self):
+        self._run_shell_cmd("DEPLOY FLEET (LOCAL)", ["bash", "deploy_fleet.sh", "5"])
 
-    def _append_log(self, text: str) -> None:
-        self.twitter_log.configure(state="normal")
-        self.twitter_log.insert(tk.END, text)
-        self.twitter_log.see(tk.END)
-        self.twitter_log.configure(state="disabled")
+    def _deploy_fleet_remote(self):
+        self._run_shell_cmd("DEPLOY FLEET (REMOTE)", ["bash", "deploy_fleet.sh", "5"], {"TARGET_MODE": "remote"})
 
-    def _ensure_bot(self) -> bool:
-        if self.bot is None:
-            messagebox.showwarning("SI64.NET", "Twitter bot is not ready yet.")
-            return False
-        if not getattr(self.bot, "authenticated", False):
-            self.twitter_status_label.configure(
-                text="● Bot not authenticated (check API keys)",
-                style="StatusWarn.TLabel",
-            )
-            self._append_log("Bot not authenticated. Set SI64_TWITTER_* env vars.\n")
-            return False
-        return True
+    def _stress_local(self):
+        if messagebox.askyesno("CONFIRM LAUNCH", "AUTHORIZE LOCAL ORDNANCE RELEASE?\nThis will hammer the CPU."):
+            self._run_shell_cmd("STRESS TEST (LOCAL)", [sys.executable, "scripts/titan_stress_test.py"])
 
-    # ------------------------------------------------------------------
-    # Bot actions (run in background threads to keep UI responsive)
-    # ------------------------------------------------------------------
-    def _post_status_update(self) -> None:
-        if not self._ensure_bot():
-            return
+    def _stress_remote(self):
+        if messagebox.askyesno("CONFIRM LAUNCH", "AUTHORIZE REMOTE ORDNANCE RELEASE?\nTarget: si64.net"):
+            self._run_shell_cmd("STRESS TEST (REMOTE)", [sys.executable, "scripts/titan_stress_test.py"])
 
-        def _worker() -> None:
-            self.after(0, lambda: self._append_log("Posting SI64.NET status update…\n"))
-            tweet_id = self.bot.post_si64_status_update()
-            if tweet_id:
-                self.after(0, lambda: self._append_log(f"✅ Status tweet posted: {tweet_id}\n"))
-                self.after(0, self._refresh_bot_stats)
+    def _refresh_fleet(self):
+        try:
+            resp = requests.get(f"{API_BASE}/api/fleet", timeout=2)
+            if resp.ok:
+                data = resp.json()
+                self.fleet_term.configure(state="normal")
+                self.fleet_term.delete("1.0", tk.END)
+                self.fleet_term.insert(tk.END, "FLEET TOPOLOGY SCAN COMPLETE\n", "HEADER")
+                self.fleet_term.insert(tk.END, "--------------------------------\n")
+                
+                for pool, info in data.get("pools", {}).items():
+                    self.fleet_term.insert(tk.END, f"CLASS: {pool} | COUNT: {info['count']}\n", "INFO")
+                    for node in info.get("nodes", []):
+                        self.fleet_term.insert(tk.END, f"  > ID: {node['id']} | REP: {node['reputation']}\n")
+                    self.fleet_term.insert(tk.END, "\n")
+                
+                self.fleet_term.configure(state="disabled")
+        except Exception as e:
+            self.log_tactical(f"FLEET SCAN FAILED: {e}", "CRIT")
 
-        threading.Thread(target=_worker, daemon=True).start()
+    def _fetch_logs(self):
+        log_path = self.project_root / "brain/logs/overlord.log"
+        if log_path.exists():
+            with open(log_path, "r") as f:
+                lines = f.readlines()[-50:]
+            self.log_term.configure(state="normal")
+            self.log_term.delete("1.0", tk.END)
+            self.log_term.insert(tk.END, "".join(lines))
+            self.log_term.configure(state="disabled")
+        else:
+            self.log_tactical("LOG FILE NOT FOUND", "WARN")
 
-    def _post_daily_digest(self) -> None:
-        if not self._ensure_bot():
-            return
-
-        def _worker() -> None:
-            self.after(0, lambda: self._append_log("Posting daily digest thread…\n"))
-            result = self.bot.post_daily_digest()
-            if result:
-                self.after(0, lambda: self._append_log(f"✅ Daily digest posted ({len(result)} tweets).\n"))
-                self.after(0, self._refresh_bot_stats)
-
-        threading.Thread(target=_worker, daemon=True).start()
-
-    def _post_promotion(self) -> None:
-        if not self._ensure_bot():
-            return
-
-        msg = self.promo_entry.get().strip()
-        if not msg:
-            messagebox.showinfo("SI64.NET", "Enter a promotion message first.")
-            return
-
-        def _worker() -> None:
-            self.after(0, lambda: self._append_log("Sending promotion tweet…\n"))
-            tweet_id = self.bot.post_promotion(msg)
-            if tweet_id:
-                self.after(0, lambda: self._append_log(f"✅ Promotion tweet posted: {tweet_id}\n"))
-                self.after(0, self._refresh_bot_stats)
-
-        threading.Thread(target=_worker, daemon=True).start()
-
-    def _toggle_autopost(self) -> None:
-        if not self._ensure_bot():
-            return
-
-        def _worker() -> None:
-            enabled = self.bot.config.get("enable_auto_post", False)
-            new_state = not enabled
-            self.bot.set_auto_posting(new_state)
-            if new_state:
-                self.bot.start_auto_scheduler()
-            status_txt = "enabled" if new_state else "disabled"
-            self.after(0, lambda: self._append_log(f"Auto-posting {status_txt}.\n"))
-            self.after(0, self._refresh_bot_stats)
-
-        threading.Thread(target=_worker, daemon=True).start()
-
-    def _refresh_bot_stats(self) -> None:
-        if self.bot is None:
-            return
-
-        stats = self.bot.get_bot_stats()
-        self.bot_stats = stats
-
-        aut = "AUTH" if stats.get("authenticated") else "NO AUTH"
-        auto = "AUTO" if stats.get("auto_post_enabled") else "MANUAL"
-        label_txt = f"● Bot: {aut} | Mode: {auto} | Tweets: {stats.get('posts_count', 0)}"
-        style = "StatusOk.TLabel" if stats.get("authenticated") else "StatusWarn.TLabel"
-        self.twitter_status_label.configure(text=label_txt, style=style)
-
-        last = stats.get("last_broadcast") or "never"
-        self._append_log(f"[BOT] Posts: {stats.get('posts_count', 0)}, Last: {last}, Auto: {auto}.\n")
-
-
-def main() -> None:
-    if "DISPLAY" not in os.environ:
-        os.environ["DISPLAY"] = ":1"
-    app = TitanNetworkGUI()
-    app.mainloop()
-
+    def _open_web(self):
+        webbrowser.open(API_BASE)
 
 if __name__ == "__main__":
-    main()
+    if "DISPLAY" not in os.environ or not os.environ["DISPLAY"]:
+        os.environ["DISPLAY"] = ":0" # Fallback for desktop launch
+    app = TitanCommandDeck()
+    app.mainloop()

@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ENV_PATH = os.path.join(BASE_DIR, ".env")
 
 if os.path.exists(ENV_PATH):
-    load_dotenv(ENV_PATH, override=True)
+    # Load .env but do NOT override existing environment variables provided
+    # by the systemd unit (so systemd-provided `SOLANA_RPC_URL` wins).
+    load_dotenv(ENV_PATH, override=False)
 else:
     # Non-blocking warning for Docker/CI environments where vars are injected
     print(f"[WARN] VAULT MISSING AT {ENV_PATH}. RELYING ON SYSTEM ENVIRONMENT.")

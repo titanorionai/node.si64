@@ -1,0 +1,532 @@
+nohup: ignoring input
+/home/titan/TitanNetwork/brain/dispatcher.py:177: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/home/titan/TitanNetwork/brain/dispatcher.py:278: PydanticDeprecatedSince20: Pydantic V1 style `@validator` validators are deprecated. You should migrate to Pydantic V2 style `@field_validator` validators, see the migration guide for more details. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.12/migration/
+  @validator('prompt')
+
+[TITAN OVERLORD] INITIATING PRE-FLIGHT SEQUENCE...
+   [✓] NEURAL LINK (REDIS): ONLINE
+   [✓] TREASURY VAULT: DETECTED
+   [✓] TREASURY VAULT: PERMISSIONS HARDENED
+[TITAN OVERLORD] SYSTEM GREEN. ENGAGING MAIN LOOP.
+
+2026-01-20 11:52:10 | INFO | [TITAN_PROTOCOL] | TREASURY: ONLINE | FpFtUESU6Rvy7uS85sLDg7iayjczrsFNJa4Q2dFV8z6q
+/home/titan/TitanNetwork/brain/dispatcher.py:570: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [708830]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:52:44 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:52:44 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c10158169a4f166-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'bAxFKYwO639Bcua27ffy9A==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:52:44 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:53:34 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:53:34 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c1016bb3a25c594-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': '0a6cJVegJGPq5A7NHgNlkQ==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:53:34 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:54:29 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:54:29 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c1018145d08dfbd-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'jOVfgL7o/r5aAHB1YeyVNg==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:54:29 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:55:30 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:55:30 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c10198cafc7f3e0-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': '2Npqqg8P3z9FFPZhiLuFGw==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:55:30 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:56:30 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:56:30 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c101b04da6e3346-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'KVG+Vfv5Lmd3FYpRSLpgFw==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:56:30 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:58020 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+2026-01-20 11:56:56 | INFO | [httpx] | HTTP Request: POST https://solana-mainnet.core.chainstack.com "HTTP/1.1 401 Unauthorized"
+2026-01-20 11:56:56 | ERROR | [TITAN_PROTOCOL] | Error fetching balance: 
+INFO:     127.0.0.1:58032 - "GET /api/wallet HTTP/1.1" 200 OK
+2026-01-20 11:56:56 | INFO | [httpx] | HTTP Request: POST https://solana-mainnet.core.chainstack.com "HTTP/1.1 401 Unauthorized"
+2026-01-20 11:56:56 | ERROR | [TITAN_PROTOCOL] | Error fetching balance: 
+INFO:     96.58.150.217:0 - "GET /api/wallet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58046 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58060 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58066 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58068 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:57:30 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:57:30 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c101c7d1d71987e-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'Na1HUiY0eAuNeciR69iQKg==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:57:30 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:58:30 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:58:30 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c101df57bf95322-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'oCbDeFd/tup9IgpGiXXlhg==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:58:30 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 11:59:30 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 11:59:30 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c101f6dcbfa14ca-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'PEj7MlKo02Cj/NZULVvkQA==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 11:59:30 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:00:30 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:00:30 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c1020e59cdcf436-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': '2tUOH9aJXCLk3tJM7kIQnA==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:00:30 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:01:31 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:01:31 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c10225dbef7741e-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'ruPnb+tgDd3cwqGwfhnJcg==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:01:31 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:38228 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+2026-01-20 12:01:56 | INFO | [httpx] | HTTP Request: POST https://solana-mainnet.core.chainstack.com "HTTP/1.1 401 Unauthorized"
+2026-01-20 12:01:56 | ERROR | [TITAN_PROTOCOL] | Error fetching balance: 
+INFO:     127.0.0.1:38246 - "GET /api/wallet HTTP/1.1" 200 OK
+2026-01-20 12:01:57 | INFO | [httpx] | HTTP Request: POST https://solana-mainnet.core.chainstack.com "HTTP/1.1 401 Unauthorized"
+2026-01-20 12:01:57 | ERROR | [TITAN_PROTOCOL] | Error fetching balance: 
+INFO:     96.58.150.217:0 - "GET /api/wallet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38254 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38270 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38280 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38290 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:02:31 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:02:31 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c1023d5eff531e9-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'Nf2PFC01x2fMPTowOKFM9g==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:02:31 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:03:31 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:03:31 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c10254e3fd3b207-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'ANzlIW/WnhwiZLMn5W5wkQ==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:03:31 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:04:31 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:04:31 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c1026c68f668180-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'neEtctf8pMySzIlnRcxmRw==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:04:31 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:05:31 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:05:31 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c10283eb8b21afb-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'U5W6cUSroyzf0tkj+Ga1BA==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:05:31 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:06:32 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:06:32 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c1029b6fcf17a7d-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'METRpfiQk6nDSAm/yRLU6Q==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:06:32 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     127.0.0.1:42410 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+2026-01-20 12:06:57 | INFO | [httpx] | HTTP Request: POST https://solana-mainnet.core.chainstack.com "HTTP/1.1 401 Unauthorized"
+2026-01-20 12:06:57 | ERROR | [TITAN_PROTOCOL] | Error fetching balance: 
+INFO:     127.0.0.1:42426 - "GET /api/wallet HTTP/1.1" 200 OK
+2026-01-20 12:06:57 | INFO | [httpx] | HTTP Request: POST https://solana-mainnet.core.chainstack.com "HTTP/1.1 401 Unauthorized"
+2026-01-20 12:06:57 | ERROR | [TITAN_PROTOCOL] | Error fetching balance: 
+INFO:     96.58.150.217:0 - "GET /api/wallet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42430 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42438 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42450 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42458 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/stats HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M2 HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/ORIN HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/M3_ULTRA HTTP/1.1" 200 OK
+INFO:     96.58.150.217:0 - "GET /api/devices/THOR HTTP/1.1" 200 OK
+2026-01-20 12:07:13 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:13 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': '283LBewqzbvHqH+uNHayUA==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:13 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:13 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:13 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:16 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:16 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'MEGeSRHhKycPFoRLQ42NxQ==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:16 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:16 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:16 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:17 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:07:17 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c102acf5c387472-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': '0c9qtaM/t2GQLCWbcW7aZg==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:07:17 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:19 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:19 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'Spket6zNo2dHMs4X1SsoTg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:19 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:19 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:19 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c102aef69d88058-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'IDgGtFZYA7QT3tug1vzQYw==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': '9UZDXnKmRloSeXqSK3Xptg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:22 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:22 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:25 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:25 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'i7DFBEw0xxyBfPwTCAD4Vg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:25 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:25 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:25 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:28 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:28 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'vEXgDxEPo9CSl+yHVwnwsg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:28 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:28 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:28 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:31 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:31 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'uMx9io7ELlRL5RYyeFoctQ==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:31 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:31 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:31 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:32 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:07:32 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c102b2edc19cf9a-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': '8JljlvmCRxDYpjimkYT68A==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:07:32 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:34 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:34 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'Wlod5y4HFEMPDhHUoMg7NQ==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:34 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:34 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:34 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:37 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:37 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'tnxIvqRYOqyKmb+S+C/Wgg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:37 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:37 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:37 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:40 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:40 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': '8SH/RiKZzXF7D2FmvVfmLg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:40 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:40 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:40 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:43 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:43 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'Nlx0WHPo0GwVg7sXZQd7Vg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:43 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:43 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:43 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:46 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:46 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'PueeTpfRKMVqt6e3zu2Hxw==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:46 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:46 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:46 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:47 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 96.58.150.217
+2026-01-20 12:07:47 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': 'si64.net', 'user-agent': 'Python/3.10 websockets/16.0', 'accept-encoding': 'gzip, br', 'cdn-loop': 'cloudflare; loops=1', 'cf-connecting-ip': '96.58.150.217', 'cf-ipcountry': 'US', 'cf-ray': '9c102b8d8ac46b81-MIA', 'cf-visitor': '{"scheme":"https"}', 'cf-warp-tag-id': 'e5e0d682-1aea-4db4-92f2-1daefe2b287a', 'connection': 'Upgrade', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'sec-websocket-key': 'X40leAlW3RvBvN47NSE6WA==', 'sec-websocket-version': '13', 'upgrade': 'websocket', 'x-forwarded-for': '96.58.150.217', 'x-forwarded-proto': 'https', 'x-genesis-key': 'REDACTED'}
+2026-01-20 12:07:47 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+INFO:     96.58.150.217:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:49 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:49 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'Ci8T+kawJv922qzidxtVrg==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:49 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:49 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:49 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:52 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:52 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'I7RhMlrFzP1wyAYGWL852g==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:52 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:52 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:52 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+2026-01-20 12:07:55 | INFO | [TITAN_PROTOCOL] | WebSocket connection attempt from 127.0.0.1
+2026-01-20 12:07:55 | INFO | [TITAN_PROTOCOL] | Headers received: {'host': '127.0.0.1:8000', 'upgrade': 'websocket', 'connection': 'Upgrade', 'sec-websocket-key': 'cDzHmfl/J/V370PAUJ6Adw==', 'sec-websocket-version': '13', 'sec-websocket-extensions': 'permessage-deflate; client_max_window_bits', 'node_id': 'ORIN_GENESIS_001_6c3ef1fc', 'x-genesis-key': 'REDACTED', 'x-forwarded-for': '127.0.0.1', 'user-agent': 'Python/3.10 websockets/15.0.1'}
+2026-01-20 12:07:55 | INFO | [TITAN_PROTOCOL] | SOVEREIGN BYPASS: 127.0.0.1 marked as internal node (whitelisted from stake enforcement)
+2026-01-20 12:07:55 | INFO | [TITAN_PROTOCOL] | Genesis Key present: True token_valid=False
+2026-01-20 12:07:55 | WARNING | [TITAN_PROTOCOL] | WebSocket auth failed: invalid genesis credentials (provided='5d5e919fdc91e4dbe83c955d4d5289085a23ea5 len=64, expected='TITAN_GENESIS_KEY_V1_SECURE' len=27)
+INFO:     127.0.0.1:0 - "WebSocket /connect" 403
+INFO:     connection rejected (403 Forbidden)
+INFO:     connection closed
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+/home/titan/TitanNetwork/brain/dispatcher.py:573: DeprecationWarning: Call to deprecated close. (Use aclose() instead) -- Deprecated since version 5.0.1.
+  await redis_client.close()
+INFO:     Application shutdown complete.
+INFO:     Finished server process [708830]

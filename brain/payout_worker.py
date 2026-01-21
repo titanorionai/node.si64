@@ -42,8 +42,8 @@ async def worker_loop():
                 status = "FAILED_TX"
             elif sig == "SKIPPED_DUST":
                 status = "SKIPPED_DUST"
-            elif sig.startswith("SIMULATED_"):
-                status = "SIMULATED"
+            elif sig is None:
+                status = "BANK_OFFLINE"
             else:
                 status = "CONFIRMED"
 

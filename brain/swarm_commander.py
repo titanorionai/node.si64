@@ -7,6 +7,7 @@ Description: Advanced logic for hardware segmentation and mission routing.
 """
 
 import logging
+import os
 import json
 import asyncio
 from enum import Enum
@@ -48,13 +49,40 @@ class SwarmCommander:
         try:
             self.active_uplinks[node_id] = websocket
             pool_key = f"pool:{hardware_type.value}:active"
-            
-            # Atomic Registration
-            async with self.redis.pipeline() as pipe:
-                pipe.sadd("active_nodes", node_id)
-                pipe.sadd(pool_key, node_id)
-                await pipe.execute()
-            
+
+            # If this is the ORIN genesis unit, remove stale ORIN entries from the pool
+            if node_id.startswith("ORIN_GENESIS_001"):
+                try:
+                    existing = await self.redis.smembers(pool_key)
+                    ghosts = [n for n in existing if n.startswith("ORIN_GENESIS_001") and n != node_id]
+                except Exception:
+                    ghosts = []
+
+            # Atomic Registration: remove ghosts (if any) and add this node
+            try:
+                async with self.redis.pipeline() as pipe:
+                    # Remove legacy ORIN genesis ghosts from global active set and pool
+                    if node_id.startswith("ORIN_GENESIS_001") and ghosts:
+                        for g in ghosts:
+                            pipe.srem("active_nodes", g)
+                            pipe.srem(pool_key, g)
+                            self.logger.info(f"REAPED GHOST ORIN ENTRY: {g}")
+
+                    pipe.sadd("active_nodes", node_id)
+                    pipe.sadd(pool_key, node_id)
+                    await pipe.execute()
+                # Set a last-seen timestamp with TTL so reaper can detect stale nodes
+                try:
+                    ttl = int(os.getenv("TITAN_NODE_TTL_S", "120"))
+                    now = asyncio.get_event_loop().time()
+                    await self.redis.set(f"node:last_seen:{node_id}", str(now))
+                    await self.redis.expire(f"node:last_seen:{node_id}", ttl)
+                except Exception:
+                    pass
+            except Exception as e:
+                self.logger.error(f"COMMISSION FAILURE ({node_id}): {e}")
+                return False
+
             self.logger.info(f"UNIT COMMISSIONED: {node_id} assigned to [ {hardware_type.value} ]")
             return True
         except Exception as e:

@@ -46,8 +46,8 @@ done
 
 # --- [ 2. DEPLOYMENT ] ---
 INSTALL_DIR="$HOME/.si64-core"
-# Canonical Titan Network core repository (private dev repo)
-REPO_URL="https://github.com/titanorionai/AGX-ORIN.git"
+# Public SI64 node core repository (sanitized)
+REPO_URL="https://github.com/titanorionai/si64-node.git"
 
 if [ -d "$INSTALL_DIR" ]; then
     echo -e "${CYAN}[2/5] Updating Existing Node Logic...${NC}"

@@ -1,0 +1,15 @@
+[Unit]
+Description=SI64 Genesis Prime Node
+After=network.target
+
+
+[Service]
+User=titan
+WorkingDirectory=/home/titan/TitanNetwork
+Environment=TITAN_NODE_ID=GENESIS_PRIME_01
+ExecStart=/home/titan/TitanNetwork/venv/bin/python3 /home/titan/TitanNetwork/core/limb/worker_node.py --connect "ws://127.0.0.1:8000/connect"
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

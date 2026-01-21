@@ -1,0 +1,2 @@
+nohup: ignoring input
+ERROR:ORIN_GENESIS_001:No GENESIS_KEY found in env or files. Refusing to start with placeholder key. Set GENESIS_KEY or GENESIS_KEY_FILE.
