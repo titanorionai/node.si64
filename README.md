@@ -1,4 +1,4 @@
-# TITAN PROTOCOL | The Sovereign ARM/Silicon Grid
+# TITAN PROTOCOL | The ARM64 Silicon Grid
 
 ![Titan Protocol](https://img.shields.io/badge/STATUS-MAINNET_BETA-0afff0?style=for-the-badge&logo=solana&logoColor=black)
 ![Architecture](https://img.shields.io/badge/ARCHITECTURE-ARM64_%2F_SILICON-white?style=for-the-badge&logo=apple&logoColor=black)
