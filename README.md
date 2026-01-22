@@ -1,59 +1,77 @@
-# 🌐 SI64 NETWORK // CORE UPDATE // v1.0.2
-**STATUS:** PRODUCTION RELEASE (GOLD)
-**TARGET:** ARM64 COMPUTE CLUSTERS (JETSON / GRAVITON / RPI)
+# SI64 // WORKER NODE [v1.0.2]
 
-### /// DEVELOPER UPDATE ///
-**This is the official production release of the si64 Distributed Compute Node.**
+![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-brightgreen)
+![Arch](https://img.shields.io/badge/ARCH-ARM64-blueviolet)
+![Network](https://img.shields.io/badge/NETWORK-SOLANA-000000)
 
-**CRITICAL PATCH:** This release resolves the "Silent Node" anomaly found in v1.0.1.
-* **Handshake Protocol:** Restored. Nodes now immediately identify hardware (Orin/Thor/AGX) upon connection.
-* **Telemetry Link:** Fixed. "Ghost" nodes (connected but invisible) will now properly report status to the Dashboard.
+> **"Compute is the currency of the future. This is your printing press."**
 
-The Grid is online. Compute is ready.
+The **si64 Worker Node** is a lightweight, autonomous compute unit designed for the **si64 Decentralized Grid**. It transforms idle ARM64 hardware (NVIDIA Jetson, AWS Graviton, Raspberry Pi) into revenue-generating endpoints for AI inference and data processing tasks.
 
 ---
 
-### ✨ TECHNICAL HIGHLIGHTS
+🏗️ ARCHITECTURE
+This repository contains the Public Execution Environment for the si64 Network.
 
-#### **🛡️ OUTBOUND-ONLY SECURITY (Zero Trust)**
-* **No Inbound Ports:** The node operates without opening **any** inbound ports. Invisible to external scanners.
-* **WSS Tunneling:** Uses encrypted WebSocket Secure (WSS) tunnels to punch through strict NATs and firewalls.
+Zero-Config: No complex config files. State is handled via environment variables.
 
-#### **⚡ NATIVE ARM64 OPTIMIZATION**
-* **Bare-Metal Performance:** Compiled strictly for **ARM64**. Zero emulation overhead on NVIDIA Jetson & RPi 5.
-* **Lean Container:** Stripped of non-essential binaries to minimize attack surface.
+Outbound-Only: No inbound ports required. Uses secure WSS tunneling to punch through NATs.
 
-#### **💊 STATELESS AUTONOMY**
-* **Environment-Driven:** Configured 100% via environment variables (`SI64_WALLET_ADDRESS`). No config files required.
-* **Auto-Healing:** Automatically reconnects to the Controller after network interruptions.
+Hardware Aware: Automatically detects NVIDIA Jetson (Orin/Thor/AGX) capabilities for accelerated workloads.
 
----
+SUPPORTED HARDWARE
+Primary: NVIDIA Jetson Orin / AGX / Nano
 
-📦 ASSET MANIFEST
-ASSET	           DETAILS
-Release Tag	     v1.0.2
-Architecture	   linux/arm64
-Runtime	         Python 3.10 (Slim Bookworm)
+Secondary: Raspberry Pi 5 (64-bit)
 
-/// END TRANSMISSION /// si64 Dev Team Out.
+Cloud: AWS Graviton / Ampere Altra
 
+🛡️ SECURITY
+Isolation: The worker node runs in a strictly unprivileged container.
 
-### 🔧 DEPLOYMENT DIRECTIVE
-*Recommended for Operators running NVIDIA Jetson, AWS Graviton, or Raspberry Pi 64-bit.*
+Codebase: This repository contains only the public-facing worker logic. The core dispatcher and settlement engines are proprietary and hosted on the Controller Network.
 
-**Option 1: The One-Line Installer (Recommended)**
+Audit: All outgoing traffic is encrypted via TLS 1.3.
+v1.0.2 // STABLE
+
+--
+
+## ⚡ QUICK START
+Run the single command to install the node service on your device OR follow the steps below.
+
 ```bash
 curl -sL [https://si64.net/install](https://si64.net/install) | bash
+#The installer will prompt you for your Solana Wallet Address during setup.
 
-#Option 2: Docker Manual Start
+OR
+
+🐳 DOCKER DEPLOYMENT (MANUAL)
+If you prefer to manage the container yourself, you can pull the official image.
+
+#Pull the Image
+docker pull titanorionai/worker-node:v1.0.2
+
+#Run the Node Replace YOUR_WALLET_ADDRESS with your actual Solana public key.
 docker run -d \
-  --name si64-node-01 \
+  --name si64-node \
   --restart unless-stopped \
   --network host \
-  -e SI64_WALLET_ADDRESS="YOUR_SOLANA_WALLET_ADDR" \
+  --runtime nvidia \
+  -e SI64_WALLET_ADDRESS="YOUR_WALLET_ADDRESS" \
   titanorionai/worker-node:v1.0.2
 
-#Verification:
-docker logs -f si64-node-01
+#Note: Remove --runtime nvidia if running on non-Jetson hardware like a Raspberry Pi.
 
-# Look for: [>>] SENT HANDSHAKE: ...
+#VERIFICATION
+#Verify your node is connected and transmitting telemetry:
+
+#1. Check Local Logs. If installed via script:
+journalctl -u si64-node -f
+
+# If running via Docker:
+docker logs -f si64-node
+
+#Look for: [>>] SENT HANDSHAKE: {'type': 'handshake', 'model': 'NVIDIA Jetson Orin NX'}
+
+#2. Check the Dashboard Visit app.si64.net and connect your wallet to view your active fleet.
+#Welcome to si64.net!
