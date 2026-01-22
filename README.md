@@ -1,111 +1,57 @@
-# TITAN PROTOCOL | The ARM64 Silicon Grid
+# 🌐 SI64 NETWORK // CORE UPDATE // v1.0.2
+**STATUS:** PRODUCTION RELEASE (GOLD)
+**TARGET:** ARM64 COMPUTE CLUSTERS (JETSON / GRAVITON / RPI)
 
-![Titan Protocol](https://img.shields.io/badge/STATUS-MAINNET_BETA-0afff0?style=for-the-badge&logo=solana&logoColor=black)
-![Architecture](https://img.shields.io/badge/ARCHITECTURE-ARM64_%2F_SILICON-white?style=for-the-badge&logo=apple&logoColor=black)
-![Settlement](https://img.shields.io/badge/SETTLEMENT-SOLANA-9945FF?style=for-the-badge&logo=solana)
+### /// DEVELOPER UPDATE ///
+**This is the official production release of the si64 Distributed Compute Node.**
 
-> **"The x86 monopoly is over. The future of AI inference is Edge-Native, Energy-Efficient, and Sovereign."**
+The worker node is now a fully stateless, containerized unit. All legacy configuration methods and local file dependencies have been eliminated, resulting in a streamlined deployment experience for modern CI/CD pipelines and orchestration tools.
 
-## 1. Executive Summary
-
-**Titan Protocol** is a decentralized physical infrastructure network (DePIN) designed exclusively for high-efficiency **ARM64** and **Apple Silicon** compute clusters. Unlike legacy cloud providers trapped in x86/CUDA mono-cultures, Titan leverages the massive, untapped latent power of consumer silicon (NVIDIA Jetson, Mac Studio, Raspberry Pi 5) to create a distributed supercomputer optimized for LLM inference.
-
-We are building the **"Airbnb for Compute"**, settled instantly on the **Solana Blockchain**.
+The Grid is online. Compute is ready.
 
 ---
 
-## 2. The Architecture: Biologically Inspired
+### ✨ TECHNICAL HIGHLIGHTS
 
-The network is organized into three distinct biological components, creating a self-healing, censorship-resistant grid.
+#### **🛡️ OUTBOUND-ONLY SECURITY (Zero Trust)**
+* **No Inbound Ports:** The node operates without opening **any** inbound ports on the host firewall. It is invisible to external port scanners.
+* **WSS Tunneling:** Utilizes WebSocket Secure (WSS) via Cloudflare infrastructure to maintain persistent, encrypted connections even behind strict corporate or residential NATs.
+* **End-to-End Encryption:** All telemetry and job payloads are wrapped in SSL/TLS from the Edge device to the Core Controller.
 
-### 🧠 The Brain (Cortex Orchestrator)
-* **Role:** The central dispatcher and settlement engine.
-* **Tech Stack:** Python 3.10, FastAPI, Redis, SQLite (WAL Mode).
-* **Security:** "Fortress" Grade.
-    * **Rate Limiting:** 60 req/min for public IPs (DDoS mitigation).
-    * **Sanitization:** Strict Pydantic validators preventing SQLi/XSS.
-    * **Auth:** `x-genesis-key` cryptographic header verification.
-* **Capacity:** Tuned for **52,000 concurrent WebSocket connections** on a single Jetson AGX Orin node.
+#### **⚡ NATIVE ARM64 OPTIMIZATION**
+* **Bare-Metal Performance:** Compiled strictly for **ARM64 architectures**. Zero emulation overhead on NVIDIA Jetson, Raspberry Pi 5, and AWS Graviton instances.
+* **Lean Container:** The Docker image is stripped of non-essential binaries, optimizing cold-start times and reducing the attack surface.
 
-### 💪 The Limb (Worker Node)
-* **Role:** The muscle. Executes AI tasks on bare metal.
-* **Tech Stack:** Python, Bash, Llama.cpp, CUDA (JetPack 6.0).
-* **Behavior:**
-    * **Event-Driven:** Maintains a persistent WebSocket uplink to the Brain.
-    * **Pull-Based:** Signals `IDLE` state to request work; never polls.
-    * **Hardware Aware:** auto-throttles based on GPU thermal sensors (`jtop`).
-
-### ⚡ The Nervous System (Real-Time Bus)
-* **Transport:** WebSockets (WSS).
-* **Latency:** <15ms average round-trip time.
-* **Protocol:** JSON-RPC over persistent TCP connections.
+#### **💊 STATELESS AUTONOMY**
+* **Environment-Driven Config:** All configurations are now handled via environment variables (`-e`). No external volume mounts or config files are required for operation.
+* **Auto-Healing:** The container utilizes Docker’s native restart policies to handle network interruptions or host reboots, automatically reconnecting to the si64 Controller without manual intervention.
 
 ---
 
-## 3. Tokenomics & Settlement
+### 🔧 DEPLOYMENT DIRECTIVE
+*Recommended for Operators running NVIDIA Jetson, AWS Graviton, or Raspberry Pi 64-bit.*
 
-Titan Protocol bypasses traditional SaaS billing (Stripe/Fiat) in favor of **Micro-Settlements on Solana**.
-
-* **Pay-Per-Token:** Compute is billed by the millisecond.
-* **Instant Finality:** Workers are paid immediately upon proof-of-work submission.
-* **Smart Contracts:**
-    * **Rentals:** Users lock SOL in a smart contract to "lease" a specific hardware node (e.g., an H100 or AGX Orin) for a fixed duration.
-    * **Jobs:** One-off inference tasks (Text-to-Image, LLM Chat) are settled via direct wallet transfers.
-
-### Current Market Rates (Mainnet Beta)
-| Hardware Tier | Architecture | Use Case | Cost (SOL/hr) |
-| :--- | :--- | :--- | :--- |
-| **Standard** | Apple M1/M2 | Dev / 7B Models | 0.002 |
-| **Pro** | NVIDIA Jetson Orin | CV / Robotics / 70B | 0.005 |
-| **Enterprise** | Apple M3 Ultra | 128k Context RAG | 0.015 |
-
----
-
-## 4. Deployment Guide
-
-### Prerequisites
-* **Hardware:** NVIDIA Jetson (Orin/Xavier) OR Apple Silicon (M1/M2/M3).
-* **OS:** Ubuntu 22.04+ (Jetson) or macOS Sonoma.
-* **Network:** Port 8000 open (for Brain nodes only).
-
-### Quick Start (Worker Node)
-
-Join the grid and start earning SOL:
-
+**Production Command:**
 ```bash
-# 1. Clone the Repository
-git clone [https://github.com/oddgodgamer/AGX-ORIN.git](https://github.com/oddgodgamer/AGX-ORIN.git)
-cd AGX-ORIN
-
-# 2. Install Dependencies
-pip3 install -r requirements.txt
-
-# 3. Connect to the Grid
-python3 limb/worker_node.py --connect wss://titan-grid.network
-
-## ARM64 Release Candidate (RC1)
-
-We've published a release candidate image built for ARM64 silicon that is self-contained (no volume mounts required).
-
-Pull and validate the RC1 image:
-
-```bash
-# Replace with your Hub username if different
-docker pull titanorionai/worker-node:v1.0.1-rc1
-
-# Run as a hardened, fire-and-forget worker (replace YOUR_WALLET and optional GENESIS_KEY)
 docker run -d \
-  --name titan-node-rc1 \
+  --name si64-node-01 \
   --restart unless-stopped \
   --network host \
-  --cpus="2.0" \
-  --memory="4g" \
-  -e TITAN_WORKER_WALLET="YOUR_WALLET" \
-  -e TITAN_GENESIS_KEY="<GENESIS_KEY>" \
-  titanorionai/worker-node:v1.0.1-rc1
+  -e SI64_WALLET_ADDRESS="YOUR_SOLANA_WALLET_ADDR" \
+  titanorionai/worker-node:v1.0.2
 
-# Tail logs
-docker logs -f titan-node-rc1
-```
+Verification Protocol:
+docker logs -f si64-node-01
 
-If the container stays `Up` and logs `TITAN LIMB ONLINE. ... UPLINK SECURE. AWAITING DIRECTIVES.`, the image is valid for remote ARM64 deployment.
+Look for: [INFO] UPLINK ESTABLISHED
+
+📦 ASSET MANIFEST
+
+ASSET	        DETAILS
+Docker Image	titanorionai/worker-node:v1.0.2
+Registry	Docker Hub
+Architecture	linux/arm64
+Runtime	        Python 3.10 (Slim Bookworm)
+
+/// END TRANSMISSION ///
+si64 Dev Team Out.
