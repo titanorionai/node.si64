@@ -1,5 +1,8 @@
 #!/bin/bash
-set -e # Exit immediately on error
+set -euo pipefail
+
+# Better diagnostics for installer failures
+trap 'rc=$?; echo "[si64][ERROR] Installer failed at line ${LINENO} (exit $rc). Last command: ${BASH_COMMAND}" >&2; exit $rc' ERR
 
 # --- [ VISUAL PROTOCOLS ] ---
 GREEN='\033[1;32m'
@@ -10,13 +13,13 @@ NC='\033[0m' # No Color
 
 clear
 echo -e "${CYAN}"
-echo "   _____ _____   __   _  _   "
+echo "   _____ _____    __    _  _   "
 echo "  / ____|_   _| / /  | || |  "
 echo " | (___   | |  / /_  | || |_ "
 echo "  \\___ \\  | | | '_ \\ |__   _|"
 echo "  ____) |_| |_| (_) |   | |  "
 echo " |_____/|_____|\\___/    |_|  "
-echo "      NETWORK // SI64.NET    "
+echo "       NETWORK // SI64.NET     "
 echo -e "${NC}"
 echo -e "${CYAN}/// SOVEREIGN COMPUTE NODE INSTALLER ///${NC}"
 echo "Target Protocol: SI64 (Solana Integrated)"
@@ -44,10 +47,17 @@ for cmd in python3 git pip3; do
     fi
 done
 
+# Check python3-venv availability
+if ! python3 -c "import venv" &> /dev/null; then
+    echo -e "${RED}[ERROR] python3 'venv' module not available.${NC}"
+    echo "Install it with: sudo apt install python3-venv" >&2
+    exit 1
+fi
+
 # --- [ 2. DEPLOYMENT ] ---
 INSTALL_DIR="$HOME/.si64-core"
-# Canonical Titan Network core repository (private dev repo)
-REPO_URL="https://github.com/titanorionai/AGX-ORIN.git"
+# Canonical Titan Network core repository (public worker distribution)
+REPO_URL="https://github.com/titanorionai/node.si64.git"
 
 if [ -d "$INSTALL_DIR" ]; then
     echo -e "${CYAN}[2/5] Updating Existing Node Logic...${NC}"
@@ -56,7 +66,11 @@ if [ -d "$INSTALL_DIR" ]; then
     echo -e "${GREEN}>> Core Updated.${NC}"
 else
     echo -e "${CYAN}[2/5] Cloning Core Logic to $INSTALL_DIR...${NC}"
-    git clone "$REPO_URL" "$INSTALL_DIR" --quiet
+    if ! git clone "$REPO_URL" "$INSTALL_DIR" --quiet; then
+        echo -e "${RED}[ERROR] Failed to clone $REPO_URL${NC}" >&2
+        echo "Check network connectivity and whether the repository URL is correct: $REPO_URL" >&2
+        exit 1
+    fi
     cd "$INSTALL_DIR"
     echo -e "${GREEN}>> Repository Secured.${NC}"
 fi
@@ -82,7 +96,7 @@ CONFIG_PATH="$HOME/.si64/config.json"
 if [ ! -f "$CONFIG_PATH" ]; then
     echo -e "${YELLOW}>> NO IDENTITY FOUND.${NC}"
     echo -n "Enter your SOLANA WALLET address to receive rewards: "
-    read WALLET_ADDR
+    read -r WALLET_ADDR
     
     if [ -z "$WALLET_ADDR" ]; then
         echo -e "${RED}>> Error: Wallet address cannot be empty.${NC}"
@@ -90,13 +104,13 @@ if [ ! -f "$CONFIG_PATH" ]; then
     fi
 
     # Create Config
-    cat <<EOF > "$CONFIG_PATH"
+    cat <<EOF2 > "$CONFIG_PATH"
 {
     "wallet_address": "$WALLET_ADDR",
     "worker_name": "NODE_$(hostname)_$(date +%s)",
     "hardware_class": "DETECTING"
 }
-EOF
+EOF2
     echo -e "${GREEN}>> Identity Generated: ~/.si64/config.json${NC}"
 else
     echo -e "${GREEN}>> Identity Loaded: $(grep "wallet_address" $CONFIG_PATH)${NC}"
@@ -107,7 +121,6 @@ echo -e "${CYAN}[5/5] Finalizing Launch Protocols...${NC}"
 
 SERVICE_FILE="/etc/systemd/system/si64-node.service"
 
-# Check if Sudo exists before trying systemd
 if command -v sudo &> /dev/null; then
     if [ ! -f "$SERVICE_FILE" ]; then
         echo -e "${YELLOW}>> Do you want to auto-start this node on boot? (y/n)${NC}"
@@ -120,7 +133,7 @@ if command -v sudo &> /dev/null; then
             EXEC_PATH="$INSTALL_DIR/venv/bin/python3"
             SCRIPT_PATH="$INSTALL_DIR/limb/worker_node.py"
             
-            sudo bash -c "cat <<EOF > $SERVICE_FILE
+            sudo bash -c "cat <<EOF3 > $SERVICE_FILE
 [Unit]
 Description=SI64 Compute Node
 After=network.target
@@ -134,17 +147,17 @@ RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
-EOF"
+EOF3"
             
-            sudo systemctl daemon-reload
-            sudo systemctl enable si64-node
-            sudo systemctl start si64-node
-            echo -e "${GREEN}>> Service Installed & Started!${NC}"
+            if sudo systemctl daemon-reload && sudo systemctl enable si64-node && sudo systemctl start si64-node; then
+                echo -e "${GREEN}>> Service Installed & Started!${NC}"
+            else
+                echo -e "${RED}[ERROR] Failed to install/start systemd service. Check sudo privileges and journalctl for details.${NC}"
+            fi
         fi
     fi
 else
     echo -e "${YELLOW}>> 'sudo' not detected. Skipping systemd service creation.${NC}"
-    echo ">> You must run the worker manually or configure your own supervisor."
 fi
 
 # --- [ LAUNCH SUMMARY ] ---
