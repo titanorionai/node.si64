@@ -5,7 +5,9 @@
 ### /// DEVELOPER UPDATE ///
 **This is the official production release of the si64 Distributed Compute Node.**
 
-The worker node is now a fully stateless, containerized unit. All legacy configuration methods and local file dependencies have been eliminated, resulting in a streamlined deployment experience for modern CI/CD pipelines and orchestration tools.
+**CRITICAL PATCH:** This release resolves the "Silent Node" anomaly found in v1.0.1.
+* **Handshake Protocol:** Restored. Nodes now immediately identify hardware (Orin/Thor/AGX) upon connection.
+* **Telemetry Link:** Fixed. "Ghost" nodes (connected but invisible) will now properly report status to the Dashboard.
 
 The Grid is online. Compute is ready.
 
@@ -14,25 +16,36 @@ The Grid is online. Compute is ready.
 ### ✨ TECHNICAL HIGHLIGHTS
 
 #### **🛡️ OUTBOUND-ONLY SECURITY (Zero Trust)**
-* **No Inbound Ports:** The node operates without opening **any** inbound ports on the host firewall. It is invisible to external port scanners.
-* **WSS Tunneling:** Utilizes WebSocket Secure (WSS) via Cloudflare infrastructure to maintain persistent, encrypted connections even behind strict corporate or residential NATs.
-* **End-to-End Encryption:** All telemetry and job payloads are wrapped in SSL/TLS from the Edge device to the Core Controller.
+* **No Inbound Ports:** The node operates without opening **any** inbound ports. Invisible to external scanners.
+* **WSS Tunneling:** Uses encrypted WebSocket Secure (WSS) tunnels to punch through strict NATs and firewalls.
 
 #### **⚡ NATIVE ARM64 OPTIMIZATION**
-* **Bare-Metal Performance:** Compiled strictly for **ARM64 architectures**. Zero emulation overhead on NVIDIA Jetson, Raspberry Pi 5, and AWS Graviton instances.
-* **Lean Container:** The Docker image is stripped of non-essential binaries, optimizing cold-start times and reducing the attack surface.
+* **Bare-Metal Performance:** Compiled strictly for **ARM64**. Zero emulation overhead on NVIDIA Jetson & RPi 5.
+* **Lean Container:** Stripped of non-essential binaries to minimize attack surface.
 
 #### **💊 STATELESS AUTONOMY**
-* **Environment-Driven Config:** All configurations are now handled via environment variables (`-e`). No external volume mounts or config files are required for operation.
-* **Auto-Healing:** The container utilizes Docker’s native restart policies to handle network interruptions or host reboots, automatically reconnecting to the si64 Controller without manual intervention.
+* **Environment-Driven:** Configured 100% via environment variables (`SI64_WALLET_ADDRESS`). No config files required.
+* **Auto-Healing:** Automatically reconnects to the Controller after network interruptions.
 
 ---
+
+📦 ASSET MANIFEST
+ASSET	           DETAILS
+Release Tag	     v1.0.2
+Architecture	   linux/arm64
+Runtime	         Python 3.10 (Slim Bookworm)
+
+/// END TRANSMISSION /// si64 Dev Team Out.
+
 
 ### 🔧 DEPLOYMENT DIRECTIVE
 *Recommended for Operators running NVIDIA Jetson, AWS Graviton, or Raspberry Pi 64-bit.*
 
-**Production Command:**
+**Option 1: The One-Line Installer (Recommended)**
 ```bash
+curl -sL [https://si64.net/install](https://si64.net/install) | bash
+
+#Option 2: Docker Manual Start
 docker run -d \
   --name si64-node-01 \
   --restart unless-stopped \
@@ -40,18 +53,7 @@ docker run -d \
   -e SI64_WALLET_ADDRESS="YOUR_SOLANA_WALLET_ADDR" \
   titanorionai/worker-node:v1.0.2
 
-Verification Protocol:
+#Verification:
 docker logs -f si64-node-01
 
-Look for: [INFO] UPLINK ESTABLISHED
-
-📦 ASSET MANIFEST
-
-ASSET	        DETAILS
-Docker Image	titanorionai/worker-node:v1.0.2
-Registry	Docker Hub
-Architecture	linux/arm64
-Runtime	        Python 3.10 (Slim Bookworm)
-
-/// END TRANSMISSION ///
-si64 Dev Team Out.
+# Look for: [>>] SENT HANDSHAKE: ...
