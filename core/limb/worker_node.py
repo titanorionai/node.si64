@@ -96,7 +96,7 @@ except ImportError as e:
     WEBSOCKET_URL = "ws://127.0.0.1:8000/connect"
     TITAN_OLLAMA_HOST = "http://localhost:11434"
     MAX_SAFE_TEMP_C = 85
-    DEFAULT_WALLET = "5mEvgLUE2MvNTSr9mGRo6zvL2M2Jng132sDCP4411FHZ"
+    DEFAULT_WALLET = "3ykXYQWyoRsAhJ8GDQforFsK37emQgeri5DkDTUQfShz"
     RECONNECT_DELAY = 5
     HEARTBEAT_INTERVAL = 2.0
 
