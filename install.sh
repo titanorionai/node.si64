@@ -1,13 +1,49 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-INSTALLER="$SCRIPT_DIR/scripts/si64_node_installer.sh"
+# VISUALS
+GREEN='\033[1;32m'
+CYAN='\033[1;36m'
+NC='\033[0m'
 
-if [ ! -x "$INSTALLER" ]; then
-  echo "[si64] Error: $INSTALLER not found or not executable." >&2
-  echo "[si64] Make sure you are in the root of the si64-core repo." >&2
-  exit 1
+echo -e "${CYAN}/// SI64 WORKER NODE INSTALLER (v1.0.2) ///${NC}"
+
+# 1. CHECK FOR DOCKER
+if ! command -v docker &> /dev/null; then
+    echo -e "${GREEN}[1/3] Installing Docker...${NC}"
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker $USER
+    rm get-docker.sh
+    echo -e "Docker installed. Please re-run this script to continue."
+    exit 0
+else
+    echo -e "${GREEN}[1/3] Docker Detected.${NC}"
 fi
 
-exec "$INSTALLER" "$@"
+# 2. GET WALLET
+echo -e "${GREEN}[2/3] Identity Provisioning${NC}"
+read -p "Enter your SOLANA WALLET address: " SI64_WALLET
+
+if [ -z "$SI64_WALLET" ]; then
+    echo "Error: Wallet address is required."
+    exit 1
+fi
+
+# 3. LAUNCH CONTAINER
+echo -e "${GREEN}[3/3] Deploying Worker Node...${NC}"
+
+# Remove old container if exists
+docker rm -f si64-worker || true
+
+# Pull and Run (Restart always ensures it runs on boot)
+docker run -d \
+  --name si64-worker \
+  --restart unless-stopped \
+  --network host \
+  --runtime nvidia \
+  -e SI64_WALLET_ADDRESS="$SI64_WALLET" \
+  titanorionai/worker-node:v1.0.2
+
+echo -e "\n${CYAN}SUCCESS! Your node is running in the background.${NC}"
+echo "To view logs: docker logs -f si64-worker"
